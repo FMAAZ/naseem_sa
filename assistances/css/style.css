@@ -1,3 +1,4 @@
+/* color :b-example-divider*/
 .b-example-divider {
   height: 3rem;
   background-color: rgb(248, 247, 247);
@@ -5,35 +6,34 @@
   border-width: 0px 0;
   box-shadow: inset 0 .5em 1.5em rgb(243, 243, 243), inset 0 .125em .5em rgba(243, 240, 240, 0.993);
 }
-
-.form-control-dark {
-  color: rgba(204, 226, 122, 0.555);
-  background-color: var(--bs-dark);
-  border-color: var(--bs-gray);
-}
-.form-control-dark:focus {
-  color: rgba(142, 253, 15, 0.527);
-  background-color: var(--bs-dark);
-  border-color: rgb(155, 168, 35);
-  box-shadow: 0 0 0 .25rem rgba(209, 250, 29, 0.473);
-}
-
+/* color:Icons+Responsive+(Niv)*/
 .bi {
   vertical-align: -.125em;
   fill: currentColor;
 }
-
+/* font-size-small-text */
 .text-small {
   font-size: 89%;
-  
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+/*bottom_up*/
+#myBtn {
+  display: none; /* Hidden by default */
+  position: fixed; /* Fixed/sticky position */
+  bottom: 1px; /* Place the button at the bottom of the page */
+  right: 1px; /* Place the button 30px from the right */
+  z-index: 99; /* Make sure it does not overlap */
+  border: none; /* Remove borders */
+  outline: none; /* Remove outline */
+  background-color: grey; /* Set a background color */
+  color: black; /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 10px; /* Some padding */
+  border-radius: 10px; /* Rounded corners */
+  font-size: 15px; /* Increase font size */
 }
 
-.dropdown-toggle {
-  outline: 0;
+#myBtn:hover {
+  background-color: #555; /* Add a dark-grey background on hover */
 }
-#btn-back-to-top {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  display: none;
-}
+/* bottom_up */

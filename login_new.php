@@ -89,23 +89,23 @@
                             <hr class="featurette-divider">
                             <div class="mb-3 col-md-5">
                                 <label>أسئلة الآمان<span class="text-danger">*</span></label>
-                                <select class="form-select" id="specificSizeSelect" required>
+                                <select name="question" class="form-select" id="specificSizeSelect" required>
                                     <option selected disabled value="">سؤال</option>
-                                    <option value="1">اللوان المفضل</option>
-                                    <option value="2">المكان المفضل</option>
-                                    <option value="3">صديق المفضل</option>
+                                    <option value="color">اللوان المفضل</option>
+                                    <option value="place">المكان المفضل</option>
+                                    <option value="friend">صديق المفضل</option>
                                 </select>
                             </div>
 
                             <div class="mb-3 col-md-5">
                                 <label>الاجابةعن السؤال<span class="text-danger">*</span></label>
-                                <input type="text" name="Lname" class="form-control" placeholder="ادخل  الاجابه هنا"
+                                <input type="text" name="answer" class="form-control" placeholder="ادخل  الاجابه هنا"
                                     required>
                             </div>
                             <div class="mb-3 col-md-11">
                                 <label for="email" class="form-label">عنوان البريد الإلكتروني<span
                                         class="text-danger">*</span></label>
-                                <input type="email" class="form-control" id="email" placeholder="ادخل البريد الإلكتروني"
+                                <input type="email"   name="email" class="form-control" id="email" placeholder="ادخل البريد الإلكتروني"
                                     required>
                             </div>
                             <div class="mb-3 col-md-11">
@@ -117,11 +117,11 @@
 
                             <div class="mb-3 col-md-11">
                                 <label> تأكيدكلمة المرور<span class="text-danger">*</span></label>
-                                <input type="password" name="confirmpassword" class="form-control"
+                                <input type="password"  name="check_password" class="form-control"
                                     placeholder="تأكيد كلمة المرور" required>
                             </div>
                             <div class="col-md-11">
-                                <button class="btn btn-success float-end">
+                                <button class="btn btn-success float-end" name="login_new">
                                     تسجيل
                                     <i class="bi bi-box-arrow-right"></i>
                                 </button>
@@ -137,7 +137,127 @@
     </div>
     <!-- form_Check_in -->
     <?php require('components/footre.php'); ?>
+    <?php
 
+require_once "connect_database.php";
+if(isset($_POST["login_new"]) && !empty($_POST["first_name"]) && !empty($_POST["last_name"]) && !empty($_POST["email"]) && !empty($_POST["password"]) &&
+    !empty($_POST["phone_number"]) && !empty($_POST["age"]) && !empty($_POST["gender"]) && !empty($_POST["language"]) && $_POST["language"] != "null" &&
+    $_POST["password"] == $_POST["check_password"] && !empty($_POST["question"]) && !empty($_POST["answer"])
+  )
+  {
+    if($_POST["type_user"] == "tourist")
+    {
+    $select_id_tourist = $connect_database->prepare('SELECT MAX(ID) ID FROM tourist');
+    $select_id_tourist->execute();
+
+    foreach($select_id_tourist as $print)
+    {
+      $_SESSION["new_id_tourist"] = $print["ID"];
+    }
+
+    if(empty($_SESSION["new_id_tourist"]))
+    {
+      $_SESSION["new_id_tourist"] = 100;
+    }
+    elseif(!empty($_SESSION["new_id_tourist"]))
+    {
+      $_SESSION["new_id_tourist"] ++;
+    }
+    $login_new_tourist = $connect_database->prepare
+    ('
+    INSERT INTO tourist
+    (
+      ID , first_name , last_name , email , password , phone_number , age , gender , language , question , answer
+    )
+    VALUES 
+    (
+      '.$_SESSION["new_id_tourist"].' , "'.$_POST["first_name"].'" , "'.$_POST["last_name"].'" , "'.$_POST["email"].'" , "'.$_POST["password"].'" ,
+      '.$_POST["phone_number"].' , '.$_POST["age"].' , "'.$_POST["gender"].'" , "'.$_POST["language"].'" , "'.$_POST["question"].'" , "'.$_POST["answer"].'"
+    )
+    ');
+    $login_new_tourist->execute();
+
+    if($login_new_tourist->rowCount()==1)
+    {
+      echo '
+              <center>
+                <div class="alert alert-success" role="alert">
+                  <b> Succefall Login </b> 
+                </div>
+              </center>
+      ';
+      header("refresh:3; url=http://localhost/naseem_sa/login_new.php");
+    }
+    else
+    {
+      var_dump($login_new_tourist);
+      echo '
+            <center>
+              <div class="alert alert-danger" role="alert">
+                <b> Failed Login x </b> 
+              </div>
+            </center>
+      ';
+      // header("refresh:3; url=http://localhost/naseem_sa/login_new.php");
+    }
+    }
+    elseif($_POST["type_user"] == "tour_guide")
+    {
+      $select_id_tour_guide = $connect_database->prepare('SELECT MAX(ID) ID FROM tour_guide');
+      $select_id_tour_guide->execute();
+
+      foreach($select_id_tour_guide as $print)
+      {
+        $_SESSION["new_id_tour_guide"] = $print["ID"];
+      }
+
+      if(empty($_SESSION["new_id_tour_guide"]))
+      {
+        $_SESSION["new_id_tour_guide"] = 100;
+      }
+      elseif(!empty($_SESSION["new_id_tour_guide"]))
+      {
+        $_SESSION["new_id_tour_guide"] ++;
+      }
+      $login_new_tour_guide = $connect_database->prepare
+      ('
+      INSERT INTO tour_guide
+      (
+        ID , first_name , last_name , email , password , phone_number , age , gender , language , question , answer
+      )
+      VALUES 
+      (
+        '.$_SESSION["new_id_tourist"].' , "'.$_POST["first_name"].'" , "'.$_POST["last_name"].'" , "'.$_POST["email"].'" , "'.$_POST["password"].'" ,
+        '.$_POST["phone_number"].' , '.$_POST["age"].' , "'.$_POST["gender"].'" , "'.$_POST["language"].'" , "'.$_POST["question"].'" , "'.$_POST["answer"].'"
+      )
+      ');
+      $login_new_tour_guide->execute();
+
+      if($login_new_tour_guide->rowCount()==1)
+      {
+        echo '
+                <center>
+                  <div class="alert alert-success" role="alert">
+                    <b> Succefall Login </b> 
+                  </div>
+                </center>
+        ';
+        header("refresh:3; url=http://localhost/naseem_sa/login_new.php");
+      }
+      else
+      {
+        echo '
+              <center>
+                <div class="alert alert-danger" role="alert">
+                  <b> Failed Login xx </b> 
+                </div>
+              </center>
+        ';
+        header("refresh:3; url=http://localhost/naseem_sa/login_new.php");
+      }
+    }
+  }
+?>
 </body>
 
 </html>

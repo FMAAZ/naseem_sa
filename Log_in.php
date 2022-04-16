@@ -1,5 +1,5 @@
 <!doctype html>
-<html  lang="en" dir="rtl">
+=<html  lang="en" dir="rtl">
   <head>
   <title>تسجيل الدخول</title>
   <?php require('components/head_inc.php'); ?>  
@@ -14,7 +14,7 @@
         <div class="row align-items-center justify-content-center">
             <div class="col-sm-8 col-md-8 col-lg-5">
                 <div class="signup-form">
-                    <form action="" class="mt-6 border p-4 bg-light shadow">
+                    <form method="POST" class="mt-6 border p-4 bg-light shadow">
                         <h4 class="mb-3 text-center text-secondary">
                              تسجيل الدخول
                         </h4>
@@ -41,6 +41,49 @@
                             </div>
                         </div>
                     </form>
+                    <?php
+
+      require_once "connect_database.php";
+      if(isset($_POST["login"]) && !empty($_POST["email"]) && !empty($_POST["password"]))
+      {
+        $select_tourist = $connect_database->prepare('SELECT email , password FROM tourist WHERE email = "'.$_POST["email"].'" AND password = "'.$_POST["password"].'"');
+        $select_tourist->execute();
+        $select_tour_guide = $connect_database->prepare('SELECT email , password FROM tour_guide WHERE email = "'.$_POST["email"].'" AND password = "'.$_POST["password"].'"');
+        $select_tour_guide->execute();
+
+        foreach($select_tourist as $print)
+        {
+          $_SESSION["email_tourist"] = $print["email"];
+          $_SESSION["password_tourist"] = $print["password"];
+        }
+        foreach($select_tour_guide as $print)
+        {
+          $_SESSION["email_tour_guide"] = $print["email"];
+          $_SESSION["password_tour_guide"] = $print["password"];
+        }
+
+        if(!empty($_SESSION["email_tourist"]) && !empty($_SESSION["password_tourist"]))
+        {
+          echo '<br><h3>tourist</h3>';
+        }
+        elseif(!empty($_SESSION["email_tour_guide"]) && !empty($_SESSION["password_tour_guide"]))
+        {
+          echo '<br><h3>tour_guide</h3>';
+        }
+        elseif(empty($_SESSION["email_tour_guide"]) || empty($_SESSION["password_tour_guide"]))
+        {
+          echo '<br><h3>email or password incorrect !</h3>';
+        }
+        elseif(empty($_SESSION["email_tourist"]) || empty($_SESSION["password_tourist"]))
+        {
+          echo '<br><h3>email or password incorrect !</h3>';
+        }
+        else
+        {
+          echo 'ERROR !';
+        }
+      }
+      ?>
                     <p class="text-center mt-1 text-secondary">
                         <a href="password.php"> نسيت كامة المرور&numsp;&numsp;</a>
                     </p>

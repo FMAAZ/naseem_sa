@@ -22,7 +22,7 @@
         <div class="row align-items-center justify-content-center">
             <div class="col-sm-8 col-md-8 col-lg-6">
                 <div class="signup-form">
-                    <form action="" class="mt-6 border p-4 bg-light shadow">
+                    <form method="POST" class="mt-6 border p-4 bg-light shadow">
                         <h4 class="mb-3 text-center text-secondary">
                             تسجيل جديد
                             <i class="bi bi-box-arrow-right"></i>
@@ -32,16 +32,14 @@
 
                             <div class="mb-3 col-md-6">
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                        id="inlineRadio1" value="option1" required>
+                                    <input class="form-check-input" type="radio" name="type_user" id="inlineRadio1" value="tour_guide" required>
                                     <label class="form-check-label" for="inlineRadio1">مرشد سياحي<span
                                             class="text-danger">*</span></label>
                                 </div>
                             </div>
                             <div class="mb-3 col-md-6">
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions"
-                                        id="inlineRadio2" value="option2" required>
+                                    <input class="form-check-input" type="radio" name="type_user" id="inlineRadio2" value="tourist" required>
                                     <label class="form-check-label" for="inlineRadio2"> سائح<span
                                             class="text-danger">*</span>
                                     </label>
@@ -51,27 +49,25 @@
 
                             <div class="mb-3 col-md-5">
                                 <label> الاسم الاول<span class="text-danger">*</span></label>
-                                <input type="text" name="fname" class="form-control" placeholder="الاسم الاول" required>
+                                <input type="text" name="first_name" class="form-control" placeholder="الاسم الاول" required>
                             </div>
 
                             <div class="mb-3 col-md-5">
                                 <label>الاسم الاخير<span class="text-danger">*</span></label>
-                                <input type="text" name="Lname" class="form-control" placeholder="الاسم الاخير"
+                                <input type="text" name="last_name" class="form-control" placeholder="الاسم الاخير"
                                     required>
                             </div>
 
                             <div class="mb-3 col-md-6">
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions3"
-                                        id="inlineRadio3" value="option3" required>
-                                    <label class="form-check-label" for="inlineRadio3"> رجل<span
+                                    <input class="form-check-input" type="radio" name="gender" id="inlineRadio3" value="male" required>
+                                    <label class="form-check-label" for="inlineRadio3"> ذكر<span
                                             class="text-danger">*</span></label>
                                 </div>
                             </div>
                             <div class="mb-3 col-md-6">
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="inlineRadioOptions3"
-                                        id="inlineRadio4" value="option4" required>
+                                    <input class="form-check-input" type="radio" name="gender" id="inlineRadio4" value="female" required>
                                     <label class="form-check-label" for="inlineRadio4">انثى<span
                                             class="text-danger">*</span>
                                     </label>
@@ -80,12 +76,12 @@
 
                             <div class="mb-3 col-md-5">
                                 <label>العمر<span class="text-danger">*</span></label>
-                                <input type="text" name="fname" class="form-control" placeholder=" ادخل العمر" required>
+                                <input type="text" name="age" min="18" max="99" maxlength="2" class="form-control" placeholder=" ادخل العمر" required>
                             </div>
 
                             <div class="mb-3 col-md-5">
                                 <label> رقم الهاتف<span class="text-danger">*</span></label>
-                                <input type="text" name="Lname" class="form-control" placeholder="ادخل رقم الهاتف"
+                                <input type="text" name="phone_number" min="10" max="10" placeholder="05xxxxxxxxx" class="form-control" placeholder="ادخل رقم الهاتف"
                                     required>
                             </div>
 

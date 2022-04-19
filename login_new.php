@@ -95,17 +95,17 @@
                             </div>
                             <hr class="featurette-divider">
                             <div class="mb-3 col-md-5">
-                                <label>أسئلة الآمان<span class="text-danger">*</span></label>
+                                <label>سؤال الآمان<span class="text-danger">*</span></label>
                                 <select name="question" class="form-select" id="specificSizeSelect" required>
                                     <option selected disabled value="">سؤال</option>
-                                    <option value="color">اللوان المفضل</option>
+                                    <option value="color">اللون المفضل</option>
                                     <option value="place">المكان المفضل</option>
-                                    <option value="friend">صديق المفضل</option>
+                                    <option value="friend">الصديق المفضل</option>
                                 </select>
                             </div>
 
                             <div class="mb-3 col-md-5">
-                                <label>الاجابةعن السؤال<span class="text-danger">*</span></label>
+                                <label>الاجابة عن السؤال<span class="text-danger">*</span></label>
                                 <input type="text" name="answer" class="form-control" placeholder="ادخل  الاجابه هنا"
                                     required>
                             </div>
@@ -149,7 +149,7 @@
 require_once "connect_database.php";
 if(isset($_POST["login_new"]) && !empty($_POST["first_name"]) && !empty($_POST["last_name"]) && !empty($_POST["email"]) && !empty($_POST["password"]) &&
     !empty($_POST["phone_number"]) && !empty($_POST["age"]) && !empty($_POST["gender"]) && !empty($_POST["language"]) && $_POST["language"] != "null" &&
-    $_POST["password"] == $_POST["check_password"] && !empty($_POST["question"]) && !empty($_POST["answer"])
+    $_POST["password"] == $_POST["check_password"]
   )
   {
     if($_POST["type_user"] == "tourist")
@@ -174,12 +174,12 @@ if(isset($_POST["login_new"]) && !empty($_POST["first_name"]) && !empty($_POST["
     ('
     INSERT INTO tourist
     (
-      ID , first_name , last_name , email , password , phone_number , age , gender , language , question , answer
+      ID , first_name , last_name , email , password , phone_number , age , gender , language , answer , question
     )
     VALUES 
     (
       '.$_SESSION["new_id_tourist"].' , "'.$_POST["first_name"].'" , "'.$_POST["last_name"].'" , "'.$_POST["email"].'" , "'.$_POST["password"].'" ,
-      '.$_POST["phone_number"].' , '.$_POST["age"].' , "'.$_POST["gender"].'" , "'.$_POST["language"].'" , "'.$_POST["question"].'" , "'.$_POST["answer"].'"
+      '.$_POST["phone_number"].' , '.$_POST["age"].' , "'.$_POST["gender"].'" , "'.$_POST["language"].'" , "'.$_POST["answer"].'" , "'.$_POST["question"].'"
     )
     ');
     $login_new_tourist->execute();
@@ -205,7 +205,7 @@ if(isset($_POST["login_new"]) && !empty($_POST["first_name"]) && !empty($_POST["
               </div>
             </center>
       ';
-      // header("refresh:3; url=http://localhost/naseem_sa/login_new.php");
+      header("refresh:3; url=http://localhost/naseem_sa/login_new.php");
     }
     }
     elseif($_POST["type_user"] == "tour_guide")
@@ -234,7 +234,7 @@ if(isset($_POST["login_new"]) && !empty($_POST["first_name"]) && !empty($_POST["
       )
       VALUES 
       (
-        '.$_SESSION["new_id_tourist"].' , "'.$_POST["first_name"].'" , "'.$_POST["last_name"].'" , "'.$_POST["email"].'" , "'.$_POST["password"].'" ,
+        '.$_SESSION["new_id_tour_guide"].' , "'.$_POST["first_name"].'" , "'.$_POST["last_name"].'" , "'.$_POST["email"].'" , "'.$_POST["password"].'" ,
         '.$_POST["phone_number"].' , '.$_POST["age"].' , "'.$_POST["gender"].'" , "'.$_POST["language"].'" , "'.$_POST["question"].'" , "'.$_POST["answer"].'"
       )
       ');

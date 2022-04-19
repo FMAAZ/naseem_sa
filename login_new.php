@@ -85,7 +85,14 @@
                                     required>
                             </div>
 
-
+                            <div class="mb-3 col-md-5">
+                            <label> اللغة<span class="text-danger">*</span></label>
+                                <select name="language" class="form-select" id="language" required>
+                                    <option selected disabled value="null">اللغة</option>
+                                    <option value="arabic">العربية</option>
+                                    <option value="English">English</option>
+                                </select>
+                            </div>
                             <hr class="featurette-divider">
                             <div class="mb-3 col-md-5">
                                 <label>أسئلة الآمان<span class="text-danger">*</span></label>

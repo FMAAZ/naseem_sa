@@ -72,6 +72,7 @@
                         <li class="nav-item"><a href="Log_in.php" class="btn btn-outline-success"> تسجيل الدخول
                             </a>
                         </li>
+                        &numsp;
                         <li class="nav-item"><a href="login_new.php" class="btn btn-success"> تسجيل جديد
                             </a>
                         </li> 

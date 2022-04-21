@@ -8,6 +8,11 @@
 </head>
 
 <body>
+
+    <?php 
+    ob_start();
+    ?>
+
     <!--/* Field of Age */-->
     <style>
     input::-webkit-inner-spin-button,
@@ -97,7 +102,7 @@
                             <div class="mb-3 col-md-5">
                                 <label>سؤال الآمان<span class="text-danger">*</span></label>
                                 <select name="question" class="form-select" id="specificSizeSelect" required>
-                                    <option selected disabled value="">سؤال</option>
+                                    <option selected disabled value="null">سؤال</option>
                                     <option value="color">اللون المفضل</option>
                                     <option value="place">المكان المفضل</option>
                                     <option value="friend">الصديق المفضل</option>
@@ -193,11 +198,10 @@ if(isset($_POST["login_new"]) && !empty($_POST["first_name"]) && !empty($_POST["
                 </div>
               </center>
       ';
-      header("refresh:3; url=http://localhost/naseem_sa/login_new.php");
+      header("refresh:3; url=http://localhost/naseem_sa_1/naseem_sa/login_new.php");
     }
     else
     {
-      var_dump($login_new_tourist);
       echo '
             <center>
               <div class="alert alert-danger" role="alert">
@@ -205,7 +209,7 @@ if(isset($_POST["login_new"]) && !empty($_POST["first_name"]) && !empty($_POST["
               </div>
             </center>
       ';
-      header("refresh:3; url=http://localhost/naseem_sa/login_new.php");
+      header("refresh:3; url=http://localhost/naseem_sa_1/naseem_sa/login_new.php");
     }
     }
     elseif($_POST["type_user"] == "tour_guide")
@@ -249,7 +253,7 @@ if(isset($_POST["login_new"]) && !empty($_POST["first_name"]) && !empty($_POST["
                   </div>
                 </center>
         ';
-        header("refresh:3; url=http://localhost/naseem_sa/login_new.php");
+        header("refresh:3; url=http://localhost/naseem_sa_1/naseem_sa/login_new.php");
       }
       else
       {
@@ -260,11 +264,16 @@ if(isset($_POST["login_new"]) && !empty($_POST["first_name"]) && !empty($_POST["
                 </div>
               </center>
         ';
-        header("refresh:3; url=http://localhost/naseem_sa/login_new.php");
+        header("refresh:3; url=http://localhost/naseem_sa_1/naseem_sa/login_new.php");
       }
     }
   }
 ?>
+
+    <?php
+    ob_end_flush();
+    ?>
+
 </body>
 
 </html>

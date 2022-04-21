@@ -24,7 +24,7 @@
                             <div class="mb-3 col-md-11">
                                 <label for="email" class="form-label">عنوان البريد الإلكتروني<span
                                         class="text-danger">*</span></label>
-                                <input type="email" class="form-control" id="email" placeholder="ادخل البريد الإلكتروني"
+                                <input type="email" class="form-control" id="email" name="email" placeholder="ادخل البريد الإلكتروني"
                                     required>
                             </div>
                             <div class="mb-3 col-md-11">
@@ -34,7 +34,7 @@
                             </div>
 
                             <div class="col-md-11">
-                                <button class="btn btn-success float-end">
+                                <button class="btn btn-success float-end" name="login">
                                     تسجيل الدخول
                                     <i class="bi bi-box-arrow-right"></i>
                                 </button>
@@ -70,11 +70,7 @@
         {
           echo '<br><h3>tour_guide</h3>';
         }
-        elseif(empty($_SESSION["email_tour_guide"]) || empty($_SESSION["password_tour_guide"]))
-        {
-          echo '<br><h3>email or password incorrect !</h3>';
-        }
-        elseif(empty($_SESSION["email_tourist"]) || empty($_SESSION["password_tourist"]))
+        elseif(empty($_SESSION["email_tour_guide"]) || empty($_SESSION["password_tour_guide"]) || empty($_SESSION["email_tourist"]) || empty($_SESSION["password_tourist"]))
         {
           echo '<br><h3>email or password incorrect !</h3>';
         }

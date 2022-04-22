@@ -65,14 +65,14 @@
 
                             <div class="mb-3 col-md-6">
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="gender" id="inlineRadio3" value="male" required>
+                                    <input class="form-check-input" type="radio" name="gender" id="inlineRadio3" value="رجل" required>
                                     <label class="form-check-label" for="inlineRadio3"> ذكر<span
                                             class="text-danger">*</span></label>
                                 </div>
                             </div>
                             <div class="mb-3 col-md-6">
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="gender" id="inlineRadio4" value="female" required>
+                                    <input class="form-check-input" type="radio" name="gender" id="inlineRadio4" value="أنثى" required>
                                     <label class="form-check-label" for="inlineRadio4">انثى<span
                                             class="text-danger">*</span>
                                     </label>
@@ -94,7 +94,7 @@
                             <label> اللغة<span class="text-danger">*</span></label>
                                 <select name="language" class="form-select" id="language" required>
                                     <option selected disabled value="null">اللغة</option>
-                                    <option value="arabic">العربية</option>
+                                    <option value="العربية">العربية</option>
                                     <option value="English">English</option>
                                 </select>
                             </div>

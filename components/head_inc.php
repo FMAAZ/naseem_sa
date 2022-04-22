@@ -9,6 +9,5 @@
     <link rel="stylesheet" href="assistances/css/style.css" >
     <!-- Bootstrap 5core JS 5-->
     <script src="assistances/js/bootstrap.min.js"></script>
-    
-
+    <?php session_start(); ?>
 </head>

@@ -12,6 +12,8 @@
     <!-- Bootstrap 5core JS 5-->
     <!-- err js 5 -->
     <script src="assistances/js/bootstrap.bundle.min.js"></script>
+    <?php session_start(); ?>
+
 </head>
 <body>
       <!--Icons-->
@@ -76,98 +78,208 @@
                             </svg>
                             تواصل
                         </a>
-                      </li>
+                        </li>
                 </ul>
-                <!-- profile -->
-                <div class="col-md-3 text-end">
-                    <ul class="nav">
-                    <div class="dropdown text-end">
-          <a href="#offcanvasExample" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="https://github.com/mdo.png" alt="mdo" width="50" height="50" class="rounded-circle">
-          </a>
-          <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
-            <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">عرض الملف</a></li>
-            <li><a class="dropdown-item" href="#">عرض الطلبات</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">تسجيل خروج</a></li>
-          </ul>
-        </div> 
-        </ul>
-        </div>
-        <!-- profile -->
-        </header>
-        </div>
-    </main>
-    <!--NAVbar/-->
-
-    <!-- ------------------------------------------------------------- -->
-    <!-- offcanvas -->
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-  <div class="offcanvas-header alert-success">
-    <h6 class="offcanvas-title" id="offcanvasExampleLabel">الملف الشخصي</h6>
-    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-  </div>
-  <div class="offcanvas-body">
-    <!-- form -->
-    <div class="container">
-          <div class="card-title text-center border-bottom">
-          <img src="https://github.com/mdo.png" alt="mdo" width="60" height="60" class="rounded-circle">
-            <h2 class="p-0">id</h2>
-          </div>
-          <div class="card-body">
-            <form>
-              <div class="mb-4">
-              
-              <label for="staticEmail" class="col-sm-4  col-form-label alert-success">(نوع التسجيل):</label>
-              <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="مرشد سياحي">
-              </div>
-              <hr class="featurette-divider">
-              <div class="mb-4">
-              <label for="staticEmail" class="col-sm-6 col-form-label alert-success">(بينات التواصل):</label>
-                  </div>
-                  <div class="mb-0">
-              <label for="staticPassword" class="col-sm-4 col-form-label">البريد الاكتوني:</label>
-      <input type="text" readonly class="form-control-plaintext" id="staticPassword" value="45f0d63851@catdogmail.live">
-              </div>
-              <div class="mb-0">
-              <label for="staticPassword" class="col-sm-4 col-form-label"> رقم الهاتف:</label>
-      <input type="text" readonly class="form-control-plaintext" id="staticPassword" value="+996">
-              </div>
-              <hr class="featurette-divider">
-              <div class="mb-3">
-              <label for="staticEmail" class="col-sm-6 col-form-label alert-success">(البيانات الشخصية):</label>
-                  </div>
-              <div class="mb-0">
-              <label for="staticPassword" class="col-sm-4 col-form-label">الاسم الاول:</label>
-      <input type="text" readonly class="form-control-plaintext" id="staticPassword" value="عبدالله">
-              </div>
-              <div class="mb-0">
-              <label for="staticPassword" class="col-sm-4 col-form-label">الاسم الاخير:</label>
-      <input type="text" readonly class="form-control-plaintext" id="staticPassword" value="العثيم">
-              </div>
-              <div class="mb-0">
-              <label for="staticPassword" class="col-sm-4 col-form-label">الجنس:</label>
-      <input type="text" readonly class="form-control-plaintext" id="staticPassword" value="رجل/انثى">
-              </div>
-              <div class="mb-0">
-              <label for="staticPassword" class="col-sm-4 col-form-label"> اللغة:</label>
-      <input type="text" readonly class="form-control-plaintext" id="staticPassword" value="العربية/English">
-              </div>
-              <div class="mb-0">
-              <label for="staticPassword" class="col-sm-4 col-form-label">  العمر:</label>
-      <input type="text" readonly class="form-control-plaintext" id="staticPassword" value="30">
-              </div>
-              <hr class="featurette-divider">
-              <div class="mb-0">
-              <button type="submit" class="btn  btn-success mb-3">تعديل</button>
-              </div>
-            </form>
-          </div>
-        </div>
-     
-</div>
-    <!-- form -->
-</div>
-<!-- offcanvas -->
+                <?php
+                if($_SESSION["email"]==$_SESSION["email_tourist"] && $_SESSION["password"]==$_SESSION["password_tourist"])
+                {
+                    require_once 'connect_database.php';
+                    $profile_info = $connect_database->prepare('SELECT * FROM tourist WHERE email = "'.$_SESSION["email_tourist"].'" AND password = "'.$_SESSION["password_tourist"].'"');
+                    $profile_info->execute();
+                    foreach($profile_info as $print)
+                    {
+                        echo '
+                                <!-- profile -->
+                                <div class="col-md-3 text-end">
+                                <ul class="nav">
+                                <div class="dropdown text-end">
+                                <a href="#offcanvasExample" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="https://github.com/mdo.png" alt="mdo" width="50" height="50" class="rounded-circle">
+                                </a>
+                                <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+                                <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">عرض الملف</a></li>
+                                <li><a class="dropdown-item" href="#">عرض الطلبات</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">تسجيل خروج</a></li>
+                                </ul>
+                                </div> 
+                                </ul>
+                                </div>
+                                <!-- profile -->
+                                </header>
+                                </div>
+                                </main>
+                                <!--NAVbar/-->
+                                <!-- ------------------------------------------------------------- -->
+                                <!-- offcanvas -->
+                                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+                                <div class="offcanvas-header alert-success">
+                                <h6 class="offcanvas-title" id="offcanvasExampleLabel">الملف الشخصي</h6>
+                                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                </div>
+                                <div class="offcanvas-body">
+                                <!-- form -->
+                                <div class="container">
+                                <div class="card-title text-center border-bottom">
+                                <img src="https://github.com/mdo.png" alt="mdo" width="60" height="60" class="rounded-circle">
+                                <h2 class="p-0">id '.$print["ID"].'</h2>
+                                </div>
+                                <div class="card-body">
+                                <form>
+                                <div class="mb-4">   
+                                <label for="staticEmail" class="col-sm-4  col-form-label alert-success">(نوع التسجيل):</label>
+                                <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="سائح">
+                                </div>
+                                <hr class="featurette-divider">
+                                <div class="mb-4">
+                                <label for="staticEmail" class="col-sm-6 col-form-label alert-success">(بينات التواصل):</label>
+                                </div>
+                                <div class="mb-0">
+                                <label for="staticPassword" class="col-sm-4 col-form-label">البريد الاكتوني:</label>
+                                <input type="text" readonly class="form-control-plaintext" id="staticPassword" value="'.$print["email"].'">
+                                </div>
+                                <div class="mb-0">
+                                <label for="staticPassword" class="col-sm-4 col-form-label"> رقم الهاتف:</label>
+                                <input type="text" readonly class="form-control-plaintext" id="staticPassword" value="0'.$print["phone_number"].'">
+                                </div>
+                                <hr class="featurette-divider">
+                                <div class="mb-3">
+                                <label for="staticEmail" class="col-sm-6 col-form-label alert-success">(البيانات الشخصية):</label>
+                                </div>
+                                <div class="mb-0">
+                                <label for="staticPassword" class="col-sm-4 col-form-label">الاسم الاول:</label>
+                                <input type="text" readonly class="form-control-plaintext" id="staticPassword" value="'.$print["first_name"].'">
+                                </div>
+                                <div class="mb-0">
+                                <label for="staticPassword" class="col-sm-4 col-form-label">الاسم الاخير:</label>
+                                <input type="text" readonly class="form-control-plaintext" id="staticPassword" value="'.$print["last_name"].'">
+                                </div>
+                                <div class="mb-0">
+                                <label for="staticPassword" class="col-sm-4 col-form-label">الجنس:</label>
+                                <input type="text" readonly class="form-control-plaintext" id="staticPassword" value="'.$print["gender"].'">
+                                </div>
+                                <div class="mb-0">
+                                <label for="staticPassword" class="col-sm-4 col-form-label"> اللغة:</label>
+                                <input type="text" readonly class="form-control-plaintext" id="staticPassword" value="'.$print["language"].'">
+                                </div>
+                                <div class="mb-0">
+                                <label for="staticPassword" class="col-sm-4 col-form-label">  العمر:</label>
+                                <input type="text" readonly class="form-control-plaintext" id="staticPassword" value="'.$print["age"].'">
+                                </div>
+                                <hr class="featurette-divider">
+                                <div class="mb-0">
+                                <button type="submit" name="update_info" class="btn  btn-success mb-3">تعديل</button>
+                                </div>
+                                </form>
+                                </div>
+                                </div>    
+                                </div>
+                                <!-- form -->
+                                </div>
+                                <!-- offcanvas -->
+                        ';
+                    }
+                }
+                elseif($_SESSION["email"]==$_SESSION["email_tour_guide"] && $_SESSION["password"]==$_SESSION["password_tour_guide"])
+                {
+                    require_once 'connect_database.php';
+                    $profile_info = $connect_database->prepare('SELECT * FROM tour_guide WHERE email = "'.$_SESSION["email_tour_guide"].'" AND password = "'.$_SESSION["password_tour_guide"].'"');
+                    $profile_info->execute();
+                    foreach($profile_info as $print)
+                    {
+                        echo '
+                                <!-- profile -->
+                                <div class="col-md-3 text-end">
+                                <ul class="nav">
+                                <div class="dropdown text-end">
+                                <a href="#offcanvasExample" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="https://github.com/mdo.png" alt="mdo" width="50" height="50" class="rounded-circle">
+                                </a>
+                                <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+                                <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">عرض الملف</a></li>
+                                <li><a class="dropdown-item" href="#">عرض الطلبات</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">تسجيل خروج</a></li>
+                                </ul>
+                                </div> 
+                                </ul>
+                                </div>
+                                <!-- profile -->
+                                </header>
+                                </div>
+                                </main>
+                                <!--NAVbar/-->
+                                <!-- ------------------------------------------------------------- -->
+                                <!-- offcanvas -->
+                                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+                                <div class="offcanvas-header alert-success">
+                                <h6 class="offcanvas-title" id="offcanvasExampleLabel">الملف الشخصي</h6>
+                                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                </div>
+                                <div class="offcanvas-body">
+                                <!-- form -->
+                                <div class="container">
+                                <div class="card-title text-center border-bottom">
+                                <img src="https://github.com/mdo.png" alt="mdo" width="60" height="60" class="rounded-circle">
+                                <h2 class="p-0">id '.$print["ID"].'</h2>
+                                </div>
+                                <div class="card-body">
+                                <form>
+                                <div class="mb-4">   
+                                <label for="staticEmail" class="col-sm-4  col-form-label alert-success">(نوع التسجيل):</label>
+                                <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="سائح">
+                                </div>
+                                <hr class="featurette-divider">
+                                <div class="mb-4">
+                                <label for="staticEmail" class="col-sm-6 col-form-label alert-success">(بينات التواصل):</label>
+                                </div>
+                                <div class="mb-0">
+                                <label for="staticPassword" class="col-sm-4 col-form-label">البريد الاكتوني:</label>
+                                <input type="text" readonly class="form-control-plaintext" id="staticPassword" value="'.$print["email"].'">
+                                </div>
+                                <div class="mb-0">
+                                <label for="staticPassword" class="col-sm-4 col-form-label"> رقم الهاتف:</label>
+                                <input type="text" readonly class="form-control-plaintext" id="staticPassword" value="0'.$print["phone_number"].'">
+                                </div>
+                                <hr class="featurette-divider">
+                                <div class="mb-3">
+                                <label for="staticEmail" class="col-sm-6 col-form-label alert-success">(البيانات الشخصية):</label>
+                                </div>
+                                <div class="mb-0">
+                                <label for="staticPassword" class="col-sm-4 col-form-label">الاسم الاول:</label>
+                                <input type="text" readonly class="form-control-plaintext" id="staticPassword" value="'.$print["first_name"].'">
+                                </div>
+                                <div class="mb-0">
+                                <label for="staticPassword" class="col-sm-4 col-form-label">الاسم الاخير:</label>
+                                <input type="text" readonly class="form-control-plaintext" id="staticPassword" value="'.$print["last_name"].'">
+                                </div>
+                                <div class="mb-0">
+                                <label for="staticPassword" class="col-sm-4 col-form-label">الجنس:</label>
+                                <input type="text" readonly class="form-control-plaintext" id="staticPassword" value="'.$print["gender"].'">
+                                </div>
+                                <div class="mb-0">
+                                <label for="staticPassword" class="col-sm-4 col-form-label"> اللغة:</label>
+                                <input type="text" readonly class="form-control-plaintext" id="staticPassword" value="'.$print["language"].'">
+                                </div>
+                                <div class="mb-0">
+                                <label for="staticPassword" class="col-sm-4 col-form-label">  العمر:</label>
+                                <input type="text" readonly class="form-control-plaintext" id="staticPassword" value="'.$print["age"].'">
+                                </div>
+                                <hr class="featurette-divider">
+                                <div class="mb-0">
+                                <button type="submit" name="update_info" class="btn  btn-success mb-3">تعديل</button>
+                                </div>
+                                </form>
+                                </div>
+                                </div>    
+                                </div>
+                                <!-- form -->
+                                </div>
+                                <!-- offcanvas -->
+                        ';
+                    }
+                }
+                ?>
+                
 </body>
 </html>

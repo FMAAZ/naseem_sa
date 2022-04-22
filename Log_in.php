@@ -1,9 +1,8 @@
 <!doctype html>
-=<html  lang="en" dir="rtl">
+<html  lang="en" dir="rtl">
   <head>
   <title>تسجيل الدخول</title>
   <?php require('components/head_inc.php'); ?>  
-
   </head>
   <body>
   <?php require('components/niv.php');?>  
@@ -46,6 +45,10 @@
       require_once "connect_database.php";
       if(isset($_POST["login"]) && !empty($_POST["email"]) && !empty($_POST["password"]))
       {
+        $_SESSION['login'] = $_POST['login'];
+        $_SESSION['email'] = $_POST['email'];
+        $_SESSION['password'] = $_POST['password'];
+
         $select_tourist = $connect_database->prepare('SELECT email , password FROM tourist WHERE email = "'.$_POST["email"].'" AND password = "'.$_POST["password"].'"');
         $select_tourist->execute();
         $select_tour_guide = $connect_database->prepare('SELECT email , password FROM tour_guide WHERE email = "'.$_POST["email"].'" AND password = "'.$_POST["password"].'"');
@@ -62,11 +65,12 @@
           $_SESSION["password_tour_guide"] = $print["password"];
         }
 
-        if(!empty($_SESSION["email_tourist"]) && !empty($_SESSION["password_tourist"]))
+        if(!empty($_SESSION["email_tourist"]) && !empty($_SESSION["password_tourist"]) && $_SESSION["email_tourist"] == $_SESSION['email'] && $_SESSION["password_tourist"] == $_SESSION['password'])
         {
           echo '<br><h3>tourist</h3>';
+
         }
-        elseif(!empty($_SESSION["email_tour_guide"]) && !empty($_SESSION["password_tour_guide"]))
+        elseif(!empty($_SESSION["email_tour_guide"]) && !empty($_SESSION["password_tour_guide"]) && $_SESSION["email_tour_guide"] == $_SESSION['email'] && $_SESSION["password_tour_guide"] == $_SESSION['password'])
         {
           echo '<br><h3>tour_guide</h3>';
         }

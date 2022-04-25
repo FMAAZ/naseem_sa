@@ -50,9 +50,7 @@
                 class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
                 <a href="index.php"
                     class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
-                    <svg class="bi me-2" width="50" height="50" role="img" aria-label="Bootstrap">
-                        <use xlink:href="#bootstrap" />
-                    </svg>
+                    <img src="assistances/images/log1.png" alt="mdo" width="100" height="100" class="rounded">
                 </a>
                 <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
                 <li><a href="index.php" class="nav-link px-2 link-success">
@@ -94,7 +92,7 @@
                                 <ul class="nav">
                                 <div class="dropdown text-end">
                                 <a href="#offcanvasExample" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="https://github.com/mdo.png" alt="mdo" width="50" height="50" class="rounded-circle">
+                                <img src="assistances/images/svg.svg" alt="mdo" width="50" height="50" class="rounded-circle">
                                 </a>
                                 <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
                                 <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">عرض الملف</a></li>

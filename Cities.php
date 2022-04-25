@@ -5,6 +5,7 @@
   <?php require('components/head_inc.php');?>  
   </head>
   <body>
+    
   <?php include ('components/niv.php')?>
 <div id="myCarousel" class="carousel slide pointer-event" data-bs-ride="carousel">
     <div class="carousel-indicators">
@@ -74,149 +75,9 @@
     </section>
   
     <div class="album py-5 bg-light">
-      <div class="container">
-  
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-          <div class="col">
-            <div class="card shadow-sm">
-              <img src="assistances/images/ksa1.jpg"  alt="Cinque Terre"width="100%" height="100%"> 
-  
-              <div class="card-body">
-                <p class="text-muted">هذه بطاقة أوسع مع نص داعم أدناه كمقدمة طبيعية لمحتوى إضافي. هذا المحتوى أطول قليلاً.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <a href="#" class="btn btn-success my-1"> عرض</a>             
-                       </div>
-                  <small class="text-secondary">9 دقائق</small>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card shadow-sm">
-              <img src="assistances/images/ksa1.jpg"  alt="Cinque Terre"width="100%" height="100%"> 
-  
-              <div class="card-body">
-                <p class="text-muted">هذه بطاقة أوسع مع نص داعم أدناه كمقدمة طبيعية لمحتوى إضافي. هذا المحتوى أطول قليلاً.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <a href="#" class="btn btn-success my-1">عرض</a>             
-                  </div>
-                  <small class="text-success">9 دقائق</small>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card shadow-sm">
-              <img src="assistances/images/ksa1.jpg"  alt="Cinque Terre"width="100%" height="100%"> 
-  
-              <div class="card-body">
-                <p class="text-muted">هذه بطاقة أوسع مع نص داعم أدناه كمقدمة طبيعية لمحتوى إضافي. هذا المحتوى أطول قليلاً.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <a href="#" class="btn btn-success my-1"> عرض</a>             
-                  </div>
-                  <small class="text-success">9 دقائق</small>
-                </div>
-              </div>
-            </div>
-          </div>
-  
-          <div class="col">
-            <div class="card shadow-sm">
-              <img src="assistances/images/ksa1.jpg"  alt="Cinque Terre"width="100%" height="100%"> 
-  
-              <div class="card-body">
-                <p class="text-muted">هذه بطاقة أوسع مع نص داعم أدناه كمقدمة طبيعية لمحتوى إضافي. هذا المحتوى أطول قليلاً.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <a href="#" class="btn btn-success my-1"> عرض</a>             
-                  </div>
-                  <small class="text-secondary">9 دقائق</small>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card shadow-sm">
-              <img src="assistances/images/ksa1.jpg"  alt="Cinque Terre"width="100%" height="100%"> 
-  
-              <div class="card-body">
-                <p class="text-muted">هذه بطاقة أوسع مع نص داعم أدناه كمقدمة طبيعية لمحتوى إضافي. هذا المحتوى أطول قليلاً.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <a href="#" class="btn btn-success my-1"> عرض</a>             
-                  </div>
-                  <small class="text-success">9 دقائق</small>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card shadow-sm">
-              <img src="assistances/images/ksa1.jpg"  alt="Cinque Terre"width="100%" height="100%"> 
-  
-              <div class="card-body">
-                <p class="text-muted">هذه بطاقة أوسع مع نص داعم أدناه كمقدمة طبيعية لمحتوى إضافي. هذا المحتوى أطول قليلاً.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <a href="#" class="btn btn-success my-1"> عرض</a>             
-                  </div>
-                  <small class="text-muted">9 دقائق</small>
-                </div>
-              </div>
-            </div>
-          </div>
-  
-          <div class="col">
-            <div class="card shadow-sm">
-              <img src="assistances/images/ksa1.jpg"  alt="Cinque Terre"width="100%" height="100%"> 
-  
-              <div class="card-body">
-                <p class="text-muted">هذه بطاقة أوسع مع نص داعم أدناه كمقدمة طبيعية لمحتوى إضافي. هذا المحتوى أطول قليلاً.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <a href="#" class="btn btn-success my-1"> عرض</a>             
-                  </div>
-                  <small class="text-muted">9 دقائق</small>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card shadow-sm">
-              <img src="assistances/images/ksa1.jpg"  alt="Cinque Terre"width="100%" height="100%"> 
-  
-              <div class="card-body">
-                <p class="text-muted">هذه بطاقة أوسع مع نص داعم أدناه كمقدمة طبيعية لمحتوى إضافي. هذا المحتوى أطول قليلاً.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <a href="#" class="btn btn-success my-1"> عرض</a>             
-                  </div>
-                  <small class="text-muted">9 دقائق</small>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col">
-            <div class="card shadow-sm">
-              <img src="assistances/images/ksa1.jpg"  alt="Cinque Terre"width="100%" height="100%"> 
-  
-              <div class="card-body">
-                <p class="text-muted">هذه بطاقة أوسع مع نص داعم أدناه كمقدمة طبيعية لمحتوى إضافي. هذا المحتوى أطول قليلاً.</p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <a href="#" class="btn btn-success my-1"> عرض</a>             
-                  </div>
-                  <small class="text-success">9 دقائق</small>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    
     </div>
+    
   </main>
   <?php require('components/footre.php');?>  
   </body>

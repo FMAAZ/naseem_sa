@@ -14,42 +14,38 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item">
-                <img src="assistances/images/xxw.jpg" class="d-block w-100" alt="Cinque Terre" width="500px"
-                    height="500px">
+                <img src="assistances/images/Rj.jpg" class="d-block w-100" alt="Cinque Terre" width="550px"
+                    height="555px">
 
                 <div class="container">
-                    <div class="carousel-caption">
-                        <h5>عنوان المثال.</h5>
-                        <p>تشير الدراسات الإحصائية حسب الجمعية الأمريكية للغات بأن الإقبال على العربية زاد %126 في
-                            الولايات المتحدة الأمريكية وحدها بين عامي 2002 و2009م.</p>
-                        <p><a class="btn btn-lg btn-success" href="#">سجل اليوم</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="assistances/images/carrots.jpg" class="d-block w-100" alt="Cinque Terre" width="500px"
-                    height="500px">
-
-                <div class="container">
-                    <div class="carousel-caption">
-                        <h5>عنوان مثال آخر.</h5>
-                        <p>حسب المجلس الثقافي البريطاني فإن تعليم الإنجليزية داخل بريطانيا يسهم في تعزيز اقتصادها بما
-                            يتجاوز ملياري جنيه سنوياً، كما أنه وفر أكثر من 26 ألف وظيفة.</p>
-                        <p><a class="btn btn-lg btn-success" href="#">أعرف أكثر</a></p>
+                    <div class="carousel-caption text-end">
+                        <h1><span class=" text-white-50">رجال المع ...</span></h1>
+                        <p class="lead"><span class="text-decoration-underline">مزيج المراعي الخضراء والتراث الجنوبي الأصيل</span></p>
+                        <p><a class="btn btn-outline-light btn-lg" href="Cities.php">اعرض اكثر</a></p>
                     </div>
                 </div>
             </div>
             <div class="carousel-item active">
-                <img src="assistances/images/ksa1.jpg" class="d-block w-100" alt="Cinque Terre" width="500px"
-                    height="500px">
+                <img src="assistances/images/major.jpg" class="d-block w-100" alt="Cinque Terre" width="550px"
+                    height="555px">
 
                 <div class="container">
                     <div class="carousel-caption text-end">
-                        <h5>واحد أكثر لقياس جيد.</h5>
-                        <p>الإحصاءات لحجم الاستثمار اللغوي خارج بريطانيا تتفاوت من سنة لأخرى إلا أن المدير التنفيذي
-                            للمجلس الثقافي البريطاني إدي بايرز يرى أن استثمار تعليم الإنجليزية في الخارج لا يحسب على
-                            المستوى المالي فحسب بل على المستوى السياسي أيضاً.</p>
-                        <p><a class="btn btn-lg btn-success" href="#">تصفح المعرض</a></p>
+                        <h1><span class="text-white-50">العاصمة الرياض...</span></h1>
+                        <p class="lead"><span class="text-decoration-underline">وجهة سياحية فريدة بفعاليات نوعية عالمية</span></p>
+                        <p class="lead"><a class="btn btn-outline-light btn-lg" href="Cities.php">اعرض اكثر</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="assistances/images/xz1.jpg" class="d-block w-100" alt="Cinque Terre" width="550px"
+                    height="555px">
+
+                <div class="container">
+                    <div class="carousel-caption text-end">
+                    <h2><span class="text-white-50">تعرفوا على أجمل جزر المملكة الخلابة...</span></h2>
+                        <p class="lead"><span class="text-decoration-underline">تحتوي المملكة العربية السعودية على المئات من الجزر المتنوعة والتي تطل على البحر الأحمر والخليج العربي وآلاف الجزر المهيئة للجميع من محبي ركوب الأمواج أو عشاق الغوص بين الشعب المرجانية أو عشاق المناظر الطبيعية للجزر البكر .</span></p>
+                            <p><a class="btn btn-outline-light btn-lg" href="island.php">اعرض اكثر</a></p>
                     </div>
                 </div>
             </div>
@@ -89,9 +85,9 @@
         <div class="row featurette">
             <div class="col-md-7 order-md-2">
                 <h2  class="featurette-heading">السياحة في<span class="text-muted"> جزر المملكة . </span></h2>
-                <p class="lead">عندما نضحك أو نبكي، فإننا نعرض عواطفنا، مما يسمح للآخرين بإلقاء نظرة خاطفة على أذهاننا
-                    أثناء "قراءة" وجوهنا بناءً على التغييرات في مكوّنات الوجه الرئيسة، مثل: العينين والحاجبين والجفنين
-                    والأنف والشفتين.</p>
+                <p class="lead">
+                مجموعة جزر سياحية في السعودية تعتبر من أجمل المناطق التي يمكن زيارتها في الخليج العربي، ويقدر عدد تلك الجزر في المملكة بحسب هيئة المساحة الجيولوجية السعودية بحوالي ما يقرب إلى 1258 جزيرة سعودية رائعة، وهي تعتبر من عوامل الجذب لجميع السياح حول العالم.
+                </p>
             </div>
             <div class="col-md-5 order-md-1">
                 <a href="island.php">

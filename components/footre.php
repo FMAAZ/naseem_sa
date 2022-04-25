@@ -66,15 +66,11 @@
                     <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                         <!-- Content---------------------------------------------------------------------- -->
                         <h6  id="scrollspyHeading1" class="text-uppercase fw-bold mb-4">
-                            <svg class="bi me-2" width="62" height="60" role="img" aria-label="Bootstrap">
-                                <use xlink:href="#bootstrap" />
-                            </svg>
-                            نسيم السعودية
+                        <img src="assistances/images/log1.png" alt="mdo" width="100" height="100" class="rounded">
                         </h6>
-                        <p>
-                            .موقع يختص في عرض الاماكن السياحية
-                            و الاثرية , والفعاليات والاخبار السياحية, في المملكة
-                        </p>
+                        <p>             
+                            موقع يعرض الاماكن السياحة و الاثرية و الفعاليات ويعرض خدمات ارشاد سياحي
+                    </p>
                     </div>
                     <!-- Grid column -->
                     <!-- Grid column -->

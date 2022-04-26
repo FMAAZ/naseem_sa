@@ -1,84 +1,160 @@
-<!doctype html>
-<html  lang="en" dir="rtl">
-  <head>
-  <title>المدن</title>
-  <?php require('components/head_inc.php');?>  
-  </head>
-  <body>
-    
-  <?php include ('components/niv.php')?>
-<div id="myCarousel" class="carousel slide pointer-event" data-bs-ride="carousel">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class="active"></button>
-      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" class="active" aria-current="true"></button>
-    </div>
-    <div class="carousel-inner">
-      <div class="carousel-item">
-        <img src="assistances/images/xxw.jpg"  class="d-block w-100" alt="Cinque Terre"width="500px" height="500px"> 
-
-        <div class="container">
-          <div class="carousel-caption">
-            <h4>مدينة الرياض</h4>
-            <p>تشير الدراسات الإحصائية حسب الجمعية الأمريكية للغات بأن الإقبال على العربية زاد %126 في الولايات المتحدة الأمريكية وحدها بين عامي 2002 و2009م.</p>
-            <p><a class="btn btn-lg btn-success" href="#">سجل اليوم</a></p>
-          </div>
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<?php require('components/head_inc.php');?>  
+<body>
+   <?php include ('components/niv.php')?>
+    <div id="myCarousel" class="carousel slide pointer-event" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"
+                aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"
+                class="active"></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" class="active"
+                aria-current="true"></button>
         </div>
-      </div>
-      <div class="carousel-item">
-        <img src="assistances/images/carrots.jpg" class="d-block w-100" alt="Cinque Terre" width="500px" height="500px"> 
+        <div class="carousel-inner">
+            <div class="carousel-item">
+                <img src="assistances/images/Rj.jpg" class="d-block w-100" alt="Cinque Terre" width="550px"
+                    height="555px">
 
-        <div class="container">
-          <div class="carousel-caption">
-            <h1>عنوان مثال آخر.</h1>
-            <p>حسب المجلس الثقافي البريطاني فإن تعليم الإنجليزية داخل بريطانيا يسهم في تعزيز اقتصادها بما يتجاوز ملياري جنيه سنوياً، كما أنه وفر أكثر من 26 ألف وظيفة.</p>
-            <p><a class="btn btn-lg btn-success" href="#">أعرف أكثر</a></p>
-          </div>
-        </div>
-      </div>
-      <div class="carousel-item active">
-        <img src="assistances/images/ksa1.jpg" class="d-block w-100" alt="Cinque Terre"width="500px" height="500px"> 
+                <div class="container">
+                    <div class="carousel-caption text-end">
+                        <h1><span class=" text-white-50">رجال المع ...</span></h1>
+                        <p class="lead"><span class="text-decoration-underline">مزيج المراعي الخضراء والتراث الجنوبي الأصيل</span></p>
+                        <p><a class="btn btn-outline-light btn-lg" href="Cities.php">اعرض اكثر</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item active">
+                <img src="assistances/images/major.jpg" class="d-block w-100" alt="Cinque Terre" width="550px"
+                    height="555px">
 
-        <div class="container">
-          <div class="carousel-caption text-end">
-            <h1>واحد أكثر لقياس جيد.</h1>
-            <p>الإحصاءات لحجم الاستثمار اللغوي خارج بريطانيا تتفاوت من سنة لأخرى إلا أن المدير التنفيذي للمجلس الثقافي البريطاني إدي بايرز يرى أن استثمار تعليم الإنجليزية في الخارج لا يحسب على المستوى المالي فحسب بل على المستوى السياسي أيضاً.</p>
-            <p><a class="btn btn-lg btn-success" href="#">تصفح المعرض</a></p>
-          </div>
+                <div class="container">
+                    <div class="carousel-caption text-end">
+                        <h1><span class="text-white-50">العاصمة الرياض...</span></h1>
+                        <p class="lead"><span class="text-decoration-underline">وجهة سياحية فريدة بفعاليات نوعية عالمية</span></p>
+                        <p class="lead"><a class="btn btn-outline-light btn-lg" href="Cities.php">اعرض اكثر</a></p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="assistances/images/xz1.jpg" class="d-block w-100"  alt="Cinque Terre" width="550px"
+                    height="555px">
+                <div class="container">
+                    <div class="carousel-caption text-end">
+                    <h2><span class="text-white-50">تعرفوا على أجمل جزر المملكة الخلابة...</span></h2>
+                        <p class="lead"><span class="text-decoration-underline">تحتوي المملكة العربية السعودية على المئات من الجزر المتنوعة والتي تطل على البحر الأحمر والخليج العربي وآلاف الجزر المهيئة للجميع من محبي ركوب الأمواج أو عشاق الغوص بين الشعب المرجانية أو عشاق المناظر الطبيعية للجزر البكر .</span></p>
+                            <p><a class="btn btn-outline-light btn-lg" href="island.php">اعرض اكثر</a></p>
+                            
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon bg-success" aria-hidden="true"></span>
-      <span class="visually-hidden">السابق</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon bg-success" aria-hidden="true"></span>
-      <span class="visually-hidden">التالي</span>
-    </button>
-  </div>
-    <!-- /END THE FEATURETTES -->
-  </div><!-- /.container -->
-
-  <main>
-    <section class="py-5 text-center container">
-      <div class="row py-lg-5">
-        <div class="col-lg-6 col-md-8 mx-auto">
-          <h1 id="scrollspyHeading2" class="fw-light">مدن المملكة</h1>
-          <p class="lead text-muted">وصف قصير حول الألبوم أدناه (محتوياته ، ومنشؤه ، وما إلى ذلك). اجعله قصير ولطيف، ولكن ليست قصير جدًا حتى لا يتخطى الناس هذا الألبوم تمامًا.</p>
-          <p>
-            <a href="#" class="btn btn-primary my-2">الدعوة الرئيسية للعمل</a>
-            <a href="#" class="btn btn-success my-2">عمل ثانوي</a>
-          </p>
-        </div>
-      </div>
-    </section>
-  
-    <div class="album py-5 bg-light">
-    
+        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon bg-success" aria-hidden="true"></span>
+            <span class="visually-hidden">السابق</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon bg-success" aria-hidden="true"></span>
+            <span class="visually-hidden">التالي</span>
+        </button>
     </div>
     
-  </main>
-  <?php require('components/footre.php');?>  
-  </body>
+ <!-- Bootstrap 5 Cards in Grid -->
+ <section class="bg-light py-4 my-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2 id="scrollspyHeading2"></h2>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card my-3">
+                    <div class="card-thumbnail">
+                        <img src="assistances/images/major.jpg" class="img-fluid" alt="thumbnail"  width="100%"
+                        height="60%">
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title"><a href="#" class="text-secondary">العاصمة الرياض</a></h4>
+                        
+                        <p class="card-text-center">وجهة سياحية فريدة بفعاليات نوعية عالمية تُعدُّ العاصمة الرياض أحد أهم المدن على خارطة المملكة السياحية؛ لاحتضانها العديد من الأنشطة</p>
+                        <a href="#" class=" btn btn-outline-success">&numsp;عرض&numsp;</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card my-3">
+                    <div class="card-thumbnail">
+                        <img src="assistances/images/jeddah.jpg" class="img-fluid" alt="jeddah" width="100%"
+                        height="100%">
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title"><a href="#" class="text-secondary">السياحة في جدة</a></h4>
+                        <p class="card-text">جدة اجمل مدن السعودية تلقب بعروس البحر الاحمر في السعودية وتعد العاصمة الاقتصادية والسياحية في المملكة</p>
+                        <a href="#" class=" btn btn-outline-success">&numsp;عرض&numsp;</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card my-3">
+                    <div class="card-thumbnail">
+                        <img src="assistances/images/dem.jpg" class="img-fluid" alt="thumbnail" width="100%"
+                        height="60%">
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title"><a href="#" class="text-secondary">السياحة في الدمام</a></h4>
+                        <p class="card-text">الدمام واحدة من اجمل مدن السعودية وهي الميناء الرئيسي على البحر في المنطقة الشرقية</p>
+                        <a href="#" class=" btn btn-outline-success">&numsp;عرض&numsp;</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card my-3">
+                    <div class="card-thumbnail">
+                        <img src="assistances/images/yanbu1.jpg" class="img-fluid" alt="thumbnail"  width="100%"
+                        height="100%">
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title"><a href="#" class="text-secondary">السياحة في ينبع</a></h4>
+                        <p class="card-text">مدينة ينبع من اهم مدن السياحة في السعودية ، تعد ينبع من مناطق الجذب السياحية الهامة ،</p>
+                        <a href="#" class=" btn btn-outline-success">&numsp;عرض&numsp;</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card my-3">
+                    <div class="card-thumbnail">
+                        <img src="assistances/images/Taif.jpg" class="img-fluid" alt="thumbnail"width="100%"
+                        height="100%">
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title"><a href="#" class="text-secondary">السياحة في الطائف</a></h4>
+                        <p class="card-text">الرحلة إلى الطائف متعة في حد ذاتها. فيسافر الزوار على طريق ملتو يتخلل الجبال — مرورًا بأسواق الفاكهة وبساتين الزهور </p>
+                        <a href="#" class=" btn btn-outline-success">&numsp;عرض&numsp;</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="card my-3">
+                    <div class="card-thumbnail">
+                        <img src="assistances/images/gt.jpg" class="img-fluid" alt="thumbnail" width="100%"
+                        height="100%">
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title"><a href="#" class="text-secondary">السياحة في ابها</a></h4>
+                        <p class="card-text">تقع أبها عند الطرف الجنوبي لساحل البحر الأحمر، وهي عاصمة منطقة عسير الغنية ثقافيًا ونقطة انطلاق لاستكشاف</p>
+                        <a href="#" class=" btn btn-outline-success">&numsp;عرض&numsp;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+        <?php require('components/footre.php');?>
+</body>
 </html>

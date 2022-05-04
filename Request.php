@@ -30,21 +30,27 @@
                         <hr class="featurette-divider">
                         <div class="row">
 
-                            <div class="mb-3 col-md-6">
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="destination" id="inlineRadio1" value="islands" required>
-                                    <label class="form-check-label" for="inlineRadio1">جزر<span
-                                            class="text-danger">*</span></label>
-                                </div>
-                            </div>
-                            <div class="mb-3 col-md-6">
-                                <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" name="destination" id="inlineRadio2" value="cities" required>
-                                    <label class="form-check-label" for="inlineRadio2"> مدن<span
-                                            class="text-danger">*</span>
-                                    </label>
-                                </div>
-                            </div>
+                        
+                        <div class="btn  me-2 " role="group" aria-label="First group">
+                       
+    
+                        <div class="form-check form-check-inline">
+                       
+                                            <span class="text-danger">*</span></label>
+  <input class="form-check-input" type="radio" name="wher" id="inlineRadio1" value="island">
+  <label class="form-check-label" for="inlineRadio1">جزر</label>
+</div>
+<div class="form-check form-check-inline">
+
+                                    <span class="text-danger">*</span></label>
+  <input class="form-check-input" type="radio" name="wher" id="inlineRadio2" value="citie">
+  <label class="form-check-label" for="inlineRadio2">مدن</label>
+</div>
+<input type="submit" class="btn btn btn-success" name="ok" value="تاكد">
+  </div>
+                      
+  
+                          
 
 
                             <div class="mb-3 col-md-5">
@@ -65,8 +71,29 @@
                             <label> الوجهه<span class="text-danger">*</span></label>
                                 <select name="Region" class="form-select" id="language" style="text-align: center;" required>
                                     <option selected disabled value="null" >الوجهه</option>
-                                    <option value="arabic">العربية</option>
-                                    <option value="English">English</option>
+                                    <?php
+                                    if(isset($_POST['wher'])){
+                                    if( $_POST['wher']=="island"){
+
+                               
+                                     echo"   <option value=fursan>فرسان</option>
+                                    <option value=amlaj>املج</option>
+                                    <option value=mm>المالديف</option>
+                                    <option value=??>مجهوله</option>";
+                                      }  elseif( $_POST['wher']=="citie"){
+                                        echo"   <option value=arabic>الرياض</option>
+                                        <option value=English>ابها</option>
+                                        <option value=arabic>جدة</option>
+                                        <option value=English>الباحة</option>";  
+                                    }else{
+                                        echo"   <option value=arabic>عليك اختيار وجهه</option>";
+                                    }
+                                    }
+                                    
+                                    
+                                    
+                                    ?>
+                                 
                                 </select>
                             </div>
                          
@@ -84,52 +111,23 @@
         </div>
     </div>
     <!-- form_Check_in -->
+    <?php
+    $host="localhost";
+    $user="root";
+    $password="";
+    $dbname="naseem_sa";
+    $conn=new mysqli($host,$user,$password,$dbname);
     
+
+        $query="insert into requests(fname,lname,numb,emil,lang) select first_name,last_name,phone_number,email,language from tourist where id=1";
+        $result=mysqli_query($conn,$query);
+        echo"<br><strong style=color:#43a047;>تم الحجز </strong>";
+         
+   
     
 
-<?php
-$host="localhost";
-$user="root";
-$password="";
-$dbname="naseem_sa";
-$conn=mysqli_connect($host,$user,$password,$dbname);
+    ?>
 
-$query="SELECT `first_name`, `last_name`, `email`, `phone_number`, `age`, `gender`, `language` FROM `tour_guide` WHERE 1";
-$result=mysqli_query($conn,$query);
-
-if($result){
-
-while($row =mysqli_fetch_assoc($result)){
-
-if(isset($_POST['request']) &&  !empty($_POST['Region'])) {
- echo"<form  method=post id=p2><div class=card style=width: 18rem;>
-<input type=submit name=yas value=طلب>
-<input type=submit name=no value=تجاهل onclick=document.getElementById(p2).style.display=none>
-<div class=card-body>
-<h5 class=card-title>".$row['first_name']." ".$row['last_name']."</h5>
-<p class=card-text>".$row['email']." ".$row['phone_number']."".$row['age']." ".$row['gender']." ".$row['language']." ".$_POST['Region']."</p>
-
-</div>
-</div>"; 
-}
-if(isset($_POST['yas'])) {
- echo"<div class=card style=width: 18rem; id=p2 >
-<input type=submit value=طلب>
-<input type=submit name=no value=تجاهل onclick=document.getElementById(p2).style.display=none>
-<div class=card-body>
-<h5 class=card-title>hi</h5>
-<p class=card-text style=color:green;><a  href=https://accounts.google.com/b/0/AddMailService>".$row['email']."</a><br><a href=https://web.whatsapp.com/>".$row['phone_number']."</a></p>
-
-</div>
-</div>"; 
-} 
-
-}
-
-}
-
-
-?>
 <?php require('components/footre.php'); ?>
 </body>
 

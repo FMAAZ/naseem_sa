@@ -25,7 +25,6 @@
                     <form method="POST" class="mt-6 border p-4 bg-light shadow">
                         <h4 class="mb-3 text-center text-secondary">
                             طلب مرشد 
-                            
                         </h4>
                         <hr class="featurette-divider">
                         <div class="row">
@@ -54,13 +53,8 @@
 
                             <div class="mb-3 col-md-5">
                                 <label>عدد الايام </label>
-                                <input type="text" name="last_name" class="form-control" placeholder="عدد الايام "
-                                    >
+                                <input type="text" name="last_name" class="form-control" placeholder="عدد الايام ">
                             </div>
-
-                      
-
-
                             <div class="mb-3 col-md-9 col-6 mx-auto">
                             <label> الوجهه<span class="text-danger">*</span></label>
                                 <select name="Region" class="form-select" id="language" style="text-align: center;" required>
@@ -69,12 +63,9 @@
                                     <option value="English">English</option>
                                 </select>
                             </div>
-                         
                             <div class="d-grid gap-2 col-6 mx-auto">
                                 <button class="btn btn-success float-end" name="request">   
-                                    طلب
-                                    
-                                </button>
+                                    طلب                                </button>
                             </div>
                         </div>
                     </form>

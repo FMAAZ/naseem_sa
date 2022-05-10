@@ -24,21 +24,13 @@
                 <div class="signup-form">
                     <form method="POST" class="mt-6 border p-4 bg-light shadow">
                         <h4 class="mb-3 text-center text-secondary">
-                           طلبات 
+                            طلبات 
                         </h4>
                         <hr class="featurette-divider">
-                       
-
-
-                      
-   
                             <div class="d-grid gap-2 col-3 mx-auto" >
-                              
                                 <div class="" role="group" aria-label="Basic example">
-  <button type="button" class="btn btn-success " name="acceptance">قبول</button>
-  <button type="button" class="btn btn-danger ">رفض</button>         
-  
-                                
+<button type="button" class="btn btn-success" name="acceptance">قبول</button>
+<button type="button" class="btn btn-danger">رفض</button>         
                             </div>
                         </div>
                     </form>

@@ -2,7 +2,7 @@
 <html lang="en" dir="rtl">
 <?php require('components/head_inc.php');?>  
 <body>
-   <?php include ('components/niv.php')?>
+    <?php include ('components/niv.php')?>
     <div id="myCarousel" class="carousel slide pointer-event" data-bs-ride="carousel">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"

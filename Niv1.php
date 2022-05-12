@@ -16,8 +16,8 @@
 
 </head>
 <body>
-      <!--Icons-->
-  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <!--Icons-->
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
         <symbol id="bootstrap" viewBox="0 0 16 16">
             <title>نسيم السعودية</title>
             <path fill-rule="evenodd"
@@ -59,9 +59,7 @@
                             </svg>
                             صفحة الرئيسية
                         </a>
-                      </li>
-                   
-                   
+                </li>
                     <!-- tourism.php -->
                     <li><a href="#scrollspyHeading2" class="nav-link px-2 link-success">
                             <svg class="bi d-block mx-auto mb-1" width="24" height="24">
@@ -69,7 +67,6 @@
                             </svg>
                             الاماكن السياحية
                         </a></li>
-               
                         <li class="nav-item"><a href="#scrollspyHeading1" class="nav-link px-2 link-success">
                             <svg class="bi d-block mx-auto mb-1" width="24" height="24">
                                 <use xlink:href="#people-circle" />
@@ -78,113 +75,18 @@
                         </a>
                         </li>
                 </ul>
-                <?php
-                if($_SESSION["email"]==$_SESSION["email_tourist"] && $_SESSION["password"]==$_SESSION["password_tourist"])
+        <?php
+        // session_unset();
+            if(!empty($_SESSION["email_tourist"]) && !empty($_SESSION["password_tourist"]))
+            {
+                if(isset($_POST["update"])) 
                 {
                     require_once 'connect_database.php';
                     $profile_info = $connect_database->prepare('SELECT * FROM tourist WHERE email = "'.$_SESSION["email_tourist"].'" AND password = "'.$_SESSION["password_tourist"].'"');
                     $profile_info->execute();
                     foreach($profile_info as $print)
                     {
-                        echo '
-                                <!-- profile -->
-                                <div class="col-md-3 text-end">
-                                <ul class="nav">
-                                <div class="dropdown text-end">
-                                <a href="#offcanvasExample" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="assistances/images/svg.svg" alt="mdo" width="50" height="50" class="rounded-circle">
-                                </a>
-                                <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
-                                <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">عرض الملف</a></li>
-                                <li><a class="dropdown-item" href="#">عرض الطلبات</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="#">تسجيل خروج</a></li>
-                                </ul>
-                                </div> 
-                                </ul>
-                                </div>
-                                <!-- profile -->
-                                </header>
-                                </div>
-                                </main>
-                                <!--NAVbar/-->
-                                <!-- ------------------------------------------------------------- -->
-                                <!-- offcanvas -->
-                                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
-                                <div class="offcanvas-header alert-success">
-                                <h6 class="offcanvas-title" id="offcanvasExampleLabel">الملف الشخصي</h6>
-                                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                                </div>
-                                <div class="offcanvas-body">
-                                <!-- form -->
-                                <div class="container">
-                                <div class="card-title text-center border-bottom">
-                                <img src="https://github.com/mdo.png" alt="mdo" width="60" height="60" class="rounded-circle">
-                                <h2 class="p-0">id '.$print["ID"].'</h2>
-                                </div>
-                                <div class="card-body">
-                                <form>
-                                <div class="mb-4">   
-                                <label for="staticEmail" class="col-sm-4  col-form-label alert-success">(نوع التسجيل):</label>
-                                <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="سائح">
-                                </div>
-                                <hr class="featurette-divider">
-                                <div class="mb-4">
-                                <label for="staticEmail" class="col-sm-6 col-form-label alert-success">(بينات التواصل):</label>
-                                </div>
-                                <div class="mb-0">
-                                <label for="staticPassword" class="col-sm-4 col-form-label">البريد الاكتوني:</label>
-                                <input type="text" readonly class="form-control-plaintext" id="staticPassword" value="'.$print["email"].'">
-                                </div>
-                                <div class="mb-0">
-                                <label for="staticPassword" class="col-sm-4 col-form-label"> رقم الهاتف:</label>
-                                <input type="text" readonly class="form-control-plaintext" id="staticPassword" value="0'.$print["phone_number"].'">
-                                </div>
-                                <hr class="featurette-divider">
-                                <div class="mb-3">
-                                <label for="staticEmail" class="col-sm-6 col-form-label alert-success">(البيانات الشخصية):</label>
-                                </div>
-                                <div class="mb-0">
-                                <label for="staticPassword" class="col-sm-4 col-form-label">الاسم الاول:</label>
-                                <input type="text" readonly class="form-control-plaintext" id="staticPassword" value="'.$print["first_name"].'">
-                                </div>
-                                <div class="mb-0">
-                                <label for="staticPassword" class="col-sm-4 col-form-label">الاسم الاخير:</label>
-                                <input type="text" readonly class="form-control-plaintext" id="staticPassword" value="'.$print["last_name"].'">
-                                </div>
-                                <div class="mb-0">
-                                <label for="staticPassword" class="col-sm-4 col-form-label">الجنس:</label>
-                                <input type="text" readonly class="form-control-plaintext" id="staticPassword" value="'.$print["gender"].'">
-                                </div>
-                                <div class="mb-0">
-                                <label for="staticPassword" class="col-sm-4 col-form-label"> اللغة:</label>
-                                <input type="text" readonly class="form-control-plaintext" id="staticPassword" value="'.$print["language"].'">
-                                </div>
-                                <div class="mb-0">
-                                <label for="staticPassword" class="col-sm-4 col-form-label">  العمر:</label>
-                                <input type="text" readonly class="form-control-plaintext" id="staticPassword" value="'.$print["age"].'">
-                                </div>
-                                <hr class="featurette-divider">
-                                <div class="mb-0">
-                                <button type="submit" name="update_info" class="btn  btn-success mb-3">تعديل</button>
-                                </div>
-                                </form>
-                                </div>
-                                </div>    
-                                </div>
-                                <!-- form -->
-                                </div>
-                                <!-- offcanvas -->
-                        ';
-                    }
-                }
-                elseif($_SESSION["email"]==$_SESSION["email_tour_guide"] && $_SESSION["password"]==$_SESSION["password_tour_guide"])
-                {
-                    require_once 'connect_database.php';
-                    $profile_info = $connect_database->prepare('SELECT * FROM tour_guide WHERE email = "'.$_SESSION["email_tour_guide"].'" AND password = "'.$_SESSION["password_tour_guide"].'"');
-                    $profile_info->execute();
-                    foreach($profile_info as $print)
-                    {
+                        $_SESSION["ID"] = $print["ID"];
                         echo '
                                 <!-- profile -->
                                 <div class="col-md-3 text-end">
@@ -222,7 +124,7 @@
                                 <h2 class="p-0">id '.$print["ID"].'</h2>
                                 </div>
                                 <div class="card-body">
-                                <form>
+                                <form method="POST">
                                 <div class="mb-4">   
                                 <label for="staticEmail" class="col-sm-4  col-form-label alert-success">(نوع التسجيل):</label>
                                 <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="سائح">
@@ -233,11 +135,11 @@
                                 </div>
                                 <div class="mb-0">
                                 <label for="staticPassword" class="col-sm-4 col-form-label">البريد الاكتوني:</label>
-                                <input type="text" readonly class="form-control-plaintext" id="staticPassword" value="'.$print["email"].'">
+                                <input type="email" name="email" class="form-control-plaintext" id="staticPassword" value="'.$print["email"].'">
                                 </div>
                                 <div class="mb-0">
                                 <label for="staticPassword" class="col-sm-4 col-form-label"> رقم الهاتف:</label>
-                                <input type="text" readonly class="form-control-plaintext" id="staticPassword" value="0'.$print["phone_number"].'">
+                                <input type="phone_number" name="phone_number" class="form-control-plaintext" id="staticPassword" value="0'.$print["phone_number"].'">
                                 </div>
                                 <hr class="featurette-divider">
                                 <div class="mb-3">
@@ -245,23 +147,84 @@
                                 </div>
                                 <div class="mb-0">
                                 <label for="staticPassword" class="col-sm-4 col-form-label">الاسم الاول:</label>
-                                <input type="text" readonly class="form-control-plaintext" id="staticPassword" value="'.$print["first_name"].'">
+                                <input type="text" name="first_name" class="form-control-plaintext" id="staticPassword" value="'.$print["first_name"].'">
                                 </div>
                                 <div class="mb-0">
                                 <label for="staticPassword" class="col-sm-4 col-form-label">الاسم الاخير:</label>
-                                <input type="text" readonly class="form-control-plaintext" id="staticPassword" value="'.$print["last_name"].'">
+                                <input type="text" name="last_name" class="form-control-plaintext" id="staticPassword" value="'.$print["last_name"].'">
                                 </div>
-                                <div class="mb-0">
-                                <label for="staticPassword" class="col-sm-4 col-form-label">الجنس:</label>
-                                <input type="text" readonly class="form-control-plaintext" id="staticPassword" value="'.$print["gender"].'">
-                                </div>
-                                <div class="mb-0">
-                                <label for="staticPassword" class="col-sm-4 col-form-label"> اللغة:</label>
-                                <input type="text" readonly class="form-control-plaintext" id="staticPassword" value="'.$print["language"].'">
-                                </div>
+                                ';?>
+                                <?php
+                                if($print["gender"] == "أنثى")
+                                {
+                                    echo'
+                                    <div class="mb-3 col-md-6">
+                                    <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="gender" id="inlineRadio3" value="ذكر" required>
+                                    <label class="form-check-label" for="inlineRadio3"> ذكر<span
+                                    class="text-danger">*</span></label>
+                                    </div>
+                                    </div>
+                                    <div class="mb-3 col-md-6">
+                                    <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="gender" id="inlineRadio4" value="أنثى" required checked>
+                                    <label class="form-check-label" for="inlineRadio4">انثى<span
+                                    class="text-danger">*</span>
+                                    </label>
+                                    </div>
+                                    </div>
+                                    ';
+                                }
+                                elseif($print["gender"] == "ذكر")
+                                {
+                                    echo'
+                                    <div class="mb-3 col-md-6">
+                                    <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="gender" id="inlineRadio3" value="ذكر" required checked>
+                                    <label class="form-check-label" for="inlineRadio3"> ذكر<span
+                                    class="text-danger">*</span></label>
+                                    </div>
+                                    </div>
+                                    <div class="mb-3 col-md-6">
+                                    <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="gender" id="inlineRadio4" value="أنثى" required>
+                                    <label class="form-check-label" for="inlineRadio4">انثى<span
+                                    class="text-danger">*</span>
+                                    </label>
+                                    </div>
+                                    </div>
+                                    ';
+                                }
+                                ?>
+                                <?php
+                                if($print["language"] == "English")
+                                {
+                                    echo '
+                                    <div class="mb-3 col-md-5">
+                                    <label> اللغة<span class="text-danger">*</span></label>
+                                    <select name="language" class="form-select" id="language" required>
+                                    <option value="English">English</option>
+                                    <option value="العربية">العربية</option>
+                                    </select>
+                                    </div>
+                                    ';
+                                }
+                                elseif($print["language"] == "العربية")
+                                {
+                                    echo '
+                                    <div class="mb-3 col-md-5">
+                                    <label> اللغة<span class="text-danger">*</span></label>
+                                    <select name="language" class="form-select" id="language" required>
+                                    <option value="العربية">العربية</option>
+                                    <option value="English">English</option>
+                                    </select>
+                                    </div>
+                                    ';
+                                }
+                                echo'
                                 <div class="mb-0">
                                 <label for="staticPassword" class="col-sm-4 col-form-label">  العمر:</label>
-                                <input type="text" readonly class="form-control-plaintext" id="staticPassword" value="'.$print["age"].'">
+                                <input type="number" name="age" class="form-control-plaintext" id="staticPassword" value="'.$print["age"].'">
                                 </div>
                                 <hr class="featurette-divider">
                                 <div class="mb-0">
@@ -275,9 +238,436 @@
                                 </div>
                                 <!-- offcanvas -->
                         ';
+                        if(empty($_POST["email"]))
+                        $_POST["email"] = $print["email"];
+
+                        if(empty($_POST["first_name"]))
+                        $_POST["first_name"] = $print["first_name"];
+
+                        if(empty($_POST["last_name"]))
+                        $_POST["last_name"] = $print["last_name"];
+
+                        if(empty($_POST["language"]))
+                        $_POST["language"] = $print["language"];
+
+                        if(empty($_POST["phone_number"]))
+                        $_POST["phone_number"] = $print["phone_number"];
+
+                        if(empty($_POST["age"]))
+                        $_POST["age"] = $print["age"];
+                        
+                        if(empty($_POST["gender"]))
+                        $_POST["gender"] = $print["gender"];
                     }
                 }
-                ?>
-                
+                elseif(!isset($_POST["update"]))
+                {
+                    require_once 'connect_database.php';
+                    $profile_info = $connect_database->prepare('SELECT * FROM tourist WHERE email = "'.$_SESSION["email_tourist"].'" AND password = "'.$_SESSION["password_tourist"].'"');
+                    $profile_info->execute();
+                    foreach($profile_info as $print)
+                    {
+                        $_SESSION["ID"] = $print["ID"];
+                        echo '
+                                <!-- profile -->
+                                <div class="col-md-3 text-end">
+                                <ul class="nav">
+                                <div class="dropdown text-end">
+                                <a href="#offcanvasExample" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="assistances/images/svg.svg" alt="mdo" width="50" height="50" class="rounded-circle">
+                                </a>
+                                <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+                                <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">عرض الملف</a></li>
+                                <li><a class="dropdown-item" href="#">عرض الطلبات</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">تسجيل خروج</a></li>
+                                </ul>
+                                </div> 
+                                </ul>
+                                </div>
+                                <!-- profile -->
+                                </header>
+                                </div>
+                                </main>
+                                <!--NAVbar/-->
+                                <!-- ------------------------------------------------------------- -->
+                                <!-- offcanvas -->
+                                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+                                <div class="offcanvas-header alert-success">
+                                <h6 class="offcanvas-title" id="offcanvasExampleLabel">الملف الشخصي</h6>
+                                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                </div>
+                                <div class="offcanvas-body">
+                                <!-- form -->
+                                <div class="container">
+                                <div class="card-title text-center border-bottom">
+                                <img src="https://github.com/mdo.png" alt="mdo" width="60" height="60" class="rounded-circle">
+                                <h3 class="p-0">id '.$print["ID"].'</h3>
+                                </div>
+                                <div class="card-body">
+                                <div class="mb-4">
+                                <h5>نوع التسجيل </h5> <h6>سائح</h6>
+                                </div>
+                                <hr class="featurette-divider">
+                                <div class="mb-4">
+                                <h4>بيانات التواصل</h4><br>
+                                </div>
+                                <div class="mb-0">
+                                <h5>البريد الإلكتروني </h5>
+                                <h6>'.$print["email"].'</h6>
+                                </div>
+                                <div class="mb-0">
+                                <h5> رقم الهاتف </h5>
+                                <h6>'.$print["phone_number"].'</h6>
+                                </div>
+                                <hr class="featurette-divider">
+                                <div class="mb-3">
+                                <h4>البيانات الشخصية </h4>
+                                </div>
+                                <div class="mb-0">
+                                <h5>الاسم </h5>
+                                <h6>'.$print["first_name"].' '.$print["last_name"].'</h6>
+                                </div>
+                                <div class="mb-0">
+                                <h5>الجنس </h5>
+                                <h6>'.$print["gender"].'</h6>
+                                </div>
+                                <div class="mb-0">
+                                <h5>اللغة </h5>
+                                <h6>'.$print["language"].'</h6>
+                                </div>
+                                <div class="mb-0">
+                                <h5>العمر </h5>
+                                <h6>'.$print["age"].'</h6>
+                                </div>
+                                <hr class="featurette-divider">
+                                <form method="POST">
+                                <div class="mb-0">
+                                <button type="submit" name="update" class="btn  btn-success mb-3">تعديل</button>
+                                </div>
+                                </form>
+                                </div>
+                                </div>    
+                                </div>
+                                <!-- form -->
+                                </div>
+                                <!-- offcanvas -->
+                        ';
+                    }
+                }
+            }
+            elseif(!empty($_SESSION["email_tour_guide"]) && !empty($_SESSION["password_tour_guide"]))
+            {
+                if(isset($_POST["update"])) 
+                {
+                    require_once 'connect_database.php';
+                    $profile_info = $connect_database->prepare('SELECT * FROM tour_guide WHERE email = "'.$_SESSION["email_tour_guide"].'" AND password = "'.$_SESSION["password_tour_guide"].'"');
+                    $profile_info->execute();
+                    foreach($profile_info as $print)
+                    {
+                        $_SESSION["ID"] = $print["ID"];
+                        echo '
+                                <!-- profile -->
+                                <div class="col-md-3 text-end">
+                                <ul class="nav">
+                                <div class="dropdown text-end">
+                                <a href="#offcanvasExample" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="https://github.com/mdo.png" alt="mdo" width="50" height="50" class="rounded-circle">
+                                </a>
+                                <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+                                <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">عرض الملف</a></li>
+                                <li><a class="dropdown-item" href="#">عرض الطلبات</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">تسجيل خروج</a></li>
+                                </ul>
+                                </div> 
+                                </ul>
+                                </div>
+                                <!-- profile -->
+                                </header>
+                                </div>
+                                </main>
+                                <!--NAVbar/-->
+                                <!-- ------------------------------------------------------------- -->
+                                <!-- offcanvas -->
+                                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+                                <div class="offcanvas-header alert-success">
+                                <h6 class="offcanvas-title" id="offcanvasExampleLabel">الملف الشخصي</h6>
+                                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                </div>
+                                <div class="offcanvas-body">
+                                <!-- form -->
+                                <div class="container">
+                                <div class="card-title text-center border-bottom">
+                                <img src="https://github.com/mdo.png" alt="mdo" width="60" height="60" class="rounded-circle">
+                                <h2 class="p-0">id '.$print["ID"].'</h2>
+                                </div>
+                                <div class="card-body">
+                                <form method="POST">
+                                <div class="mb-4">   
+                                <label for="staticEmail" class="col-sm-4  col-form-label alert-success">(نوع التسجيل):</label>
+                                <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="مرشد سياحي">
+                                </div>
+                                <hr class="featurette-divider">
+                                <div class="mb-4">
+                                <label for="staticEmail" class="col-sm-6 col-form-label alert-success">(بينات التواصل):</label>
+                                </div>
+                                <div class="mb-0">
+                                <label for="staticPassword" class="col-sm-4 col-form-label">البريد الاكتوني:</label>
+                                <input type="email" name="email" class="form-control-plaintext" id="staticPassword" value="'.$print["email"].'">
+                                </div>
+                                <div class="mb-0">
+                                <label for="staticPassword" class="col-sm-4 col-form-label"> رقم الهاتف:</label>
+                                <input type="phone_number" name="phone_number" class="form-control-plaintext" id="staticPassword" value="0'.$print["phone_number"].'">
+                                </div>
+                                <hr class="featurette-divider">
+                                <div class="mb-3">
+                                <label for="staticEmail" class="col-sm-6 col-form-label alert-success">(البيانات الشخصية):</label>
+                                </div>
+                                <div class="mb-0">
+                                <label for="staticPassword" class="col-sm-4 col-form-label">الاسم الاول:</label>
+                                <input type="text" name="first_name" class="form-control-plaintext" id="staticPassword" value="'.$print["first_name"].'">
+                                </div>
+                                <div class="mb-0">
+                                <label for="staticPassword" class="col-sm-4 col-form-label">الاسم الاخير:</label>
+                                <input type="text" name="last_name" class="form-control-plaintext" id="staticPassword" value="'.$print["last_name"].'">
+                                </div>
+                                ';?>
+                                <?php
+                                if($print["gender"] == "أنثى")
+                                {
+                                    echo'
+                                    <div class="mb-3 col-md-6">
+                                    <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="gender" id="inlineRadio3" value="ذكر" required>
+                                    <label class="form-check-label" for="inlineRadio3"> ذكر<span
+                                    class="text-danger">*</span></label>
+                                    </div>
+                                    </div>
+                                    <div class="mb-3 col-md-6">
+                                    <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="gender" id="inlineRadio4" value="أنثى" required checked>
+                                    <label class="form-check-label" for="inlineRadio4">انثى<span
+                                    class="text-danger">*</span>
+                                    </label>
+                                    </div>
+                                    </div>
+                                    ';
+                                }
+                                elseif($print["gender"] == "ذكر")
+                                {
+                                    echo'
+                                    <div class="mb-3 col-md-6">
+                                    <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="gender" id="inlineRadio3" value="ذكر" required checked>
+                                    <label class="form-check-label" for="inlineRadio3"> ذكر<span
+                                    class="text-danger">*</span></label>
+                                    </div>
+                                    </div>
+                                    <div class="mb-3 col-md-6">
+                                    <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="gender" id="inlineRadio4" value="أنثى" required>
+                                    <label class="form-check-label" for="inlineRadio4">انثى<span
+                                    class="text-danger">*</span>
+                                    </label>
+                                    </div>
+                                    </div>
+                                    ';
+                                }
+                                ?>
+                                <?php
+                                if($print["language"] == "English")
+                                {
+                                    echo '
+                                    <div class="mb-3 col-md-5">
+                                    <label> اللغة<span class="text-danger">*</span></label>
+                                    <select name="language" class="form-select" id="language" required>
+                                    <option value="English">English</option>
+                                    <option value="العربية">العربية</option>
+                                    </select>
+                                    </div>
+                                    ';
+                                }
+                                elseif($print["language"] == "العربية")
+                                {
+                                    echo '
+                                    <div class="mb-3 col-md-5">
+                                    <label> اللغة<span class="text-danger">*</span></label>
+                                    <select name="language" class="form-select" id="language" required>
+                                    <option value="العربية">العربية</option>
+                                    <option value="English">English</option>
+                                    </select>
+                                    </div>
+                                    ';
+                                }
+                                echo'
+                                <div class="mb-0">
+                                <label for="staticPassword" class="col-sm-4 col-form-label">  العمر:</label>
+                                <input type="number" name="age" class="form-control-plaintext" id="staticPassword" value="'.$print["age"].'">
+                                </div>
+                                <hr class="featurette-divider">
+                                <div class="mb-0">
+                                <button type="submit" name="update_info" class="btn  btn-success mb-3">تعديل</button>
+                                </div>
+                                </form>
+                                </div>
+                                </div>    
+                                </div>
+                                <!-- form -->
+                                </div>
+                                <!-- offcanvas -->
+                        ';
+                        if(empty($_POST["email"]))
+                        $_POST["email"] = $print["email"];
+
+                        if(empty($_POST["first_name"]))
+                        $_POST["first_name"] = $print["first_name"];
+
+                        if(empty($_POST["last_name"]))
+                        $_POST["last_name"] = $print["last_name"];
+
+                        if(empty($_POST["language"]))
+                        $_POST["language"] = $print["language"];
+
+                        if(empty($_POST["phone_number"]))
+                        $_POST["phone_number"] = $print["phone_number"];
+
+                        if(empty($_POST["age"]))
+                        $_POST["age"] = $print["age"];
+
+                        if(empty($_POST["gender"]))
+                        $_POST["gender"] = $print["gender"];
+                    }
+                }
+                elseif(!isset($_POST["update"]))
+                {
+                    require_once 'connect_database.php';
+                    $profile_info = $connect_database->prepare('SELECT * FROM tour_guide WHERE email = "'.$_SESSION["email_tour_guide"].'" AND password = "'.$_SESSION["password_tour_guide"].'"');
+                    $profile_info->execute();
+                    foreach($profile_info as $print)
+                    {
+                        $_SESSION["ID"] = $print["ID"];
+                        echo '
+                                <!-- profile -->
+                                <div class="col-md-3 text-end">
+                                <ul class="nav">
+                                <div class="dropdown text-end">
+                                <a href="#offcanvasExample" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="assistances/images/svg.svg" alt="mdo" width="50" height="50" class="rounded-circle">
+                                </a>
+                                <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+                                <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">عرض الملف</a></li>
+                                <li><a class="dropdown-item" href="#">عرض الطلبات</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">تسجيل خروج</a></li>
+                                </ul>
+                                </div> 
+                                </ul>
+                                </div>
+                                <!-- profile -->
+                                </header>
+                                </div>
+                                </main>
+                                <!--NAVbar/-->
+                                <!-- ------------------------------------------------------------- -->
+                                <!-- offcanvas -->
+                                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+                                <div class="offcanvas-header alert-success">
+                                <h6 class="offcanvas-title" id="offcanvasExampleLabel">الملف الشخصي</h6>
+                                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                </div>
+                                <div class="offcanvas-body">
+                                <!-- form -->
+                                <div class="container">
+                                <div class="card-title text-center border-bottom">
+                                <img src="https://github.com/mdo.png" alt="mdo" width="60" height="60" class="rounded-circle">
+                                <h3 class="p-0">id '.$print["ID"].'</h3>
+                                </div>
+                                <div class="card-body">
+                                <div class="mb-4">
+                                <h5>نوع التسجيل </h5> <h6>مرشد سياحي</h6>
+                                </div>
+                                <hr class="featurette-divider">
+                                <div class="mb-4">
+                                <h4>بيانات التواصل</h4><br>
+                                </div>
+                                <div class="mb-0">
+                                <h5>البريد الإلكتروني </h5>
+                                <h6>'.$print["email"].'</h6>
+                                </div>
+                                <div class="mb-0">
+                                <h5> رقم الهاتف </h5>
+                                <h6>'.$print["phone_number"].'</h6>
+                                </div>
+                                <hr class="featurette-divider">
+                                <div class="mb-3">
+                                <h4>البيانات الشخصية </h4>
+                                </div>
+                                <div class="mb-0">
+                                <h5>الاسم </h5>
+                                <h6>'.$print["first_name"].' '.$print["last_name"].'</h6>
+                                </div>
+                                <div class="mb-0">
+                                <h5>الجنس </h5>
+                                <h6>'.$print["gender"].'</h6>
+                                </div>
+                                <div class="mb-0">
+                                <h5>اللغة </h5>
+                                <h6>'.$print["language"].'</h6>
+                                </div>
+                                <div class="mb-0">
+                                <h5>العمر </h5>
+                                <h6>'.$print["age"].'</h6>
+                                </div>
+                                <hr class="featurette-divider">
+                                <form method="POST">
+                                <div class="mb-0">
+                                <button type="submit" name="update" class="btn  btn-success mb-3">تعديل</button>
+                                </div>
+                                </form>
+                                </div>
+                                </div>    
+                                </div>
+                                <!-- form -->
+                                </div>
+                                <!-- offcanvas -->
+                        ';
+                    }
+                }
+            }
+            else
+            {
+                echo '
+                <div class="col-md-3 text-end">
+                    <ul class="nav">
+                        <li class="nav-item"><a href="Log_in.php" class="btn btn-outline-success"> تسجيل الدخول
+                            </a>
+                        </li>
+                        &numsp;
+                        <li class="nav-item"><a href="login_new.php" class="btn btn-success"> تسجيل جديد
+                            </a>
+                        </li> 
+                    </ul>
+                </div>
+                ';
+            }
+            //---------------------------------//
+            if(!empty($_SESSION["email_tourist"]) && !empty($_SESSION["password_tourist"]) && isset($_POST["update_info"]))
+            {
+                    require_once 'connect_database.php';
+                    $update_profile_info = $connect_database->prepare('UPDATE tourist SET first_name = "'.$_POST["first_name"].'" , last_name = "'.$_POST["last_name"].'" ,
+                    email = "'.$_POST["email"].'" , phone_number = '.$_POST["phone_number"].' , age = '.$_POST["age"].' , gender = "'.$_POST["gender"].'" ,
+                    language = "'.$_POST["language"].'" WHERE ID = '.$_SESSION["ID"].'');
+                    $update_profile_info->execute();
+            }
+            elseif(!empty($_SESSION["email_tour_guide"]) && !empty($_SESSION["password_tour_guide"]) && isset($_POST["update_info"]))
+            {
+                    require_once 'connect_database.php';
+                    $update_profile_info = $connect_database->prepare('UPDATE tour_guide SET first_name = "'.$_POST["first_name"].'" , last_name = "'.$_POST["last_name"].'" ,
+                    email = "'.$_POST["email"].'" , phone_number = '.$_POST["phone_number"].' , age = '.$_POST["age"].' , gender = "'.$_POST["gender"].'" ,
+                    language = "'.$_POST["language"].'" WHERE ID = '.$_SESSION["ID"].'');
+                    $update_profile_info->execute();
+            }
+        ?>
 </body>
 </html>

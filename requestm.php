@@ -31,9 +31,10 @@
                     <form method="POST" class="mt-6 border p-4 bg-light shadow">
                         <input  type="submit" name='show' class="btn btn-primary btn-sm" value="عرض الطلبات"> 
                         <h4 class="mb-3 text-center text-secondary">
-                           طلبات 
+                            طلبات 
                         </h4>
                         <hr class="featurette-divider">
+<<<<<<< HEAD
                        <?php
                        if(isset($_POST['show'])){
 echo"name is: ,<br>he is ******";
@@ -51,6 +52,12 @@ echo"name is: ,<br>he is ******";
   <input type="submit" class="btn btn-danger "name="refusal" value="رفض">        
   
                                 
+=======
+                            <div class="d-grid gap-2 col-3 mx-auto" >
+                                <div class="" role="group" aria-label="Basic example">
+<button type="button" class="btn btn-success" name="acceptance">قبول</button>
+<button type="button" class="btn btn-danger">رفض</button>         
+>>>>>>> 054414712ee1082f41759181da58359f746b40a3
                             </div>
                         </div >
                     </form>

@@ -69,12 +69,11 @@
 
         if(!empty($_SESSION["email_tourist"]) && !empty($_SESSION["password_tourist"]) && $_SESSION["email_tourist"] == $_SESSION['email'] && $_SESSION["password_tourist"] == $_SESSION['password'])
         {
-          header("refresh:3; url=http://localhost/naseem_sa_1/naseem_sa/request.php");
-
+          // header("refresh:3; url=http://localhost/naseem_sa_1/naseem_sa/request.php");
         }
         elseif(!empty($_SESSION["email_tour_guide"]) && !empty($_SESSION["password_tour_guide"]) && $_SESSION["email_tour_guide"] == $_SESSION['email'] && $_SESSION["password_tour_guide"] == $_SESSION['password'])
         {
-          header("refresh:3; url=http://localhost/naseem_sa_1/naseem_sa/requestm.php");
+          // header("refresh:3; url=http://localhost/naseem_sa_1/naseem_sa/requestm.php");
         }
         elseif(empty($_SESSION["email_tour_guide"]) || empty($_SESSION["password_tour_guide"]) || empty($_SESSION["email_tourist"]) || empty($_SESSION["password_tourist"]))
         {

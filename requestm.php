@@ -34,11 +34,31 @@
                             طلبات 
                         </h4>
                         <hr class="featurette-divider">
-<<<<<<< HEAD
+
                        <?php
+                        $host="localhost";
+                        $user="root";
+                        $password="";
+                        $dbname="naseem_sa";
+                        $conn=mysqli_connect($host,$user,$password,$dbname);
+                        $type_date=date_default_timezone_set("Asia/Riyadh");
+                        $date=date("Y-m-d");
+                        
+                        $query="SELECT * FROM tourist WHERE 	req_id =(SELECT req_id FROM requests WHERE req_status is null && req_date=$date)";
+                        $result=mysqli_query($conn,$query);
+                        
+                        if($result){
+                            
+                            while($row =mysqli_fetch_assoc($result)){
+                        
+                              
                        if(isset($_POST['show'])){
-echo"name is: ,<br>he is ******";
+echo  $row['first_name'].' '.$row['last_name'];
+
+
 }
+                            }
+                        }
 
                 
                        
@@ -52,19 +72,28 @@ echo"name is: ,<br>he is ******";
   <input type="submit" class="btn btn-danger "name="refusal" value="رفض">        
   
                                 
-=======
-                            <div class="d-grid gap-2 col-3 mx-auto" >
-                                <div class="" role="group" aria-label="Basic example">
-<button type="button" class="btn btn-success" name="acceptance">قبول</button>
-<button type="button" class="btn btn-danger">رفض</button>         
->>>>>>> 054414712ee1082f41759181da58359f746b40a3
+
                             </div>
                         </div >
                     </form>
                     <?php
+                       $host="localhost";
+                       $user="root";
+                       $password="";
+                       $dbname="naseem_sa";
+                       $conn=mysqli_connect($host,$user,$password,$dbname);
+                       
+                       $query="SELECT email,phone_number FROM `tourist` WHERE 1";
+                       $result=mysqli_query($conn,$query);
+                       
+                       if($result){
+                           
+                           while($row =mysqli_fetch_assoc($result)){
 if(isset($_POST['acceptance'])){
-    echo"<p><a  href=https://accounts.google.com/b/0/AddMailService>"."email"."</a><br><a href=https://web.whatsapp.com/>"."fon"."</a></p>";
+    echo"<p><a  href=https://accounts.google.com/b/0/AddMailService>".$row['email']."</a><br><a href=https://web.whatsapp.com/>".$row['phone_number']."</a></p>";
 }
+                           }
+                        }
 ?>
                 </div>
             </div>

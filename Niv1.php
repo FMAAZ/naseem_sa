@@ -87,7 +87,6 @@
                     $profile_info->execute();
                     foreach($profile_info as $print)
                     {
-                        $_SESSION["change_email"] = $print["email"];
                         $_SESSION["ID"] = $print["ID"];
                         echo '
                                 <!-- profile -->
@@ -101,11 +100,7 @@
                                 <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">عرض الملف</a></li>
                                 <li><a class="dropdown-item" href="#">عرض الطلبات</a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                <form method"POST">
-                                <li>
-                                <input type="submit" name="sing_out" value="تسجيل الخروج">
-                                </li>
-                                </form>
+                                <li><a class="dropdown-item" href="sing_out">تسجيل الخروج</a></li>
                                 </ul>
                                 </div> 
                                 </ul>
@@ -141,7 +136,7 @@
                                 </div>
                                 <div class="mb-0">
                                 <label for="staticPassword" class="col-sm-4 col-form-label">البريد الاكتوني:</label>
-                                <input type="email" name="email" class="form-control-plaintext" id="staticPassword" value="'.$print["email"].'">
+                                <input type="email" readonly name="email" class="form-control-plaintext" id="staticPassword" value="'.$print["email"].'">
                                 </div>
                                 <div class="mb-0">
                                 <label for="staticPassword" class="col-sm-4 col-form-label"> رقم الهاتف:</label>
@@ -287,11 +282,7 @@
                                 <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">عرض الملف</a></li>
                                 <li><a class="dropdown-item" href="#">عرض الطلبات</a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                <form method"POST">
-                                <li>
-                                <input type="submit" name="sing_out" value="تسجيل الخروج">
-                                </li>
-                                </form>
+                                <li><a class="dropdown-item" href="sing_out">تسجيل الخروج</a></li>
                                 </ul>
                                 </div> 
                                 </ul>
@@ -390,11 +381,7 @@
                                 <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">عرض الملف</a></li>
                                 <li><a class="dropdown-item" href="#">عرض الطلبات</a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                <form method"POST">
-                                <li>
-                                <input type="submit" name="sing_out" value="تسجيل الخروج">
-                                </li>
-                                </form>
+                                <li><a class="dropdown-item" href="sing_out">تسجيل الخروج</a></li>
                                 </ul>
                                 </div> 
                                 </ul>
@@ -430,7 +417,7 @@
                                 </div>
                                 <div class="mb-0">
                                 <label for="staticPassword" class="col-sm-4 col-form-label">البريد الاكتوني:</label>
-                                <input type="email" name="email" class="form-control-plaintext" id="staticPassword" value="'.$print["email"].'">
+                                <input type="email" readonly name="email" class="form-control-plaintext" id="staticPassword" value="'.$print["email"].'">
                                 </div>
                                 <div class="mb-0">
                                 <label for="staticPassword" class="col-sm-4 col-form-label"> رقم الهاتف:</label>
@@ -576,11 +563,7 @@
                                 <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">عرض الملف</a></li>
                                 <li><a class="dropdown-item" href="#">عرض الطلبات</a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                <form method"POST">
-                                <li>
-                                <input type="submit" name="sing_out" value="تسجيل الخروج">
-                                </li>
-                                </form>
+                                <li><a class="dropdown-item" href="sing_out">تسجيل الخروج</a></li>
                                 </ul>
                                 </div> 
                                 </ul>
@@ -681,77 +664,21 @@
             //---------------------------------//
             if(!empty($_SESSION["email_tourist"]) && !empty($_SESSION["password_tourist"]) && isset($_POST["update_info"]))
             {
-                    if($_POST["email"] != $_SESSION["change_email"])
-                    {
-                        require_once 'connect_database.php';
-                        $select_email_tourist = $connect_database->prepare('SELECT email FROM tourist WHERE email = "'.$_POST["email"].'"');
-                        $select_email_tourist->execute();
-                        
-                        $select_email_tour_guide = $connect_database->prepare('SELECT email FROM tour_guide WHERE email = "'.$_POST["email"].'"');
-                        $select_email_tour_guide->execute();
-                        if($select_email_tourist->rowCount()==0 && $select_email_tour_guide->rowCount()==0)
-                        {
-                            $update_profile_info = $connect_database->prepare('UPDATE tourist SET first_name = "'.$_POST["first_name"].'" , last_name = "'.$_POST["last_name"].'" ,
-                            email = "'.$_POST["email"].'" , phone_number = '.$_POST["phone_number"].' , age = '.$_POST["age"].' , gender = "'.$_POST["gender"].'" ,
-                            language = "'.$_POST["language"].'" WHERE ID = '.$_SESSION["ID"].'');
-                            $update_profile_info->execute();
-                        }
-                        else
-                        {
-                            echo 'الإيميل موجود مسبقا';
-                        }
-                        header("refresh:1;url= index.php");
-                    }
-                    elseif($_SESSION["change_email2"] == $_SESSION["change_email"])
-                    {
-                        require_once 'connect_database.php';
-                        $update_profile_info = $connect_database->prepare('UPDATE tourist SET first_name = "'.$_POST["first_name"].'" , last_name = "'.$_POST["last_name"].'" ,
-                        email = "'.$_POST["email"].'" , phone_number = '.$_POST["phone_number"].' , age = '.$_POST["age"].' , gender = "'.$_POST["gender"].'" ,
-                        language = "'.$_POST["language"].'" WHERE ID = '.$_SESSION["ID"].'');
-                        $update_profile_info->execute();
-                        header("Lcation:request.php");
-                    }
-                    else
-                    {
-                        echo 'ERROR';
-                    }
+                require_once 'connect_database.php';
+                $update_profile_info = $connect_database->prepare('UPDATE tourist SET first_name = "'.$_POST["first_name"].'" , last_name = "'.$_POST["last_name"].'" ,
+                phone_number = '.$_POST["phone_number"].' , age = '.$_POST["age"].' , gender = "'.$_POST["gender"].'" ,
+                language = "'.$_POST["language"].'" WHERE ID = '.$_SESSION["ID"].'');
+                $update_profile_info->execute();
+                header("refresh:1;url= index.php");
             }
             elseif(!empty($_SESSION["email_tour_guide"]) && !empty($_SESSION["password_tour_guide"]) && isset($_POST["update_info"]))
             {
-                if($_POST["email"] != $_SESSION["change_email"])
-                {
-                    require_once 'connect_database.php';
-                    $select_email_tourist = $connect_database->prepare('SELECT email FROM tourist WHERE email = "'.$_POST["email"].'"');
-                    $select_email_tourist->execute();
-                    
-                    $select_email_tour_guide = $connect_database->prepare('SELECT email FROM tour_guide WHERE email = "'.$_POST["email"].'"');
-                    $select_email_tour_guide->execute();
-                    if($select_email_tourist->rowCount()==0 && $select_email_tour_guide->rowCount()==0)
-                    {
-                        $update_profile_info = $connect_database->prepare('UPDATE tour_guide SET first_name = "'.$_POST["first_name"].'" , last_name = "'.$_POST["last_name"].'" ,
-                        email = "'.$_POST["email"].'" , phone_number = '.$_POST["phone_number"].' , age = '.$_POST["age"].' , gender = "'.$_POST["gender"].'" ,
-                        language = "'.$_POST["language"].'" WHERE ID = '.$_SESSION["ID"].'');
-                        $update_profile_info->execute();
-                        header("refresh:1;url= index.php");
-                    }
-                    else
-                    {
-                        echo 'الإيميل موجود مسبقا';
-                    }
-                }
-                elseif($_SESSION["change_email2"] == $_SESSION["change_email"])
-                {
-                    require_once 'connect_database.php';
-                    $update_profile_info = $connect_database->prepare('UPDATE tour_guide SET first_name = "'.$_POST["first_name"].'" , last_name = "'.$_POST["last_name"].'" ,
-                    email = "'.$_POST["email"].'" , phone_number = '.$_POST["phone_number"].' , age = '.$_POST["age"].' , gender = "'.$_POST["gender"].'" ,
-                    language = "'.$_POST["language"].'" WHERE ID = '.$_SESSION["ID"].'');
-                    $update_profile_info->execute();
-                    header("Lcation:requestm.php");
-                }
-                else
-                {
-                    echo 'ERROR';
-                }
+                require_once 'connect_database.php';
+                $update_profile_info = $connect_database->prepare('UPDATE tour_guide SET first_name = "'.$_POST["first_name"].'" , last_name = "'.$_POST["last_name"].'" ,
+                phone_number = '.$_POST["phone_number"].' , age = '.$_POST["age"].' , gender = "'.$_POST["gender"].'" ,
+                language = "'.$_POST["language"].'" WHERE ID = '.$_SESSION["ID"].'');
+                $update_profile_info->execute();
+                header("refresh:1;url= index.php");
             }
         ?>
     <?php

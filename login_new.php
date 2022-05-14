@@ -9,10 +9,6 @@
 
 <body>
 
-    <?php 
-    ob_start();
-    ?>
-
     <!--/* Field of Age */-->
     <style>
     input::-webkit-inner-spin-button,
@@ -132,10 +128,7 @@
                                     placeholder="تأكيد كلمة المرور" required>
                             </div>
                             <div class="col-md-11">
-                                <button class="btn btn-success float-end" name="login_new">
-                                    تسجيل
-                                    <i class="bi bi-box-arrow-right"></i>
-                                </button>
+                                <input type="submit" class="btn btn-success float-end" name="login_new" value="تسجيل">
                             </div>
                         </div>
                     </form>
@@ -147,13 +140,16 @@
         </div>
     </div>
     <!-- form_Check_in -->
+    <?php 
+    ob_start();
+    ?>
     <?php require('components/footre.php'); ?>
     <?php
 
 require_once "connect_database.php";
 if(isset($_POST["login_new"]) && !empty($_POST["first_name"]) && !empty($_POST["last_name"]) && !empty($_POST["email"]) && !empty($_POST["password"]) &&
     !empty($_POST["phone_number"]) && !empty($_POST["age"]) && !empty($_POST["gender"]) && !empty($_POST["language"]) && $_POST["language"] != "null" &&
-    $_POST["password"] == $_POST["check_password"]
+    $_POST["password"] == $_POST["check_password"] && $_POST["age"] >= 18
   )
   {
     if($_POST["type_user"] == "tourist")
@@ -205,18 +201,21 @@ if(isset($_POST["login_new"]) && !empty($_POST["first_name"]) && !empty($_POST["
                     </div>
                   </center>
               ';
+
             header("refresh:3; url=http://localhost/naseem_sa_1/naseem_sa/login_new.php");
+
+
+            
             }
           else
             {
               echo '
                     <center>
                     <div class="alert alert-danger" role="alert">
-                      <b> Failed Login x </b> 
+                      <b> Failed Login </b> 
                     </div>
                   </center>
               ';
-              header("refresh:3; url=http://localhost/naseem_sa_1/naseem_sa/login_new.php");
             }
         }
       else
@@ -273,18 +272,16 @@ if(isset($_POST["login_new"]) && !empty($_POST["first_name"]) && !empty($_POST["
                     </div>
                   </center>
           ';
-          header("refresh:3;url=http://localhost/naseem_sa_1/naseem_sa/index.php");
         }
         else
         {
           echo '
                 <center>
                   <div class="alert alert-danger" role="alert">
-                    <b> Failed Login xx </b> 
+                    <b> Failed Login </b> 
                   </div>
                 </center>
           ';
-          header("refresh:3; url=http://localhost/naseem_sa_1/naseem_sa/login_new.php");
         }
       }
       else
@@ -293,9 +290,12 @@ if(isset($_POST["login_new"]) && !empty($_POST["first_name"]) && !empty($_POST["
       }
     }
   }
-  elseif($_POST["language"] == "null" || $_POST["password"] != $_POST["check_password"])
+  if(isset($_POST["login_new"]))
   {
-    echo 'ERROR';
+    if(empty($_POST["language"]) || $_POST["password"] != $_POST["check_password"] || $_POST["age"] < 18)
+    {
+      echo 'ERROR';
+    }
   }
 ?>
 

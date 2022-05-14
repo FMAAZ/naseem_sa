@@ -2,14 +2,14 @@
 <html lang="en" dir="rtl">
 <?php require('components/head_inc.php');?>  
 <body>
-   <main class="container">
-       <!-- 1row -->
+    <main class="container">
+        <!-- 1row -->
   <div class="row">
     <div class="col-md-8">
     <!-- 1article -->
     <article class="blog-post">
         <h2 class="blog-post-title">افضل الاماكن السياحية<span class="text-muted">في الرياض</span></h2>
-       <br>
+        <br>
         <p>بصفتها عاصمة المملكة العربية السعودية، تعد الرياض مركزًا ثقافيًا يقدم بسلاسة القلاع القديمة مع ناطحات السحاب الزجاجية الحديثة التي تقف جنبًا إلى جنب. كما يمكنك استكشاف أفضل أماكن السياحة في الرياض .</p>
         <hr>
         <!-- Content -->
@@ -111,7 +111,7 @@
         </div>
     </div>
     <br>
-     
+
         <h4 class="blog-post-title">الأنشطة</h4>
         <ul> 
         <li>قاعة الإنسان والكون.</li>
@@ -169,13 +169,13 @@
         </div>
       </div>
     </div>
- <!-- More tourist destinations// -->
+  <!-- More tourist destinations// -->
   </div>
 <!-- 1row //-->
 <br>
 
 </main>
 
-     <?php require('components/footre.php');?>
+    <?php require('components/footre.php');?>
 </body>
 </html>

@@ -75,10 +75,10 @@
                         height="60%">
                     </div>
                     <div class="card-body">
-                        <h4 class="card-title"><a href="#" class="text-secondary">العاصمة الرياض</a></h4>
+                        <h4 class="card-title"><a href="all.php" class="text-secondary">العاصمة الرياض</a></h4>
                         
                         <p class="card-text-center">وجهة سياحية فريدة بفعاليات نوعية عالمية تُعدُّ العاصمة الرياض أحد أهم المدن على خارطة المملكة السياحية؛ لاحتضانها العديد من الأنشطة</p>
-                        <a href="#" class=" btn btn-outline-success">&numsp;عرض&numsp;</a>
+                        <a href="all.php" class=" btn btn-outline-success">&numsp;عرض&numsp;</a>
                     </div>
                 </div>
             </div>

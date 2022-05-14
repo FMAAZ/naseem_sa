@@ -76,10 +76,10 @@
                         height="60%">
                     </div>
                     <div class="card-body">
-                        <h4 class="card-title"><a href="#" class="text-secondary">جزيرة فرسان</a></h4>
+                        <h4 class="card-title"><a href="Farasan_Islands.php" class="text-secondary">جزيرة فرسان</a></h4>
                         
                         <p class="card-text-center">جزيرة فرسان تتميز بمنظر طبيعي خلاب ورمالها البيضاء وتدرج ألوان مياهها الرائعة ويوجد بها تنوع بيولوجي الذي يجذب كثير من السياح</p>
-                        <a href="#" class=" btn btn-outline-success">&numsp;عرض&numsp;</a>
+                        <a href="Farasan_Islands.php" class=" btn btn-outline-success">&numsp;عرض&numsp;</a>
                     </div>
                 </div>
             </div>

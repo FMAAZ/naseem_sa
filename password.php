@@ -5,7 +5,6 @@
   <?php require('components/head_inc.php'); ?> 
   </head>
   <body>
-  <?php require('components/niv.php'); ?> 
  <!-- form -->
  <div class="container">
         <div class="row align-items-center justify-content-center">

@@ -6,7 +6,5 @@
 <?php require('components/head_inc.php'); ?>  
    
 <body>
-    
-<?php include ('components/niv.php')?>
    </body>
 </html>

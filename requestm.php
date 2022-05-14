@@ -16,7 +16,6 @@
     }
     </style>
     <!--/* Field of Age */ -->
-    <?php require('components/niv.php'); ?>
     <!-- form_Chck_in -->
     
     

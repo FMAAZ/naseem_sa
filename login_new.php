@@ -21,7 +21,6 @@
     }
     </style>
     <!--/* Field of Age */ -->
-    <?php require('components/niv.php'); ?>
     <!-- form_Chck_in -->
     <div class="container">
         <div class="row align-items-center justify-content-center">
@@ -274,7 +273,7 @@ if(isset($_POST["login_new"]) && !empty($_POST["first_name"]) && !empty($_POST["
                     </div>
                   </center>
           ';
-          header("refresh:3; url=http://localhost/naseem_sa_1/naseem_sa/login_new.php");
+          header("refresh:3;url=http://localhost/naseem_sa_1/naseem_sa/index.php");
         }
         else
         {
@@ -294,7 +293,7 @@ if(isset($_POST["login_new"]) && !empty($_POST["first_name"]) && !empty($_POST["
       }
     }
   }
-  else
+  elseif($_POST["language"] == "null" || $_POST["password"] != $_POST["check_password"])
   {
     echo 'ERROR';
   }

@@ -2,7 +2,6 @@
 <html lang="en" dir="rtl">
 <?php require('components/head_inc.php');?>  
 <body>
-   <?php include ('components/niv.php')?>
    <main class="container">
        <!-- 1row -->
   <div class="row">
@@ -33,7 +32,7 @@
         <hr>
       </article>
       <!--1 article //-->
-      
+
 <!--2 article -->
       <article class="blog-post">
       <div class="container marketing">

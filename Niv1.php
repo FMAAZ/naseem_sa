@@ -95,7 +95,7 @@
                                 <ul class="nav">
                                 <div class="dropdown text-end">
                                 <a href="#offcanvasExample" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="https://github.com/mdo.png" alt="mdo" width="50" height="50" class="rounded-circle">
+                                <img src="assistances/images/log.jpg" alt="mdo" width="50" height="50" class="rounded-circle">
                                 </a>
                                 <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
                                 <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">عرض الملف</a></li>
@@ -126,7 +126,7 @@
                                 <!-- form -->
                                 <div class="container">
                                 <div class="card-title text-center border-bottom">
-                                <img src="https://github.com/mdo.png" alt="mdo" width="60" height="60" class="rounded-circle">
+                                <img src="assistances/images/log.jpg" alt="mdo" width="60" height="60" class="rounded-circle">
                                 <h2 class="p-0">id '.$print["ID"].'</h2>
                                 </div>
                                 <div class="card-body">
@@ -281,7 +281,7 @@
                                 <ul class="nav">
                                 <div class="dropdown text-end">
                                 <a href="#offcanvasExample" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="assistances/images/svg.svg" alt="mdo" width="50" height="50" class="rounded-circle">
+                                <img src="assistances/images/log.jpg" alt="mdo" width="50" height="50" class="rounded-circle">
                                 </a>
                                 <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
                                 <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">عرض الملف</a></li>
@@ -312,7 +312,7 @@
                                 <!-- form -->
                                 <div class="container">
                                 <div class="card-title text-center border-bottom">
-                                <img src="https://github.com/mdo.png" alt="mdo" width="60" height="60" class="rounded-circle">
+                                <img src="assistances/images/log.jpg" alt="mdo" width="60" height="60" class="rounded-circle">
                                 <h3 class="p-0">id '.$print["ID"].'</h3>
                                 </div>
                                 <div class="card-body">
@@ -384,7 +384,7 @@
                                 <ul class="nav">
                                 <div class="dropdown text-end">
                                 <a href="#offcanvasExample" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="https://github.com/mdo.png" alt="mdo" width="50" height="50" class="rounded-circle">
+                                <img src="assistances/images/log.jpg" alt="mdo" width="50" height="50" class="rounded-circle">
                                 </a>
                                 <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
                                 <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">عرض الملف</a></li>
@@ -415,7 +415,7 @@
                                 <!-- form -->
                                 <div class="container">
                                 <div class="card-title text-center border-bottom">
-                                <img src="https://github.com/mdo.png" alt="mdo" width="60" height="60" class="rounded-circle">
+                                <img src="assistances/images/log.jpg" alt="mdo" width="60" height="60" class="rounded-circle">
                                 <h2 class="p-0">id '.$print["ID"].'</h2>
                                 </div>
                                 <div class="card-body">
@@ -570,7 +570,7 @@
                                 <ul class="nav">
                                 <div class="dropdown text-end">
                                 <a href="#offcanvasExample" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="assistances/images/svg.svg" alt="mdo" width="50" height="50" class="rounded-circle">
+                                <img src="assistances/images/log.jpg" alt="mdo" width="50" height="50" class="rounded-circle">
                                 </a>
                                 <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
                                 <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">عرض الملف</a></li>
@@ -601,7 +601,7 @@
                                 <!-- form -->
                                 <div class="container">
                                 <div class="card-title text-center border-bottom">
-                                <img src="https://github.com/mdo.png" alt="mdo" width="60" height="60" class="rounded-circle">
+                                <img src="assistances/images/log.jpg" alt="mdo" width="60" height="60" class="rounded-circle">
                                 <h3 class="p-0">id '.$print["ID"].'</h3>
                                 </div>
                                 <div class="card-body">

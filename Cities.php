@@ -2,7 +2,6 @@
 <html lang="en" dir="rtl">
 <?php require('components/head_inc.php');?>  
 <body>
-   <?php include ('components/niv.php')?>
     <div id="myCarousel" class="carousel slide pointer-event" data-bs-ride="carousel">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"
@@ -75,10 +74,10 @@
                         height="60%">
                     </div>
                     <div class="card-body">
-                        <h4 class="card-title"><a href="#" class="text-secondary">العاصمة الرياض</a></h4>
+                        <h4 class="card-title"><a href="all.php" class="text-secondary">العاصمة الرياض</a></h4>
                         
                         <p class="card-text-center">وجهة سياحية فريدة بفعاليات نوعية عالمية تُعدُّ العاصمة الرياض أحد أهم المدن على خارطة المملكة السياحية؛ لاحتضانها العديد من الأنشطة</p>
-                        <a href="#" class=" btn btn-outline-success">&numsp;عرض&numsp;</a>
+                        <a href="all.php" class=" btn btn-outline-success">&numsp;عرض&numsp;</a>
                     </div>
                 </div>
             </div>

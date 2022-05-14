@@ -5,7 +5,6 @@
   <?php require('components/head_inc.php'); ?>  
   </head>
   <body>
-  <?php require('components/niv.php');?>  
 
 
      <!-- form_Chck_in -->

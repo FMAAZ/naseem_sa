@@ -11,3 +11,6 @@
     <script src="assistances/js/bootstrap.min.js"></script>
     <?php session_start(); ?>
 </head>
+<?php
+    require_once 'Niv1.php';
+?>

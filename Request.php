@@ -8,6 +8,9 @@
 </head>
 
 <body>
+    <?php
+    ob_start();
+    ?>
     <!--/* Field of Age */-->
     <style>
     input::-webkit-inner-spin-button,
@@ -16,7 +19,6 @@
     }
     </style>
     <!--/* Field of Age */ -->
-    <?php require('components/niv.php'); ?>
     <!-- form_Chck_in -->
     <div class="container">
         <div class="row align-items-center justify-content-center">
@@ -31,68 +33,76 @@
 
                         
                         <div class="btn  me-2 " role="group" aria-label="First group">
-                       
     
                         <div class="form-check form-check-inline">
-                       
                                             <span class="text-danger">*</span></label>
-  <input class="form-check-input" type="radio" name="wher" id="inlineRadio1" value="island">
-  <label class="form-check-label" for="inlineRadio1">جزر</label>
+    <input class="form-check-input" type="radio" name="wher" id="inlineRadio1" value="island">
+    <label class="form-check-label" for="inlineRadio1">جزر</label>
 </div>
 <div class="form-check form-check-inline">
 
                                     <span class="text-danger">*</span></label>
-  <input class="form-check-input" type="radio" name="wher" id="inlineRadio2" value="citie">
-  <label class="form-check-label" for="inlineRadio2">مدن</label>
+    <input class="form-check-input" type="radio" name="wher" id="inlineRadio2" value="citie">
+    <label class="form-check-label" for="inlineRadio2">مدن</label>
 </div>
 <input type="submit" class="btn btn btn-success" name="ok" value="تاكد">
-  </div>
-                      
-  
-                          
-
+    </div>
 
                             <div class="mb-3 col-md-5">
                                 <label>  عدد الاشخاص</label>
-                                <input type="text" name="first_name" class="form-control" placeholder="عدد الاشخاص " >
+                                <input type="text" name="first_name" class="form-control" placeholder="عدد الاشخاص " required>
                             </div>
 
                             <div class="mb-3 col-md-5">
                                 <label>عدد الايام </label>
-                                <input type="text" name="last_name" class="form-control" placeholder="عدد الايام ">
+                                <input type="text" name="last_name" class="form-control" placeholder="عدد الايام " required>
                             </div>
                             <div class="mb-3 col-md-9 col-6 mx-auto">
                             <label> الوجهه<span class="text-danger">*</span></label>
                                 <select name="Region" class="form-select" id="language" style="text-align: center;" required>
                                     <option selected disabled value="null" >الوجهه</option>
-                                    <?php
-                                    if(isset($_POST['wher'])){
-                                    if( $_POST['wher']=="island"){
 
-                               
-                                     echo"   <option value=fursan>فرسان</option>
-                                    <option value=amlaj>املج</option>
-                                    <option value=mm>المالديف</option>
-                                    <option value=??>مجهوله</option>";
-                                      }  elseif( $_POST['wher']=="citie"){
-                                        echo"   <option value=arabic>الرياض</option>
-                                        <option value=English>ابها</option>
-                                        <option value=arabic>جدة</option>
-                                        <option value=English>الباحة</option>";  
-                                    }else{
-                                        echo"   <option value=arabic>عليك اختيار وجهه</option>";
-                                    }
-                                    }
-                                    
-                                    
-                                    
-                                    ?>
-                                 
                                 </select>
                             </div>
                             <div class="d-grid gap-2 col-6 mx-auto">
-                                <button class="btn btn-success float-end" name="request">   
-                                    طلب                                </button>
+                                <a href="Request.php">
+                                    <button class="btn btn-success float-end" name="request"> طلب </button>
+                                </a>
+                                <?php
+                                if(isset($_POST["request"]))
+                                {
+                                    require_once 'connect_database.php';
+                                    $select_id_request = $connect_database->prepare('SELECT MAX(ID) ID FROM requests');
+                                    $select_id_request->execute();
+                                    foreach($select_id_request as $print)
+                                    {
+                                        $_SESSION["new_id_request"] = $print["ID"];
+                                    }
+    
+                                    if(empty($_SESSION["new_id_request"]))
+                                    {
+                                        $_SESSION["new_id_request"] = 100;
+                                    }
+                                    elseif(!empty($_SESSION["new_id_request"]))
+                                    {
+                                        $_SESSION["new_id_request"] ++;
+                                    }
+                                    $type_date = date_default_timezone_set("Asia/Riyadh");
+                                    $date = date("Y-m-d");
+                                    $time = date("H:i:s");
+                                    $insert_req_id = $connect_database->prepare('INSERT INTO requests (req_id , req_date , req_time)
+                                    VALUES ('.$_SESSION["new_id_request"].' , "'.$date.'" , "'.$time.'")');
+                                    $insert_req_id->execute();
+                                    if($insert_req_id->rowCount()==1)
+                                    {
+                                        echo 'تم إنشاء الطلب';
+                                    }
+                                    else
+                                    {
+                                        echo 'Failed !';
+                                    }
+                                }
+                                ?>
                             </div>
                         </div>
                     </form>
@@ -102,24 +112,11 @@
         </div>
     </div>
     <!-- form_Check_in -->
-    <?php
-    $host="localhost";
-    $user="root";
-    $password="";
-    $dbname="naseem_sa";
-    $conn=new mysqli($host,$user,$password,$dbname);
-    
-
-        $query="insert into requests(fname,lname,numb,emil,lang) select first_name,last_name,phone_number,email,language from tourist where id=1";
-        $result=mysqli_query($conn,$query);
-        echo"<br><strong style=color:#43a047;>تم الحجز </strong>";
-         
-   
-    
-
-    ?>
 
 <?php require('components/footre.php'); ?>
+<?php
+ob_end_flush();
+?>
 </body>
 
 </html>

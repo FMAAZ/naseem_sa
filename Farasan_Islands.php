@@ -134,11 +134,8 @@
         <h4 class="fst-italic"><span class="text-muted">المزيد من وجهات سياحية</span></h4>
           <ul>
             <li><a href="Farasan_Islands.php" class="link-dark">جزيرة فرسان</a></li>
-            <li><a href="#"class="link-dark"> جزيرة</a></li>
-            <li><a href="#"class="link-dark"> جزيرة </a></li>
-            <li><a href="#"class="link-dark">جزيرة</a></li>
-            <li><a href="#"class="link-dark">جزيرة</a></li>
-            <li><a href="#"class="link-dark">جزيرة</a></li>
+            <li><a href="umqamari.php"class="link-dark"> جزيرة أم القماري</a></li>
+            <li><a href="Amna.php"class="link-dark"> جزيرة أمنة</a></li>
           </ul>
         </div>
       </div>

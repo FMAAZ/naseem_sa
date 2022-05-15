@@ -127,7 +127,6 @@
         <ul>
             <li><a href="http://localhost/naseem_sa_1/naseem_sa/Riyadh.php" class="link-dark">السياحة في الرياض</a></li>
             <li><a href="http://localhost/naseem_sa_1/naseem_sa/jeddah.php"class="link-dark">السياحة في جدة</a></li>
-            <li><a href="http://localhost/naseem_sa_1/naseem_sa/dammam.php"class="link-dark">السياحة في الدمام</a></li>
             <li><a href="http://localhost/naseem_sa_1/naseem_sa/abha.php"class="link-dark">السياحة في ابها</a></li>
         </ul>
         </div>

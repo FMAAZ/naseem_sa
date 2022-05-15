@@ -159,23 +159,19 @@
         <div class="p-4 mb-3 bg-light rounded">
         <h4 class="fst-italic"><span class="text-muted">المزيد من وجهات سياحية</span></h4>
           <ul>
-            <li><a href="#" class="link-dark">السياحة في الرياض</a></li>
-            <li><a href="#"class="link-dark">السياحة في جدة</a></li>
-            <li><a href="#"class="link-dark">السياحة في الدمام</a></li>
-            <li><a href="#"class="link-dark">السياحة في ينبع</a></li>
-            <li><a href="#"class="link-dark"> السياحة في الطائف</a></li>
-            <li><a href="#"class="link-dark">السياحة في ابها</a></li>
+            <li><a href="Riyadh.php" class="link-dark">السياحة في الرياض</a></li>
+            <li><a href="jeddah.php"class="link-dark">السياحة في جدة</a></li>
+            <li><a href="abha.php"class="link-dark">السياحة في أبها</a></li>
           </ul>
         </div>
       </div>
     </div>
   <!-- More tourist destinations// -->
+  <?php require('components/footre.php');?>
   </div>
 <!-- 1row //-->
 <br>
 
 </main>
-
-    <?php require('components/footre.php');?>
 </body>
 </html>

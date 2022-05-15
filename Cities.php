@@ -74,10 +74,10 @@
                         height="60%">
                     </div>
                     <div class="card-body">
-                        <h4 class="card-title"><a href="all.php" class="text-secondary">العاصمة الرياض</a></h4>
+                        <h4 class="card-title"><a href="Riyadh.php" class="text-secondary">العاصمة الرياض</a></h4>
                         
                         <p class="card-text-center">وجهة سياحية فريدة بفعاليات نوعية عالمية تُعدُّ العاصمة الرياض أحد أهم المدن على خارطة المملكة السياحية؛ لاحتضانها العديد من الأنشطة</p>
-                        <a href="all.php" class=" btn btn-outline-success">&numsp;عرض&numsp;</a>
+                        <a href="Riyadh.php" class=" btn btn-outline-success">&numsp;عرض&numsp;</a>
                     </div>
                 </div>
             </div>
@@ -89,51 +89,9 @@
                         height="100%">
                     </div>
                     <div class="card-body">
-                        <h4 class="card-title"><a href="#" class="text-secondary">السياحة في جدة</a></h4>
+                        <h4 class="card-title"><a href="jeddah.php" class="text-secondary">السياحة في جدة</a></h4>
                         <p class="card-text">جدة اجمل مدن السعودية تلقب بعروس البحر الاحمر في السعودية وتعد العاصمة الاقتصادية والسياحية في المملكة</p>
-                        <a href="#" class=" btn btn-outline-success">&numsp;عرض&numsp;</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4">
-                <div class="card my-3">
-                    <div class="card-thumbnail">
-                        <img src="assistances/images/dem.jpg" class="img-fluid" alt="thumbnail" width="100%"
-                        height="60%">
-                    </div>
-                    <div class="card-body">
-                        <h4 class="card-title"><a href="#" class="text-secondary">السياحة في الدمام</a></h4>
-                        <p class="card-text">الدمام واحدة من اجمل مدن السعودية وهي الميناء الرئيسي على البحر في المنطقة الشرقية</p>
-                        <a href="#" class=" btn btn-outline-success">&numsp;عرض&numsp;</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4">
-                <div class="card my-3">
-                    <div class="card-thumbnail">
-                        <img src="assistances/images/yanbu1.jpg" class="img-fluid" alt="thumbnail"  width="100%"
-                        height="100%">
-                    </div>
-                    <div class="card-body">
-                        <h4 class="card-title"><a href="#" class="text-secondary">السياحة في ينبع</a></h4>
-                        <p class="card-text">مدينة ينبع من اهم مدن السياحة في السعودية ، تعد ينبع من مناطق الجذب السياحية الهامة ،</p>
-                        <a href="#" class=" btn btn-outline-success">&numsp;عرض&numsp;</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4">
-                <div class="card my-3">
-                    <div class="card-thumbnail">
-                        <img src="assistances/images/Taif.jpg" class="img-fluid" alt="thumbnail"width="100%"
-                        height="100%">
-                    </div>
-                    <div class="card-body">
-                        <h4 class="card-title"><a href="#" class="text-secondary">السياحة في الطائف</a></h4>
-                        <p class="card-text">الرحلة إلى الطائف متعة في حد ذاتها. فيسافر الزوار على طريق ملتو يتخلل الجبال — مرورًا بأسواق الفاكهة وبساتين الزهور </p>
-                        <a href="#" class=" btn btn-outline-success">&numsp;عرض&numsp;</a>
+                        <a href="jeddah.php" class=" btn btn-outline-success">&numsp;عرض&numsp;</a>
                     </div>
                 </div>
             </div>
@@ -145,9 +103,9 @@
                         height="100%">
                     </div>
                     <div class="card-body">
-                        <h4 class="card-title"><a href="#" class="text-secondary">السياحة في ابها</a></h4>
+                        <h4 class="card-title"><a href="abha.php" class="text-secondary">السياحة في ابها</a></h4>
                         <p class="card-text">تقع أبها عند الطرف الجنوبي لساحل البحر الأحمر، وهي عاصمة منطقة عسير الغنية ثقافيًا ونقطة انطلاق لاستكشاف</p>
-                        <a href="#" class=" btn btn-outline-success">&numsp;عرض&numsp;</a>
+                        <a href="abha.php" class=" btn btn-outline-success">&numsp;عرض&numsp;</a>
                     </div>
                 </div>
             </div>

@@ -48,21 +48,33 @@
 </div>
 <input type="submit" class="btn btn btn-success" name="ok" value="تاكد">
     </div>
+   
 
                             <div class="mb-3 col-md-5">
                                 <label>  عدد الاشخاص</label>
-                                <input type="text" name="first_name" class="form-control" placeholder="عدد الاشخاص " required>
+                                <input type="text" name="first_name" class="form-control" placeholder="عدد الاشخاص " >
                             </div>
 
                             <div class="mb-3 col-md-5">
                                 <label>عدد الايام </label>
-                                <input type="text" name="last_name" class="form-control" placeholder="عدد الايام " required>
+                                <input type="text" name="last_name" class="form-control" placeholder="عدد الايام " >
                             </div>
                             <div class="mb-3 col-md-9 col-6 mx-auto">
                             <label> الوجهه<span class="text-danger">*</span></label>
                                 <select name="Region" class="form-select" id="language" style="text-align: center;" required>
                                     <option selected disabled value="null" >الوجهه</option>
-
+                                    <?php
+                             if(isset($_POST['ok'])){
+                                 if($_POST['wher']=="citie"){
+                               
+                                echo"<option value=Riyadh >الرياض</option> <option value=Jaddah >جدة</option><option value=Dammam >الدمام</option><option value=Abha >ابها</option>";}
+                                if($_POST['wher']=="island"){
+                                    echo"<option value=fursan >فرسان</option> <option value=Umluj >املج</option><option value=umm alqamari >أم القماري</option><option value=umm sanafir > جزيرة أمنة</option>";}
+                                    
+                             }   
+                                else
+                                    echo"<option>الوجهه</option>";
+                                ?>
                                 </select>
                             </div>
                             <div class="d-grid gap-2 col-6 mx-auto">
@@ -104,6 +116,7 @@
                                     }
                                 }
                                 ?>
+                              
                             </div>
                         </div>
                     </form>

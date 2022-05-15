@@ -43,7 +43,7 @@
                         $type_date=date_default_timezone_set("Asia/Riyadh");
                         $date=date("Y-m-d");
                         
-                        $query="SELECT * FROM tourist WHERE 	req_id =(SELECT req_id FROM requests WHERE req_status is null && req_date=$date)";
+                        $query="SELECT * FROM tourist WHERE req_id =(SELECT req_id FROM requests WHERE req_status is null && req_date='".$date."')";
                         $result=mysqli_query($conn,$query);
                         
                         if($result){

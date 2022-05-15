@@ -201,6 +201,11 @@ if(isset($_POST["login_new"]) && !empty($_POST["first_name"]) && !empty($_POST["
                     </div>
                   </center>
               ';
+
+            header("refresh:3; url=http://localhost/naseem_sa_1/naseem_sa/login_new.php");
+
+
+            
             }
           else
             {

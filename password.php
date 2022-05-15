@@ -63,6 +63,7 @@
                 </div>
             </div>
         </div>
+        <?php require('components/footre.php'); ?> 
     </div>
     <!-- reset password -->
     <?php
@@ -144,7 +145,6 @@
     }
     ?>
     <!-- form -->
-    <?php require('components/footre.php'); ?> 
 
     </body>
 </html>

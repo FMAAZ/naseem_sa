@@ -91,11 +91,11 @@
                 </div>
             </div>
         </div>
+        <?php require('components/footre.php');?>
     </div>
     <!-- form_Check_in -->
     <!-- form_LOG_IN -->
   
-    <?php require('components/footre.php');?>
 
     <?php
     ob_end_flush();

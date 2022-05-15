@@ -125,10 +125,11 @@
         </div>
       </div3>
     </div>
- <!-- More tourist destinations// -->
+  <!-- More tourist destinations// -->
+  <?php require('components/footre.php');?>
+
   </div>
 <!-- 1row //-->
 </main>
-     <?php require('components/footre.php');?>
 </body>
 </html>

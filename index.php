@@ -59,8 +59,6 @@
         </button>
     </div>
 
-   
-
     <div class="container marketing">
         <br> <br>
         <hr class="featurette-divider">
@@ -97,8 +95,8 @@
 
         <hr class="featurette-divider">
         <!-- /END THE FEATURETTES -->
-    </div><!-- /.container -->
         <?php require('components/footre.php');?>
-          <!--js_button_up-->
+    </div><!-- /.container -->
+        <!--js_button_up-->
 </body>
 </html>

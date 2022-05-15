@@ -97,16 +97,11 @@ if(isset($_POST['acceptance'])){
                 </div>
             </div>
         </div>
+        <?php require('components/footre.php'); ?>
     </div>
-   
-  
     <!-- form_Check_in -->
-  
-
-   
 
 
-<?php require('components/footre.php'); ?>
 </body>
 
 </html>

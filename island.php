@@ -68,12 +68,11 @@
                 <div class="col-md-6 col-lg-4">
                 <div class="card my-3">
                     <div class="card-thumbnail">
-                        <img src="assistances/images/xz1.jpg" class="img-fluid" alt="thumbnail"  width="100%"
+                        <img src="assistances/images/islands.jpg" class="img-fluid" alt="thumbnail"  width="100%"
                         height="60%">
                     </div>
                     <div class="card-body">
                         <h4 class="card-title"><a href="Farasan_Islands.php" class="text-secondary">جزيرة فرسان</a></h4>
-                        
                         <p class="card-text-center">جزيرة فرسان تتميز بمنظر طبيعي خلاب ورمالها البيضاء وتدرج ألوان مياهها الرائعة ويوجد بها تنوع بيولوجي الذي يجذب كثير من السياح</p>
                         <a href="Farasan_Islands.php" class=" btn btn-outline-success">&numsp;عرض&numsp;</a>
                     </div>
@@ -83,7 +82,7 @@
             <div class="col-md-6 col-lg-4">
                 <div class="card my-3">
                     <div class="card-thumbnail">
-                        <img src="assistances/images/xz1.jpg" class="img-fluid" alt="thumbnail"  width="100%"
+                        <img src="assistances/images/amnh.jpg" class="img-fluid" alt="thumbnail"  width="100%"
                         height="60%">
                     </div>
                     <div class="card-body">
@@ -97,7 +96,7 @@
             <div class="col-md-6 col-lg-4">
                 <div class="card my-3">
                     <div class="card-thumbnail">
-                        <img src="assistances/images/xz1.jpg" class="img-fluid" alt="thumbnail"  width="100%"
+                        <img src="assistances/images/amnh.jpg" class="img-fluid" alt="thumbnail"  width="100%"
                         height="60%">
                     </div>
                     <div class="card-body">

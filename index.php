@@ -64,7 +64,7 @@
         <hr class="featurette-divider">
         <div class="row featurette">
             <div class="col-md-7">
-                <h2 id="scrollspyHeading2" class="featurette-heading">السياحة في_ <span class="text-muted"> مدن المملكة . </span></h2>
+                <h2 id="scrollspyHeading2" class="featurette-heading">السياحة في <span class="text-muted"> مدن المملكة . </span></h2>
                 <p class="lead">تعد السياحة الترفيهية والسياحة الدينية في المملكة العربية السعودية من بين الأنواع
                     الرئيسية للسياحة هناك. بالإضافة إلى ذلك ، قد أدخلت المملكة العربية السعودية قطاع السفر والسياحة من
                     خلال فتح حدودها على العالم ليأتوا لاكتشاف المملكة مع الإطلاق التاريخي للتأشيرة الإلكترونية السياحية.

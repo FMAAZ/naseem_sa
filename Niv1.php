@@ -98,7 +98,7 @@
                                 </a>
                                 <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
                                 <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">عرض الملف</a></li>
-                                <li><a class="dropdown-item" href="#">عرض الطلبات</a></li>
+                                <li><a class="dropdown-item" href="request.php">عرض الطلبات</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="sing_out">تسجيل الخروج</a></li>
                                 </ul>
@@ -280,7 +280,7 @@
                                 </a>
                                 <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
                                 <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">عرض الملف</a></li>
-                                <li><a class="dropdown-item" href="#">عرض الطلبات</a></li>
+                                <li><a class="dropdown-item" href="request.php">عرض الطلبات</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="sing_out">تسجيل الخروج</a></li>
                                 </ul>
@@ -379,7 +379,7 @@
                                 </a>
                                 <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
                                 <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">عرض الملف</a></li>
-                                <li><a class="dropdown-item" href="#">عرض الطلبات</a></li>
+                                <li><a class="dropdown-item" href="requestm.php">عرض الطلبات</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="sing_out">تسجيل الخروج</a></li>
                                 </ul>
@@ -561,7 +561,7 @@
                                 </a>
                                 <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
                                 <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">عرض الملف</a></li>
-                                <li><a class="dropdown-item" href="#">عرض الطلبات</a></li>
+                                <li><a class="dropdown-item" href="requestm.php">عرض الطلبات</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="sing_out">تسجيل الخروج</a></li>
                                 </ul>
@@ -681,6 +681,7 @@
                 header("refresh:1;url= index.php");
             }
         ?>
+        </div>
     <?php
         ob_end_flush();
     ?>

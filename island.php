@@ -57,19 +57,15 @@
             <span class="carousel-control-next-icon bg-success" aria-hidden="true"></span>
             <span class="visually-hidden">التالي</span>
         </button>
-    </div>
 
-   
-
-    <!-- Bootstrap 5 Cards in Grid -->
- <section class="bg-light py-4 my-5">
+        <section class="bg-light py-4 my-5">
     <div class="container">
         <div class="row">
             <div class="col-12">
                 <h2 id="scrollspyHeading2"></h2>
             </div>
 
-            <div class="col-md-6 col-lg-4">
+                <div class="col-md-6 col-lg-4">
                 <div class="card my-3">
                     <div class="card-thumbnail">
                         <img src="assistances/images/xz1.jpg" class="img-fluid" alt="thumbnail"  width="100%"
@@ -87,27 +83,13 @@
             <div class="col-md-6 col-lg-4">
                 <div class="card my-3">
                     <div class="card-thumbnail">
-                        <img src="#" class="img-fluid" alt="jeddah" width="100%"
-                        height="100%">
-                    </div>
-                    <div class="card-body">
-                        <h4 class="card-title"><a href="#" class="text-secondary">--------------</a></h4>
-                        <p class="card-text">-------------------------------------------------------------------------------------------</p>
-                        <a href="#" class=" btn btn-outline-success">&numsp;عرض&numsp;</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4">
-                <div class="card my-3">
-                    <div class="card-thumbnail">
-                        <img src="#" class="img-fluid" alt="thumbnail" width="100%"
+                        <img src="assistances/images/xz1.jpg" class="img-fluid" alt="thumbnail"  width="100%"
                         height="60%">
                     </div>
                     <div class="card-body">
-                        <h4 class="card-title"><a href="#" class="text-secondary">---------------------</a></h4>
-                        <p class="card-text">------------------------------------------------</p>
-                        <a href="#" class=" btn btn-outline-success">&numsp;عرض&numsp;</a>
+                        <h4 class="card-title"><a href="Amna.php" class="text-secondary">جزيرة أمنة</a></h4>
+                        <p class="card-text-center">جزيرة آمنة هي إحدى الجُزر السعودية ، وتتبع إدراياً لمحافظة جازان، وتفصل الجزيرة عن الساحل أو البر السعودي مسافة ما يزيد قليلاً عن سبعة أميالٍ بحرية، فيما تبعد حوالي خمسة عشر كيلومتراً، عن جنوب غرب ميناء مدينة جازان، وتبلغ مساحة الجزيرة حوالي 1.1كم².</p>
+                        <a href="Amna.php" class=" btn btn-outline-success">&numsp;عرض&numsp;</a>
                     </div>
                 </div>
             </div>
@@ -115,42 +97,22 @@
             <div class="col-md-6 col-lg-4">
                 <div class="card my-3">
                     <div class="card-thumbnail">
-                        <img src="#" class="img-fluid" alt="thumbnail"  width="100%"
-                        height="100%">
+                        <img src="assistances/images/xz1.jpg" class="img-fluid" alt="thumbnail"  width="100%"
+                        height="60%">
                     </div>
                     <div class="card-body">
-                        <h4 class="card-title"><a href="#" class="text-secondary">-----------------</a></h4>
-                        <p class="card-text">----------------------------------------------------------</p>
-                        <a href="#" class=" btn btn-outline-success">&numsp;عرض&numsp;</a>
+                        <h4 class="card-title"><a href="umqamari.php" class="text-secondary">جزيرة أم القماري</a></h4>
+                        <p class="card-text-center">تكثر النباتات في وسط الجزيرتين وأهمها الأراك والسّواد والصّبار والثندة والرغل التّي تكثر أيضا على السّواحل.
+وإضافة إلى طيور القماري المهاجرة والمقيمة, هناك أنواع كثيرة من الطّيور البحريّة والطّيور الشاطئيّة وعدد من الطّيور البرية مثل العقاب النّساري ومالك الحزين والبلشون الأبيض والقمري المطوّق الأفريقي. أما الحياة البحرية فتمتاز بتنوع هائل من الشّعاب المرجانيّة والحيوانات اللافقاريّة البحريّة.</p>
+                        <a href="umqamari.php" class=" btn btn-outline-success">&numsp;عرض&numsp;</a>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-6 col-lg-4">
-                <div class="card my-3">
-                    <div class="card-thumbnail">
-                        <img src="#" class="img-fluid" alt="thumbnail">
-                    </div>
-                    <div class="card-body">
-                        <h3 class="card-title"><a href="#" class="text-secondary">--------------------------------------------------</a></h3>
-                        <p class="card-text">-------------------------------------------------------------------------------</p>
-                        <a href="#" class=" btn btn-outline-success">&numsp;عرض&numsp;</a>
-                    </div>
-                </div>
-            </div>
+    <!-- Bootstrap 5 Cards in Grid -->
 
-            <div class="col-md-6 col-lg-4">
-                <div class="card my-3">
-                    <div class="card-thumbnail">
-                        <img src="#" class="img-fluid" alt="thumbnail">
-                    </div>
-                    <div class="card-body">
-                        <h3 class="card-title"><a href="#" class="text-secondary">----------------</a></h3>
-                        <p class="card-text">-----------------------------------------------------------------------------</p>
-                        <a href="#" class=" btn btn-outline-success">&numsp;عرض&numsp;</a>
-                    </div>
-                </div>
-            </div>
+
+
         </div>
         <?php require('components/footre.php');?>
     </div>

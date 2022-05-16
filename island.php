@@ -113,8 +113,8 @@
 
 
         </div>
-        <?php require('components/footre.php');?>
     </div>
 </section>
+<?php require('components/footre.php');?>
 </body>
 </html>

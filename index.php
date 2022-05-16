@@ -95,8 +95,9 @@
 
         <hr class="featurette-divider">
         <!-- /END THE FEATURETTES -->
-        <?php require('components/footre.php');?>
     </div><!-- /.container -->
+    <?php require('components/footre.php');?>
+
         <!--js_button_up-->
 </body>
 </html>

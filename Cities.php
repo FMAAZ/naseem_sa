@@ -59,8 +59,8 @@
         </button>
     </div>
     
- <!-- Bootstrap 5 Cards in Grid -->
- <section class="bg-light py-4 my-5">
+    <!-- Bootstrap 5 Cards in Grid -->
+    <section class="bg-light py-4 my-5">
     <div class="container">
         <div class="row">
             <div class="col-12">
@@ -110,8 +110,8 @@
                 </div>
             </div>
         </div>
-        <?php require('components/footre.php');?>
     </div>
 </section>
+<?php require('components/footre.php');?>
 </body>
 </html>

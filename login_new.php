@@ -143,7 +143,6 @@
     <?php 
     ob_start();
     ?>
-    <?php require('components/footre.php'); ?>
     <?php
 
 require_once "connect_database.php";
@@ -298,7 +297,6 @@ if(isset($_POST["login_new"]) && !empty($_POST["first_name"]) && !empty($_POST["
     <?php
     ob_end_flush();
     ?>
-
+    <?php require('components/footre.php'); ?>
 </body>
-
 </html>

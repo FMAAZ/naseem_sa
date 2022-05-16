@@ -69,10 +69,12 @@
 
         if(!empty($_SESSION["email_tourist"]) && !empty($_SESSION["password_tourist"]) && $_SESSION["email_tourist"] == $_SESSION['email'] && $_SESSION["password_tourist"] == $_SESSION['password'])
         {
+          echo "tourist";
           // header("refresh:3; url=http://localhost/naseem_sa_1/naseem_sa/request.php");
         }
         elseif(!empty($_SESSION["email_tour_guide"]) && !empty($_SESSION["password_tour_guide"]) && $_SESSION["email_tour_guide"] == $_SESSION['email'] && $_SESSION["password_tour_guide"] == $_SESSION['password'])
         {
+          echo "tour_guide";
           // header("refresh:3; url=http://localhost/naseem_sa_1/naseem_sa/requestm.php");
         }
         elseif(empty($_SESSION["email_tour_guide"]) || empty($_SESSION["password_tour_guide"]) || empty($_SESSION["email_tourist"]) || empty($_SESSION["password_tourist"]))
@@ -91,7 +93,6 @@
                 </div>
             </div>
         </div>
-        <?php require('components/footre.php');?>
     </div>
     <!-- form_Check_in -->
     <!-- form_LOG_IN -->
@@ -100,6 +101,6 @@
     <?php
     ob_end_flush();
     ?>
-
+        <?php require('components/footre.php');?>
   </body>
 </html>

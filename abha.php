@@ -145,11 +145,11 @@
       </div>
     </div>
 <!-- More tourist destinations// -->
-<?php require('components/footre.php');?>
 </div>
 <!-- 1row //-->
 <br>
-
 </main>
+<?php require('components/footre.php');?>
+
 </body>
 </html>

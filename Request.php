@@ -116,21 +116,20 @@
                                     }
                                 }
                                 ?>
-                              
                             </div>
                         </div>
                     </form>
-                
+                <br>
                 </div>
             </div>
         </div>
-        <?php require('components/footre.php'); ?>
     </div>
     <!-- form_Check_in -->
 
 <?php
 ob_end_flush();
 ?>
+        <?php require('components/footre.php'); ?>
 </body>
 
 </html>

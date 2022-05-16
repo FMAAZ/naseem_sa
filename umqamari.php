@@ -82,7 +82,7 @@
     </div>
     <br>
       </article>
-
+    </div>
     <div class="col-md-4">
       <div class="position-sticky" style="top: 2rem;">
         <div class="p-4 mb-3 bg-light rounded">
@@ -97,12 +97,11 @@
       </div>
     </div>
   <!-- More tourist destinations// -->
-  <?php require('components/footre.php');?>
   </div>
 <!-- 1row //-->
 <br>
 
 </main>
-
+<?php require('components/footre.php');?>
 </body>
 </html>

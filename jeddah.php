@@ -44,7 +44,7 @@
             </div>
             <div class="col-md-6">
                 <a href="Cities.php">
-                    <img src="assistances/images/Museum-of-Arts4.jpg" class="img-thumbnail" alt="Cinque Terre" width="100%"
+                    <img src="assistances/images/Art_Museum.jpg" class="img-thumbnail" alt="Cinque Terre" width="100%"
                         height="100%">
                 </a>
             </div>
@@ -70,7 +70,7 @@
             </div>
             <div class="col-md-6">
                 <a href="Cities.php">
-                    <img src="assistances/images/download.jpg" class="img-thumbnail" alt="Cinque Terre" width="100%"
+                    <img src="assistances/images/King_Fahad's_fountain.jpg" class="img-thumbnail" alt="Cinque Terre" width="100%"
                         height="100%">
                 </a>
             </div>
@@ -125,9 +125,9 @@
         <div class="p-4 mb-3 bg-light rounded">
         <h4 class="fst-italic"><span class="text-muted">المزيد من وجهات سياحية</span></h4>
         <ul>
-            <li><a href="http://localhost/naseem_sa_1/naseem_sa/Riyadh.php" class="link-dark">السياحة في الرياض</a></li>
-            <li><a href="http://localhost/naseem_sa_1/naseem_sa/jeddah.php"class="link-dark">السياحة في جدة</a></li>
-            <li><a href="http://localhost/naseem_sa_1/naseem_sa/abha.php"class="link-dark">السياحة في ابها</a></li>
+        <li><a href="Riyadh.php" class="link-dark">السياحة في الرياض</a></li>
+        <li><a href="jeddah.php"class="link-dark">السياحة في جدة</a></li>
+         <li><a href="abha.php"class="link-dark">السياحة في أبها</a></li>
         </ul>
         </div>
         </div>

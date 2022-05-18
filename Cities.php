@@ -58,7 +58,7 @@
             <span class="visually-hidden">التالي</span>
         </button>
     </div>
-    
+    <main class="container">
     <!-- Bootstrap 5 Cards in Grid -->
     <section class="bg-light py-4 my-5">
     <div class="container">
@@ -70,8 +70,8 @@
             <div class="col-md-6 col-lg-4">
                 <div class="card my-3">
                     <div class="card-thumbnail">
-                        <img src="assistances/images/major.jpg" class="img-fluid" alt="thumbnail"  width="100%"
-                        height="60%">
+                        <img src="assistances/images/major_cities.jpg" class="img-fluid" alt="thumbnail"  width="100%"
+                        height="100%">
                     </div>
                     <div class="card-body">
                         <h4 class="card-title"><a href="Riyadh.php" class="text-secondary">العاصمة الرياض</a></h4>
@@ -112,6 +112,7 @@
         </div>
     </div>
 </section>
+</main>
 <?php require('components/footre.php');?>
 </body>
 </html>

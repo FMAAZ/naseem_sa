@@ -43,7 +43,7 @@
             </div>
             <div class="col-md-6">
                 <a href="Cities.php">
-                    <img src="The-green-mountain-Abha.webp" class="img-thumbnail" alt="Cinque Terre" width="100%"
+                    <img src="assistances/images/Abha city.jpg" class="img-thumbnail" alt="Cinque Terre" width="100%"
                         height="100%">
                 </a>
             </div>
@@ -72,12 +72,11 @@
         <div class="row featurette">
             <div class="col-md-6">
                 <h4 id="scrollspyHeading1" class="featurette-heading"><span class="text-muted">2- قرية الحبلة أو القرية المُعلقة</span></h4>
-                <p class="lead"> تقع هذه القرية الأثرية في أعلى جبال السروت بأبها في منطقة يصعب الوصول اليها حيث الوسيلة الوحيدة لزيارة القرية هي عربات التلفريك.
-تعرف القرية المعلقة اقبالا كبيرًا من الزوار الذي يأتون للاستمتاع بالمناظر الرائعة للمنطقة من القرية اضافة الى بيوتها البسيطة و المطاعم و المقاهي التي تنتشر فيهاا.</p>
+                <p class="lead">تعد قرية الحبلة تراثية من أهم الوجهات السياحية في أبها لما تتميز به من طبيعة جبلية خلابة. ويعود سبب تسمية القرية بهذا الاسم لأن وسيلة التنقل الوحيدة التي كانت موجودة بها هي "الحبال". كذلك يُطلق عليها القرية المُعلقة؛ لموقعها أسفل جرف صخري ينحدر لحوالي 300 متر من حافة جبال السروات الشاهقة لتبدو وكأنها معلقة.</p>
             </div>
             <div class="col-md-6">
                 <a href="Cities.php">
-                    <img src="Al-Habala-Village.webp" class="img-thumbnail" alt="Cinque Terre" width="100%"
+                    <img src="assistances/images/hanging_village.jpg" class="img-thumbnail" alt="Cinque Terre" width="100%"
                         height="100%">
                 </a>
             </div>
@@ -99,7 +98,7 @@
             </div>
             <div class="col-md-6">
                 <a href="Cities.php">
-                    <img src="Al-Sahab-Park-Abha.webp" class="img-thumbnail" alt="Cinque Terre" width="100%"
+                    <img src="assistances/images/cloud_park.jpg" class="img-thumbnail" alt="Cinque Terre" width="100%"
                         height="100%">
                 </a>
             </div>
@@ -120,7 +119,7 @@
             </div>
             <div class="col-md-6">
                 <a href="Cities.php">
-                    <img src="Jabal-Sawda.webp" class="img-thumbnail" alt="Cinque Terre" width="100%"
+                    <img src="assistances/images/Souda_Mountain.jpg" class="img-thumbnail" alt="Cinque Terre" width="100%"
                         height="100%">
                 </a>
             </div>
@@ -137,9 +136,9 @@
         <div class="p-4 mb-3 bg-light rounded">
         <h4 class="fst-italic"><span class="text-muted">المزيد من وجهات سياحية</span></h4>
         <ul>
-            <li><a href="http://localhost/naseem_sa_1/naseem_sa/Riyadh.php" class="link-dark">السياحة في الرياض</a></li>
-            <li><a href="http://localhost/naseem_sa_1/naseem_sa/jeddah.php"class="link-dark">السياحة في جدة</a></li>
-            <li><a href="http://localhost/naseem_sa_1/naseem_sa/abha.php"class="link-dark">السياحة في ابها</a></li>
+        <li><a href="Riyadh.php" class="link-dark">السياحة في الرياض</a></li>
+        <li><a href="jeddah.php"class="link-dark">السياحة في جدة</a></li>
+        <li><a href="abha.php"class="link-dark">السياحة في أبها</a></li>
         </ul>
         </div>
       </div>

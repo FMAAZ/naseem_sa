@@ -42,7 +42,7 @@
             </div>
             <div class="col-md-6">
                 <a href="Cities.php">
-                    <img src="assistances/images/major.jpg" class="img-thumbnail" alt="Cinque Terre" width="100%"
+                    <img src="assistances/images/Kingdom_Tower.jpg" class="img-thumbnail" alt="Cinque Terre" width="100%"
                         height="100%">
                 </a>
             </div>
@@ -74,7 +74,7 @@
             </div>
             <div class="col-md-6">
                 <a href="Cities.php">
-                    <img src="assistances/images/bwm.jpg" class="img-thumbnail" alt="Cinque Terre" width="100%"
+                    <img src="assistances/images/Wadi_Hanifa.jpg" class="img-thumbnail" alt="Cinque Terre" width="100%"
                         height="100%">
                 </a>
             </div>
@@ -104,7 +104,7 @@
             </div>
             <div class="col-md-6">
                 <a href="Cities.php">
-                    <img src="assistances/images/zaw.jpg" class="img-thumbnail" alt="Cinque Terre" width="100%"
+                    <img src="assistances/images/National_Museum.jpg" class="img-thumbnail" alt="Cinque Terre" width="100%"
                         height="100%">
                 </a>
             </div>
@@ -135,7 +135,7 @@
             </div>
             <div class="col-md-6">
                 <a href="Cities.php">
-                    <img src="assistances/images/x.jpg" class="img-thumbnail" alt="Cinque Terre" width="100%"
+                    <img src="assistances/images/Masmak_Palace.jpg" class="img-thumbnail" alt="Cinque Terre" width="100%"
                         height="100%">
                 </a>
             </div>
@@ -170,7 +170,6 @@
   </div>
 <!-- 1row //-->
 <br>
-
 </main>
 <?php require('components/footre.php');?>
 </body>

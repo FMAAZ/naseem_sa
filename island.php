@@ -57,7 +57,7 @@
             <span class="carousel-control-next-icon bg-success" aria-hidden="true"></span>
             <span class="visually-hidden">التالي</span>
         </button>
-
+</div>
         <section class="bg-light py-4 my-5">
     <div class="container">
         <div class="row">

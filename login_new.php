@@ -46,7 +46,6 @@
                                 </div>
                             </div>
 
-
                             <div class="mb-3 col-md-5">
                                 <label> الاسم الاول<span class="text-danger">*</span></label>
                                 <input type="text" name="first_name" class="form-control" placeholder="الاسم الاول" required>
@@ -267,6 +266,7 @@ if(isset($_POST["login_new"]) && !empty($_POST["first_name"]) && !empty($_POST["
                     </div>
                   </center>
           ';
+          header("refresh:3; url=http://localhost/naseem_sa_1/naseem_sa/log_in.php");
         }
         else
         {
@@ -277,11 +277,13 @@ if(isset($_POST["login_new"]) && !empty($_POST["first_name"]) && !empty($_POST["
                   </div>
                 </center>
           ';
+          header("refresh:3; url=http://localhost/naseem_sa_1/naseem_sa/login_new.php");
         }
       }
       else
       {
         echo 'الإيميل مسجل مسبقا';
+        header("refresh:3; url=http://localhost/naseem_sa_1/naseem_sa/login_new.php");
       }
     }
   }
@@ -290,6 +292,7 @@ if(isset($_POST["login_new"]) && !empty($_POST["first_name"]) && !empty($_POST["
     if(empty($_POST["language"]) || $_POST["password"] != $_POST["check_password"] || $_POST["age"] < 18)
     {
       echo 'ERROR';
+      header("refresh:3; url=http://localhost/naseem_sa_1/naseem_sa/login_new.php");
     }
   }
 ?>

@@ -151,3 +151,6 @@
         <!-- button_up/ -->
     <script src="assistances/js/button_up.js"></script>
     <!-- Footer/-->
+    <?php
+        ob_end_flush();
+    ?>

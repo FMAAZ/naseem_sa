@@ -8,6 +8,40 @@
 </head>
 
 <body>
+<?php
+    if(isset($_SESSION["login"]) && !empty($_SESSION["email"]) && !empty($_SESSION["password"]))
+    {
+        if(!empty($_SESSION["email_tour_guide"]) && !empty($_SESSION["password_tour_guide"]))
+            {
+            }
+        else
+            {
+                session_unset();
+                echo '
+                    <center>
+                        <div class="alert alert-danger" role="alert">
+                            <b> ERROR ! </b>
+                        </div>
+                    </center>
+                ';
+                header("refresh:2;url= index.php");
+            exit;
+            }
+    }
+    else
+    {
+        session_unset();
+        echo '
+            <center>
+                <div class="alert alert-danger" role="alert">
+                    <b> ERROR ! </b>
+                </div>
+            </center>
+        ';
+        header("refresh:2;url= index.php");
+    exit;
+    }
+    ?>
     <!--/* Field of Age */-->
     <style>
         input::-webkit-inner-spin-button,

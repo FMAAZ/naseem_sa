@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="en" dir="rtl">
-
 <head>
     <title> طلبات</title>
     <?php require('components/head_inc.php'); ?>
@@ -8,9 +7,39 @@
 </head>
 
 <body>
-
     <?php
-    ob_start();
+    if(isset($_SESSION["login"]) && !empty($_SESSION["email"]) && !empty($_SESSION["password"]))
+    {
+        if(!empty($_SESSION["email_tourist"]) && !empty($_SESSION["password_tourist"]))
+            {
+            }
+        else
+            {
+                session_unset();
+                echo '
+                    <center>
+                        <div class="alert alert-danger" role="alert">
+                            <b> ERROR ! </b>
+                        </div>
+                    </center>
+                ';
+                header("refresh:2;url= index.php");
+                exit;
+            }
+    }
+    else
+    {
+        session_unset();
+        echo '
+            <center>
+                <div class="alert alert-danger" role="alert">
+                    <b> ERROR ! </b>
+                </div>
+            </center>
+        ';
+        header("refresh:2;url= index.php");
+        exit;
+    }
     ?>
     <!--/* Field of Age */-->
     <style>
@@ -48,30 +77,30 @@
 </div>
 <input type="submit" class="btn btn btn-success" name="ok" value="تاكد">
     </div>
-   
 
                             <div class="mb-3 col-md-5">
                                 <label>  عدد الاشخاص</label>
-                                <input type="text" name="first_name" class="form-control" placeholder="عدد الاشخاص " >
+                                <input type="number" name="first_name" class="form-control" placeholder="عدد الاشخاص " >
                             </div>
 
                             <div class="mb-3 col-md-5">
                                 <label>عدد الايام </label>
-                                <input type="text" name="last_name" class="form-control" placeholder="عدد الايام " >
+                                <input type="number" name="last_name" class="form-control" placeholder="عدد الايام " >
                             </div>
                             <div class="mb-3 col-md-9 col-6 mx-auto">
                             <label> الوجهه<span class="text-danger">*</span></label>
                                 <select name="Region" class="form-select" id="language" style="text-align: center;" required>
                                     <option selected disabled value="null" >الوجهه</option>
                                     <?php
-                             if(isset($_POST['ok'])){
-                                 if($_POST['wher']=="citie"){
-                               
+                            if(isset($_POST['ok']))
+                            {
+                                if($_POST['wher']=="citie")
+                                {
                                 echo"<option value=Riyadh >الرياض</option> <option value=Jaddah >جدة</option><option value=Dammam >الدمام</option><option value=Abha >ابها</option>";}
-                                if($_POST['wher']=="island"){
+                                if($_POST['wher']=="island")
+                                {
                                     echo"<option value=fursan >فرسان</option> <option value=Umluj >املج</option><option value=umm alqamari >أم القماري</option><option value=umm sanafir > جزيرة أمنة</option>";}
-                                    
-                             }   
+                            }   
                                 else
                                     echo"<option>الوجهه</option>";
                                 ?>
@@ -103,16 +132,21 @@
                                     $type_date = date_default_timezone_set("Asia/Riyadh");
                                     $date = date("Y-m-d");
                                     $time = date("H:i:s");
-                                    $insert_req_id = $connect_database->prepare('INSERT INTO requests (req_id , req_date , req_time)
-                                    VALUES ('.$_SESSION["new_id_request"].' , "'.$date.'" , "'.$time.'")');
+                                    $insert_req_id = $connect_database->prepare('INSERT INTO requests (req_id , tourist_req_id , req_date , req_time)
+                                    VALUES ('.$_SESSION["new_id_request"].' , '.$_SESSION["ID"].' , "'.$date.'" , "'.$time.'")');
                                     $insert_req_id->execute();
                                     if($insert_req_id->rowCount()==1)
                                     {
                                         echo 'تم إنشاء الطلب';
+                                        header("refresh:2; url=http://localhost/naseem_sa_1/naseem_sa/request.php");
+                                    }
+                                    elseif($insert_req_id->rowCount()==0)
+                                    {
+                                        echo 'حدث خطأ أثناء إنشاء الطلب';
                                     }
                                     else
                                     {
-                                        echo 'Failed !';
+                                        echo 'ERROR';
                                     }
                                 }
                                 ?>
@@ -125,10 +159,6 @@
         </div>
     </div>
     <!-- form_Check_in -->
-
-<?php
-ob_end_flush();
-?>
         <?php require('components/footre.php'); ?>
 </body>
 

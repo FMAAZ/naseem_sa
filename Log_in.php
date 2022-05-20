@@ -5,19 +5,23 @@
   <?php require('components/head_inc.php'); ?>  
   </head>
   <body>
-
-    <?php 
-    ob_start();
+    <?php
+    if(!isset($_SESSION["login"]))
+      {
+      }
+    elseif(isset($_SESSION["login"]))
+    {
+      header("Location:sing_out.php");
+    }
     ?>
-
-     <!-- form_Chck_in -->
-     <div class="container">
+      <!-- form_Chck_in -->
+      <div class="container">
         <div class="row align-items-center justify-content-center">
             <div class="col-sm-8 col-md-8 col-lg-5">
                 <div class="signup-form">
                     <form method="POST" class="mt-6 border p-4 bg-light shadow">
                         <h4 class="mb-3 text-center text-secondary">
-                             تسجيل الدخول
+                            تسجيل الدخول
                         </h4>
                         <hr class="featurette-divider">
                         <div class="row">
@@ -69,13 +73,13 @@
 
         if(!empty($_SESSION["email_tourist"]) && !empty($_SESSION["password_tourist"]) && $_SESSION["email_tourist"] == $_SESSION['email'] && $_SESSION["password_tourist"] == $_SESSION['password'])
         {
-          echo "tourist";
-          // header("refresh:3; url=http://localhost/naseem_sa_1/naseem_sa/request.php");
+          echo "تم تسجيل الدخول بنجاح";
+          header("refresh:3; url=http://localhost/naseem_sa_1/naseem_sa/request.php");
         }
         elseif(!empty($_SESSION["email_tour_guide"]) && !empty($_SESSION["password_tour_guide"]) && $_SESSION["email_tour_guide"] == $_SESSION['email'] && $_SESSION["password_tour_guide"] == $_SESSION['password'])
         {
-          echo "tour_guide";
-          // header("refresh:3; url=http://localhost/naseem_sa_1/naseem_sa/requestm.php");
+          echo "تم تسجيل الدخول بنجاح";
+          header("refresh:3; url=http://localhost/naseem_sa_1/naseem_sa/requestm.php");
         }
         elseif(empty($_SESSION["email_tour_guide"]) || empty($_SESSION["password_tour_guide"]) || empty($_SESSION["email_tourist"]) || empty($_SESSION["password_tourist"]))
         {
@@ -88,7 +92,7 @@
       }
       ?>
                     <p class="text-center mt-1 text-secondary">
-                        <a href="password.php"> نسيت كامة المرور&numsp;&numsp;</a>
+                        <a href="password.php"> نسيت كامة المرور</a>
                     </p>
                 </div>
             </div>
@@ -96,11 +100,6 @@
     </div>
     <!-- form_Check_in -->
     <!-- form_LOG_IN -->
-  
-
-    <?php
-    ob_end_flush();
-    ?>
         <?php require('components/footre.php');?>
   </body>
 </html>

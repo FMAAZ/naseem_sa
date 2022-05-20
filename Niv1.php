@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>الصفحة الرئيسية</title>
     <!-- Bootstrap 5core CSS 5-->
-<link rel="stylesheet" href="assistances/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assistances/css/bootstrap.min.css">
     <!--Style all pages-->
     <link rel="stylesheet" href="assistances/css/style.css" >
     <!-- Bootstrap 5core JS 5-->
@@ -77,7 +77,6 @@
                         </li>
                 </ul>
         <?php
-            // session_unset();
             if(!empty($_SESSION["email_tourist"]) && !empty($_SESSION["password_tourist"]))
             {
                 if(isset($_POST["update"])) 
@@ -657,7 +656,7 @@
             }
             if(isset($_POST["sing_out"]))
             {
-                header("refresh:0.1;url= index.php");
+                header("Location: index.php");
                 session_unset();
                 exit;
             }
@@ -669,7 +668,7 @@
                 phone_number = '.$_POST["phone_number"].' , age = '.$_POST["age"].' , gender = "'.$_POST["gender"].'" ,
                 language = "'.$_POST["language"].'" WHERE ID = '.$_SESSION["ID"].'');
                 $update_profile_info->execute();
-                header("refresh:1;url= index.php");
+                header("Location:http://localhost/naseem_sa_1/naseem_sa/request.php");
             }
             elseif(!empty($_SESSION["email_tour_guide"]) && !empty($_SESSION["password_tour_guide"]) && isset($_POST["update_info"]))
             {
@@ -678,7 +677,7 @@
                 phone_number = '.$_POST["phone_number"].' , age = '.$_POST["age"].' , gender = "'.$_POST["gender"].'" ,
                 language = "'.$_POST["language"].'" WHERE ID = '.$_SESSION["ID"].'');
                 $update_profile_info->execute();
-                header("refresh:1;url= index.php");
+                header("Location:http://localhost/naseem_sa_1/naseem_sa/requestm.php");
             }
         ?>
         </div>

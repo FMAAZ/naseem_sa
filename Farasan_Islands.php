@@ -42,7 +42,7 @@
             </div>
             <div class="col-md-6">
                 <a href="Cities.php">
-                    <img src="assistances/images/islands.jpg" class="img-thumbnail" alt="Cinque Terre" width="100%"
+                    <img src="assistances/images/Knights_Island.jpg" class="img-thumbnail" alt="Cinque Terre" width="100%"
                         height="100%">
                 </a>
             </div>
@@ -73,7 +73,7 @@
             </div>
             <div class="col-md-6">
                 <a href="Cities.php">
-                    <img src="assistances/images/s.jpg" class="img-thumbnail" alt="Cinque Terre" width="100%"
+                    <img src="assistances/images/coast_across.jpg" class="img-thumbnail" alt="Cinque Terre" width="100%"
                         height="100%">
                 </a>
             </div>
@@ -94,7 +94,7 @@
             </div>
             <div class="col-md-6">
                 <a href="Cities.php">
-                    <img src="assistances/images/h.jpg" class="img-thumbnail" alt="Cinque Terre" width="100%"
+                    <img src="assistances/images/Ras_El_Qarn_Beach.jpg" class="img-thumbnail" alt="Cinque Terre" width="100%"
                         height="100%">
                 </a>
             </div>
@@ -115,7 +115,7 @@
             </div>
             <div class="col-md-6">
                 <a href="Cities.php">
-                    <img src="assistances/images/g.jpg" class="img-thumbnail" alt="Cinque Terre" width="100%"
+                    <img src="assistances/images/ottoman_castle.jpg" class="img-thumbnail" alt="Cinque Terre" width="100%"
                         height="100%">
                 </a>
             </div>
@@ -141,12 +141,12 @@
       </div>
     </div>
   <!-- More tourist destinations// -->
-  <?php require('components/footre.php');?>
   </div>
 <!-- 1row //-->
 <br>
 
 </main>
+<?php require('components/footre.php');?>
 
 </body>
 </html>

@@ -9,7 +9,7 @@
     <!-- 1article -->
     <article class="blog-post">
         <h2 class="blog-post-title">افضل الاماكن السياحية<span class="text-muted">في جزيرة أمنة</span></h2>
-       <br>
+        <br>
         <p>جزيرة آمنة هي إحدى الجُزر السعودية ، وتتبع إدراياً لمحافظة جازان، وتفصل الجزيرة عن الساحل أو البر السعودي مسافة ما يزيد قليلاً عن سبعة أميالٍ بحرية، فيما تبعد حوالي خمسة عشر كيلومتراً، عن جنوب غرب ميناء مدينة جازان، وتبلغ مساحة الجزيرة حوالي 1.1كم².</p>
         <h4 class="blog-post-title">الموقع</h4>
       <p class="lead">الواقعة في البحر الأحمر، جنوب غرب المملكة العربية السعودية</p>
@@ -85,21 +85,20 @@
         <div class="p-4 mb-3 bg-light rounded">
         <h4 class="fst-italic"><span class="text-muted">المزيد من وجهات سياحية</span></h4>
           <ul>
-            <li><a href="Farasan_Islands.php" class="link-dark">جزيرة فرسان</a></li>
-            <li><a href="Amna.php"class="link-dark"> جزيرة أمنة</a></li>
-            <li><a href="#"class="link-dark"> جزيرة </a></li>
-            <li><a href="#"class="link-dark">جزيرة</a></li>
+          <li><a href="Farasan_Islands.php" class="link-dark">جزيرة فرسان</a></li>
+            <li><a href="Amna.php"class="link-dark">جزيرة أمنة</a></li>
+            <li><a href="umqamari.php"class="link-dark">جزيرة أم القماري </a></li>
           </ul>
         </div>
       </div>
     </div>
   <!-- More tourist destinations// -->
-  <?php require('components/footre.php');?>
   </div>
 <!-- 1row //-->
 <br>
 
 </main>
+<?php require('components/footre.php');?>
 
 </body>
 </html>

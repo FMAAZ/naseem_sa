@@ -25,7 +25,7 @@
                 </div>
             </div>
             <div class="carousel-item active">
-                <img src="assistances/images/major.jpg" class="d-block w-100" alt="Cinque Terre" width="550px"
+                <img src="assistances/images/major copy.jpg" class="d-block w-100" alt="Cinque Terre" width="550px"
                     height="555px">
 
                 <div class="container">
@@ -64,7 +64,7 @@
         <hr class="featurette-divider">
         <div class="row featurette">
             <div class="col-md-7">
-                <h2 id="scrollspyHeading2" class="featurette-heading">السياحة في <span class="text-muted"> مدن المملكة . </span></h2>
+                <h2 id="scrollspyHeading2" class="featurette-heading">السياحة في <span class="text-muted"> مدن المملكة </span></h2>
                 <p class="lead">تعد السياحة الترفيهية والسياحة الدينية في المملكة العربية السعودية من بين الأنواع
                     الرئيسية للسياحة هناك. بالإضافة إلى ذلك ، قد أدخلت المملكة العربية السعودية قطاع السفر والسياحة من
                     خلال فتح حدودها على العالم ليأتوا لاكتشاف المملكة مع الإطلاق التاريخي للتأشيرة الإلكترونية السياحية.
@@ -80,7 +80,7 @@
         <hr class="featurette-divider">
         <div class="row featurette">
             <div class="col-md-7 order-md-2">
-                <h2  class="featurette-heading">السياحة في<span class="text-muted"> جزر المملكة . </span></h2>
+                <h2  class="featurette-heading">السياحة في<span class="text-muted"> جزر المملكة </span></h2>
                 <p class="lead">
                 مجموعة جزر سياحية في السعودية تعتبر من أجمل المناطق التي يمكن زيارتها في الخليج العربي، ويقدر عدد تلك الجزر في المملكة بحسب هيئة المساحة الجيولوجية السعودية بحوالي ما يقرب إلى 1258 جزيرة سعودية رائعة، وهي تعتبر من عوامل الجذب لجميع السياح حول العالم.
                 </p>
@@ -95,8 +95,9 @@
 
         <hr class="featurette-divider">
         <!-- /END THE FEATURETTES -->
-        <?php require('components/footre.php');?>
     </div><!-- /.container -->
+    <?php require('components/footre.php');?>
+
         <!--js_button_up-->
 </body>
 </html>

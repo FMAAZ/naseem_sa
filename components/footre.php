@@ -1,5 +1,5 @@
- <!-- Footer -->
- <footer class="text-center text-lg-start bg-light text-muted">
+<!-- Footer -->
+<footer class="text-center text-lg-start bg-light text-muted">
         <!-- Section: Social media -->
         <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
             <!-- Left -->
@@ -146,9 +146,11 @@
         </div>
         <!-- Copyright -->
     </footer>
-     <!-- button_up -->
-     <button onclick="topFunction()" id="myBtn" title="اعلى الصفحة">^</button>
+    <!-- button_up -->
+    <button onclick="topFunction()" id="myBtn" title="اعلى الصفحة">^</button>
         <!-- button_up/ -->
     <script src="assistances/js/button_up.js"></script>
-
     <!-- Footer/-->
+    <?php
+        ob_end_flush();
+    ?>

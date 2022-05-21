@@ -30,7 +30,6 @@
         <hr>
       </article>
       <!--1 article //-->
-
 <!--2 article -->
       <article class="blog-post">
       <div class="container marketing">

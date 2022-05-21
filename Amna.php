@@ -83,12 +83,19 @@
     <div class="col-md-4">
       <div class="position-sticky" style="top: 2rem;">
         <div class="p-4 mb-3 bg-light rounded">
-        <h4 class="fst-italic"><span class="text-muted">المزيد من وجهات سياحية</span></h4>
-          <ul>
-          <li><a href="Farasan_Islands.php" class="link-dark">جزيرة فرسان</a></li>
-            <li><a href="Amna.php"class="link-dark">جزيرة أمنة</a></li>
-            <li><a href="umqamari.php"class="link-dark">جزيرة أم القماري </a></li>
-          </ul>
+        <h4 class="fst-italic text-center"><span class="text-muted">المزيد من وجهات سياحية</span></h4>
+        <hr>
+        <!-- button -->
+        <div class="list-group">
+  <button type="button" class="list-group-item list-group-item-action" aria-current="true">
+    ام القراء
+  </button>
+  <button type="button" class="list-group-item list-group-item-action">ابهاء</button>
+  <button type="button" class="list-group-item list-group-item-action">عسير </button>
+  <button type="button" class="list-group-item list-group-item-action">الرياض</button>
+  <button type="button" class="list-group-item list-group-item-action">جدة</button>
+</div>
+<!-- button// -->
         </div>
       </div>
     </div>

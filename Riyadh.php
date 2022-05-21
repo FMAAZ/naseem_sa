@@ -110,7 +110,6 @@
         </div>
     </div>
     <br>
-
         <h4 class="blog-post-title">الأنشطة</h4>
         <ul> 
         <li>قاعة الإنسان والكون.</li>
@@ -152,20 +151,43 @@
       </article>
       <hr>
     </div>
+    <!--  -->
     <!-- More tourist destinations -->
     <div class="col-md-4">
       <div class="position-sticky" style="top: 2rem;">
         <div class="p-4 mb-3 bg-light rounded">
-        <h4 class="fst-italic"><span class="text-muted">المزيد من وجهات سياحية</span></h4>
-          <ul>
-            <li><a href="Riyadh.php" class="link-dark">السياحة في الرياض</a></li>
-            <li><a href="jeddah.php"class="link-dark">السياحة في جدة</a></li>
-            <li><a href="abha.php"class="link-dark">السياحة في أبها</a></li>
-          </ul>
+        <h4 class="fst-italic text-center"><span class="text-muted">وجهات سياحية</span></h4>
+        <hr>
+        <!-- ---------- -->
+        <!-- buton -->
+        <div class="list-group">
+        <button type="button" class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">الرياض</h5>
+      <img src="assistances/images/andalus-park-abha.webp" alt="mdo" width="68" height="60" class="rounded-3">    </div>   
+    </button>
+    <hr>
+    <button type="button" class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">جدة</h5>
+      <img src="assistances/images/andalus-park-abha.webp" alt="mdo" width="68" height="60" class="rounded-3"> 
+    </div>  
+    </button>
+    <hr>
+    <button type="button" class="list-group-item list-group-item-action">
+    <div class="d-flex w-100 justify-content-between">
+      <h5 class="mb-1">ابهاء</h5>
+      <img src="assistances/images/andalus-park-abha.webp" alt="mdo" width="68" height="60" class="rounded-3">   
+     </div> 
+    </button>
+</div>
+<!-- button// -->
+<!-- ------- -->
         </div>
       </div>
     </div>
   <!-- More tourist destinations// -->
+  <!--  -->
   </div>
 <!-- 1row //-->
 <br>

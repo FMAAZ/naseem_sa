@@ -62,7 +62,7 @@
                         </h4>
                         <hr class="featurette-divider">
 
-<<<<<<< HEAD
+
                        <?php
                         $host="localhost";
                         $user="root";
@@ -83,17 +83,9 @@
                        if(isset($_POST['show'])){
                         echo $row['first_name']." ".$row['last_name']." ".$row['language'].'</a></p><input type="submit" class="btn btn-success " name="acceptance"  value="قبول">
                         <input type="submit" class="btn btn-danger "name="refusal" value="رفض"><hr>';
-=======
-                        <?php
-                        $host = "localhost";
-                        $user = "root";
-                        $password = "";
-                        $dbname = "naseem_sa";
-                        $conn = mysqli_connect($host, $user, $password, $dbname);
-                        $type_date = date_default_timezone_set("Asia/Riyadh");
-                        $date = date("Y-m-d");
->>>>>>> 260005475b9648a4604f4b71ecab8dc8e1953f9e
 
+<<<<<<< HEAD
+=======
                         $query = "SELECT * FROM tourist WHERE ID =(SELECT tourist_req_id FROM requests WHERE req_status is null AND req_date='".$date."')";
                         $result = mysqli_query($conn, $query);
 
@@ -101,25 +93,23 @@
                             while ($row = mysqli_fetch_assoc($result)) {
                                 if (isset($_POST['show'])) {
                                     echo  $row['first_name'] . ' ' . $row['last_name'];
+>>>>>>> 9f25efe035c73eb28d39d6fd637c7b96aa9bcfbb
                                 }
                             }
                         }
-<<<<<<< HEAD
+
 if(isset($_POST['acceptance'])){
     $status='مقبول';
 }
 if(isset($_POST['refusal'])){
     $status='مرفوض';
 }
-echo $status;
+echo @$status;
                 
                        
                        
                        ?>
-=======
 
-                        ?>
->>>>>>> 260005475b9648a4604f4b71ecab8dc8e1953f9e
 
                         <div class="d-grid gap-2 col-3 mx-auto">
 
@@ -130,9 +120,7 @@ echo $status;
                             </div>
                         </div>
                     </form>
-<<<<<<< HEAD
 
-=======
                     <?php
                     $host = "localhost";
                     $user = "root";
@@ -152,7 +140,7 @@ echo $status;
                         }
                     }
                     ?>
->>>>>>> 260005475b9648a4604f4b71ecab8dc8e1953f9e
+
                 </div>
                 <br>
             </div>

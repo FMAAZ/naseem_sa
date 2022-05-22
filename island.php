@@ -77,7 +77,7 @@
                                     <h4 class="card-title">'.$print["name"].'</h4>
                                     <p class="card-text-center">'.$print["card_description"].'</p>
                                         <form method="POST" action="try2.php">
-                                        <button type="submit" name="card_island" class=" btn btn-outline-success" value="'.$print["ID"].'">عرض</button>
+                                        <button type="submit" name="card_island" class=" btn btn-outline-success" value="'.$print["island_id"].'">عرض</button>
                                         </form>
                                     </div>
                                     </div>

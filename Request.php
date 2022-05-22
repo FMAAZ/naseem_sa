@@ -139,15 +139,17 @@
                                     if($insert_req_id->rowCount()==1)
                                     {
                                         echo 'تم إنشاء الطلب';
-                                        header("refresh:2; url=http://localhost/naseem_sa_1/naseem_sa/request.php");
+                                        header("refresh:2; url=request.php");
                                     }
                                     elseif($insert_req_id->rowCount()==0)
                                     {
                                         echo 'حدث خطأ أثناء إنشاء الطلب';
+                                        header("refresh:2; url=request.php");
                                     }
                                     else
                                     {
                                         echo 'ERROR';
+                                        header("refresh:2; url=request.php");
                                     }
                                 }
                                 ?>

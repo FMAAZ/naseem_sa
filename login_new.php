@@ -197,11 +197,11 @@ if(isset($_POST["login_new"]))
             echo '
                 <center>
                   <div class="alert alert-success" role="alert">
-                    <b> Succefall Login </b> 
+                    <b> Succefall Login New Account </b> 
                   </div>
                 </center>
             ';
-          // header("refresh:3; url=http://localhost/naseem_sa_1/naseem_sa/login_new.php");
+          header("refresh:3; url=log_in.php");
           }
         else
           {
@@ -212,11 +212,13 @@ if(isset($_POST["login_new"]))
                   </div>
                 </center>
             ';
+            header("refresh:3; url=login_new.php");
           }
       }
     else
       {
         echo 'الإيميل مسجل مسبقا';
+        header("refresh:3; url=login_new.php");
       }
   }
   elseif($_POST["type_user"] == "tour_guide")
@@ -268,7 +270,7 @@ if(isset($_POST["login_new"]))
                   </div>
                 </center>
         ';
-        header("refresh:3; url=http://localhost/naseem_sa_1/naseem_sa/log_in.php");
+        header("refresh:3; url=log_in.php");
       }
       else
       {
@@ -279,7 +281,7 @@ if(isset($_POST["login_new"]))
                 </div>
               </center>
         ';
-        header("refresh:3; url=http://localhost/naseem_sa_1/naseem_sa/login_new.php");
+        header("refresh:3; url=login_new.php");
       }
     }
     else
@@ -291,7 +293,7 @@ if(isset($_POST["login_new"]))
         </div>
       </center>
       ';
-      header("refresh:3; url=http://localhost/naseem_sa_1/naseem_sa/login_new.php");
+      header("refresh:3; url=login_new.php");
     }
   }
 }
@@ -304,7 +306,7 @@ elseif($_POST["age"] < 18)
     </div>
   </center>
   ';
-  header("refresh:3; url=http://localhost/naseem_sa_1/naseem_sa/login_new.php");
+  header("refresh:3; url=login_new.php");
 }
 elseif($_POST["password"] != $_POST["check_password"])
   {
@@ -315,7 +317,7 @@ elseif($_POST["password"] != $_POST["check_password"])
       </div>
     </center>
     ';
-    header("refresh:3; url=http://localhost/naseem_sa_1/naseem_sa/login_new.php");
+    header("refresh:3; url=login_new.php");
   }
   else
   {
@@ -326,7 +328,7 @@ elseif($_POST["password"] != $_POST["check_password"])
       </div>
     </center>
     ';
-    header("refresh:3; url=http://localhost/naseem_sa_1/naseem_sa/login_new.php");
+    header("refresh:3; url=login_new.php");
   }
 }
 ?>

@@ -9,7 +9,7 @@
         if(isset($_POST["card_island"]))
             $card_id = " = " . $_POST["card_island"];
         else
-            $card_id = " IS NULL";
+            $card_id = " IS NOT NULL";
 
         require_once 'connect_database.php';
         if ($_SESSION["destination"] == "island")
@@ -142,9 +142,26 @@
                         <div class="p-4 mb-3 bg-light rounded">
                             <h4 class="fst-italic"><span class="text-muted">المزيد من وجهات سياحية</span></h4>
                             <ul>
-                                <li><a href="Riyadh.php" class="link-dark">السياحة في الرياض</a></li>
-                                <li><a href="jeddah.php" class="link-dark">السياحة في جدة</a></li>
-                                <li><a href="abha.php" class="link-dark">السياحة في أبها</a></li>
+                            <?php
+                                 $select_photo = $connect_database->prepare('SELECT * FROM island_content');
+                                $select_photo->execute();
+                                foreach($select_photo as $print)
+                                    {
+                                        echo '
+                                            <div class="list-group">
+                                                <form method="POST" action="try2.php">
+                                                    <button type="submit" class="list-group-item list-group-item-action" name="card_island" value="'.$print["island_id"].'">
+                                                        <div class="d-flex w-100 justify-content-between">
+                                                            <h5 class="mb-1">'.$print["name"].'</h5>
+                                                            <img src="assistances/images/'.$print["card_photo"].'" alt="mdo" width="68" height="60" class="rounded-3">
+                                                        </div>
+                                                    </button>
+                                                </form>
+                                                <hr>
+                                            </div>
+                                        ';
+                                    }
+                            ?>
                             </ul>
                         </div>
                     </div>

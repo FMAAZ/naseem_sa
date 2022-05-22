@@ -131,8 +131,8 @@
                             </div>
                         </div>
                     </form>
-                    <p class="text-center mt-3 text-secondary">إذا كان لديك حساب ، الرجاء تسجيل
-                        <a href="Log_in.php">الدخول الآن&numsp;&numsp;</a>
+                    <p class="text-center mt-3 text-secondary">إذا كان لديك حساب ، الرجاء 
+                        <a href="Log_in.php">تسجيل الدخول</a>
                     </p>
                 </div>
             </div>

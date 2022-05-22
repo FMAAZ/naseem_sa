@@ -105,7 +105,7 @@
       }
       ?>
                     <p class="text-center mt-1 text-secondary">
-                        <a href="password.php"> نسيت كامة المرور</a>
+                        <a href="password.php"> نسيت كلمة المرور</a>
                     </p>
                 </div>
             </div>

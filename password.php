@@ -55,20 +55,20 @@
                         </div>
                     </form>
                     <p class="text-center mt-3 text-secondary">
-                        <a href="Log_in.php"> تسجيل دخول&numsp;&numsp;</a>
+                        <a href="Log_in.php">تسجيل دخول</a>
                     </p>
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- reset password -->
     <?php
-    require_once 'connect_database.php';
-    if (isset($_POST['reset_password']) && !empty($_POST['question']) && $_POST['question'] != 'null' && !empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['confirm_password']))
+    if 
+    (
+        isset($_POST['reset_password']) && !empty($_POST['answer']) && $_POST['question'] != 'null' &&
+        !empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['confirm_password']) && $_POST['password'] ==  $_POST['confirm_password']
+    )
     {
-        $select_tourist = $connect_database->prepare('SELECT * FROM tourist WHERE email = "' . $_POST["email"] . '" AND question = "' . $_POST["question"] . '" AND answer = "' . $_POST["answer"] . '"');
+        require_once 'connect_database.php';
+        $select_tourist = $connect_database->prepare('SELECT * FROM tourist WHERE email = "'.$_POST["email"].'" AND question = "'.$_POST["question"].'" AND answer = "'.$_POST["answer"].'"');
         $select_tourist->execute();
-        $select_tour_guide = $connect_database->prepare('SELECT * FROM tour_guide WHERE email = "' . $_POST["email"] . '" AND question = "' . $_POST["question"] . '" AND answer = "' . $_POST["answer"] . '"');
+        $select_tour_guide = $connect_database->prepare('SELECT * FROM tour_guide WHERE email = "'.$_POST["email"].'" AND question = "'.$_POST["question"].'" AND answer = "'.$_POST["answer"].'"');
         $select_tour_guide->execute();
 
         foreach ($select_tourist as $print)
@@ -84,72 +84,111 @@
             $_SESSION["answer_tour_guide"] = $print["answer"];
         }
 
-        if (!empty($_SESSION["email_tourist"]) && !empty($_SESSION["question_tourist"]) && !empty($_SESSION["answer_tourist"]))
+        if(!empty($_SESSION["email_tourist"]) && !empty($_SESSION["question_tourist"]) && !empty($_SESSION["answer_tourist"]))
         {
-            $reset_password = $connect_database->prepare('UPDATE tourist SET password = ' . $_POST["password"] . ' WHERE email = "' . $_POST["email"] . '" AND question = "' . $_POST["question"] . '" AND answer = "' . $_POST["answer"] . '"');
-            $reset_password->execute();
-            if ($reset_password->RowCount() == 1)
+            if ($_SESSION["answer_tourist"] == $_POST["answer"] && $_SESSION["email_tourist"] == $_POST["email"])
             {
-                echo '
+                $reset_password = $connect_database->prepare('UPDATE tourist SET password = '.$_POST["password"].' WHERE email = "'.$_POST["email"].'" AND question = "'.$_POST["question"].'" AND answer = "'.$_POST["answer"].'"');
+                $reset_password->execute();
+                if ($reset_password->RowCount() == 1)
+                {
+                    echo '
                         <center>
                             <div class="alert alert-success" role="alert">
                                 <b> Succefall Reset Password </b> 
                             </div>
-                        </center>';
-                        header("refresh:3; url=log_in.php");
-            }
-            else
-            {
-                echo '
+                        </center>
+                    ';
+                    header("refresh:3; url=log_in.php");
+                }
+                else
+                {
+                    echo '
                         <center>
                             <div class="alert alert-danger" role="alert">
                                 <b> Failed Reset Password </b> 
                             </div>
-                        </center>';
-                        header("refresh:3; url=login_new.php");
+                        </center>
+                    ';
+                    // header("refresh:3; url=login_new.php");
+                }
+            }
+            elseif($_SESSION["answer_tourist"] != $_POST["answer"] || $_SESSION["email_tourist"] != $_POST["email"])
+            {
+                echo '
+                    <center>
+                        <div class="alert alert-danger" role="alert">
+                            <b>الإيميل أو سؤال الأمان غير صحيح</b> 
+                        </div>
+                    </center>
+                ';
+                header("refresh:3; url=password.php");
             }
         }
         elseif (!empty($_SESSION["email_tour_guide"]) && !empty($_SESSION["question_tour_guide"]) && !empty($_SESSION["answer_tour_guide"]))
         {
-            $reset_password->perpare('UPDATE tour_guide SET password = ' . $_POST["password"] . ' WHERE email = "' . $_POST["email"] . '" AND question = "' . $_POST["question"] . '" AND answer = "' . $_POST["answer"] . '"');
-            $reset_password->execute();
-            if ($reset_password->RowCount() == 1)
+            if ($_SESSION["answer_tour_guide"] == $_POST["answer"] && $_SESSION["email_tour_guide"] == $_POST["email"])
             {
-                echo '
+                $reset_password = $connect_database->prepare('UPDATE tour_guide SET password = '.$_POST["password"].' WHERE email = "'.$_POST["email"].'" AND question = "'.$_POST["question"] .'" AND answer = "'.$_POST["answer"].'"');
+                $reset_password->execute();
+                if ($reset_password->RowCount() == 1)
+                {
+                    echo '
                         <center>
                             <div class="alert alert-success" role="alert">
                                 <b> Succefall Reset Password </b> 
                             </div>
-                        </center>';
-                        header("refresh:3; url=log_in.php");
-            }
-            else
-            {
-                echo '
+                        </center>
+                    ';
+                    header("refresh:3; url=log_in.php");
+                }
+                else
+                {
+                    echo '
                         <center>
                             <div class="alert alert-danger" role="alert">
                                 <b> Failed Reset Password </b> 
                             </div>
-                        </center>';
-                        header("refresh:3; url=password.php");
+                        </center>
+                    ';
+                    // header("refresh:3; url=password.php");
+                }
+            }
+            elseif($_SESSION["answer_tour_guide"] != $_POST["answer"] || $_SESSION["email_tour_guide"] != $_POST["email"])
+            {
+                echo '
+                    <center>
+                        <div class="alert alert-danger" role="alert">
+                            <b>الإيميل أو سؤال الأمان غير صحيح</b> 
+                        </div>
+                    </center>
+                ';
+                header("refresh:3; url=password.php");
             }
         }
-        elseif
-        (
-            empty($_SESSION["email_tour_guide"]) || empty($_SESSION["question_tour_guide"]) || empty($_SESSION["answer_tour_guide"]) ||
-            empty($_SESSION["email_tourist"]) || empty($_SESSION["question_tourist"]) || empty($_SESSION["answer_tourist"])
-        )
-        {
-            echo '<br><h3>Email or Security Question incorrect !</h3>';
-            header("refresh:3; url=password.php");
-        } 
         else 
         {
             echo 'ERROR !';
             header("refresh:3; url=password.php");
         }
     }
+    elseif
+    (isset($_POST['reset_password']) && $_POST['password'] !=  $_POST['confirm_password'])
+    {
+        echo '
+        <center>
+            <div class="alert alert-danger" role="alert">
+                <b>كلمة المرور غير متطابقة</b>
+            </div>
+        </center>
+    ';
+    header("refresh:3; url=password.php");
+    }
     ?>
+    </div>
+    </div>
+    </div>
+    </div>
     <!-- form -->
     <?php require('components/footre.php'); ?>
 </body>

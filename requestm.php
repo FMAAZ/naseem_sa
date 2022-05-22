@@ -84,6 +84,16 @@
                         echo $row['first_name']." ".$row['last_name']." ".$row['language'].'</a></p><input type="submit" class="btn btn-success " name="acceptance"  value="قبول">
                         <input type="submit" class="btn btn-danger "name="refusal" value="رفض"><hr>';
 
+<<<<<<< HEAD
+=======
+                        $query = "SELECT * FROM tourist WHERE ID =(SELECT tourist_req_id FROM requests WHERE req_status is null AND req_date='".$date."')";
+                        $result = mysqli_query($conn, $query);
+
+                        if ($result) {
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                if (isset($_POST['show'])) {
+                                    echo  $row['first_name'] . ' ' . $row['last_name'];
+>>>>>>> 9f25efe035c73eb28d39d6fd637c7b96aa9bcfbb
                                 }
                             }
                         }

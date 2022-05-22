@@ -668,7 +668,7 @@
                 phone_number = '.$_POST["phone_number"].' , age = '.$_POST["age"].' , gender = "'.$_POST["gender"].'" ,
                 language = "'.$_POST["language"].'" WHERE ID = '.$_SESSION["ID"].'');
                 $update_profile_info->execute();
-                header("Location:http://localhost/naseem_sa_1/naseem_sa/request.php");
+                header("Location:request.php");
             }
             elseif(!empty($_SESSION["email_tour_guide"]) && !empty($_SESSION["password_tour_guide"]) && isset($_POST["update_info"]))
             {
@@ -677,7 +677,7 @@
                 phone_number = '.$_POST["phone_number"].' , age = '.$_POST["age"].' , gender = "'.$_POST["gender"].'" ,
                 language = "'.$_POST["language"].'" WHERE ID = '.$_SESSION["ID"].'');
                 $update_profile_info->execute();
-                header("Location:http://localhost/naseem_sa_1/naseem_sa/requestm.php");
+                header("Location:requestm.php");
             }
         ?>
         </div>

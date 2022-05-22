@@ -73,17 +73,30 @@
 
         if(!empty($_SESSION["email_tourist"]) && !empty($_SESSION["password_tourist"]) && $_SESSION["email_tourist"] == $_SESSION['email'] && $_SESSION["password_tourist"] == $_SESSION['password'])
         {
-          echo "تم تسجيل الدخول بنجاح";
-          header("refresh:3; url=http://localhost/naseem_sa_1/naseem_sa/request.php");
+          echo '
+          <center>
+            <div class="alert alert-success" role="alert">
+              <b>تم تسجيل الدخول بنجاح</b> 
+            </div>
+          </center>
+          ';
+          header("refresh:3; url=request.php");
         }
         elseif(!empty($_SESSION["email_tour_guide"]) && !empty($_SESSION["password_tour_guide"]) && $_SESSION["email_tour_guide"] == $_SESSION['email'] && $_SESSION["password_tour_guide"] == $_SESSION['password'])
         {
-          echo "تم تسجيل الدخول بنجاح";
-          header("refresh:3; url=http://localhost/naseem_sa_1/naseem_sa/requestm.php");
+          echo '
+          <center>
+            <div class="alert alert-success" role="alert">
+              <b>تم تسجيل الدخول بنجاح</b> 
+            </div>
+          </center>
+          ';
+          header("refresh:3; url=requestm.php");
         }
         elseif(empty($_SESSION["email_tour_guide"]) || empty($_SESSION["password_tour_guide"]) || empty($_SESSION["email_tourist"]) || empty($_SESSION["password_tourist"]))
         {
           echo '<br><h3>email or password incorrect !</h3>';
+          header("refresh:2; url=log_in.php");
         }
         else
         {

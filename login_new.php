@@ -75,7 +75,7 @@
 
                             <div class="mb-3 col-md-5">
                                 <label>العمر<span class="text-danger">*</span></label>
-                                <input type="text" name="age" min="18" max="99" maxlength="2" class="form-control" placeholder=" ادخل العمر" required>
+                                <input type="text" name="age" min="18" max="99" maxlength="3" class="form-control" placeholder=" ادخل العمر" required>
                             </div>
 
                             <div class="mb-3 col-md-5">
@@ -145,156 +145,192 @@
     <?php
 
 require_once "connect_database.php";
-if(isset($_POST["login_new"]) && !empty($_POST["first_name"]) && !empty($_POST["last_name"]) && !empty($_POST["email"]) && !empty($_POST["password"]) &&
-    !empty($_POST["phone_number"]) && !empty($_POST["age"]) && !empty($_POST["gender"]) && !empty($_POST["language"]) && $_POST["language"] != "null" &&
-    $_POST["password"] == $_POST["check_password"] && $_POST["age"] >= 18
-  )
+if(isset($_POST["login_new"]))
+{
+  if(isset($_POST["login_new"]) && !empty($_POST["first_name"]) && !empty($_POST["last_name"]) && !empty($_POST["email"]) && !empty($_POST["password"]) &&
+  !empty($_POST["phone_number"]) && !empty($_POST["age"]) && !empty($_POST["gender"]) && !empty($_POST["language"]) && $_POST["language"] != "null" &&
+  $_POST["password"] == $_POST["check_password"] && $_POST["age"] >= 18
+)
+{
+  if($_POST["type_user"] == "tourist")
   {
-    if($_POST["type_user"] == "tourist")
+    $select_id_tourist = $connect_database->prepare('SELECT MAX(ID) ID FROM tourist');
+    $select_id_tourist->execute();
+
+    $select_email_tourist = $connect_database->prepare('SELECT email FROM tourist WHERE email = "'.$_POST["email"].'"');
+    $select_email_tourist->execute();
+
+    $select_email_tour_guide = $connect_database->prepare('SELECT email FROM tour_guide WHERE email = "'.$_POST["email"].'"');
+    $select_email_tour_guide->execute();
+
+    foreach($select_id_tourist as $print)
     {
-      $select_id_tourist = $connect_database->prepare('SELECT MAX(ID) ID FROM tourist');
-      $select_id_tourist->execute();
-
-      $select_email_tourist = $connect_database->prepare('SELECT email FROM tourist WHERE email = "'.$_POST["email"].'"');
-      $select_email_tourist->execute();
-
-      $select_email_tour_guide = $connect_database->prepare('SELECT email FROM tour_guide WHERE email = "'.$_POST["email"].'"');
-      $select_email_tour_guide->execute();
-
-      foreach($select_id_tourist as $print)
-      {
-        $_SESSION["new_id_tourist"] = $print["ID"];
-      }
-
-      if(empty($_SESSION["new_id_tourist"]))
-        {
-          $_SESSION["new_id_tourist"] = 100;
-        }
-      elseif(!empty($_SESSION["new_id_tourist"]))
-        {
-          $_SESSION["new_id_tourist"] ++;
-        }
-      if($select_email_tourist->rowCount()==0 && $select_email_tour_guide->rowCount()==0)
-        {
-          $login_new_tourist = $connect_database->prepare
-          ('
-            INSERT INTO tourist
-            (
-            ID , first_name , last_name , email , password , phone_number , age , gender , language , answer , question
-            )
-            VALUES 
-            (
-            '.$_SESSION["new_id_tourist"].' , "'.$_POST["first_name"].'" , "'.$_POST["last_name"].'" , "'.$_POST["email"].'" , "'.$_POST["password"].'" ,
-            '.$_POST["phone_number"].' , '.$_POST["age"].' , "'.$_POST["gender"].'" , "'.$_POST["language"].'" , "'.$_POST["answer"].'" , "'.$_POST["question"].'"
-            )
-          ');
-          $login_new_tourist->execute();
-
-          if($login_new_tourist->rowCount()==1)
-            {
-              echo '
-                  <center>
-                    <div class="alert alert-success" role="alert">
-                      <b> Succefall Login </b> 
-                    </div>
-                  </center>
-              ';
-            // header("refresh:3; url=http://localhost/naseem_sa_1/naseem_sa/login_new.php");
-            }
-          else
-            {
-              echo '
-                    <center>
-                    <div class="alert alert-danger" role="alert">
-                      <b> Failed Login </b> 
-                    </div>
-                  </center>
-              ';
-            }
-        }
-      else
-        {
-          echo 'الإيميل مسجل مسبقا';
-        }
+      $_SESSION["new_id_tourist"] = $print["ID"];
     }
-    elseif($_POST["type_user"] == "tour_guide")
-    {
-      $select_id_tour_guide = $connect_database->prepare('SELECT MAX(ID) ID FROM tour_guide');
-      $select_id_tour_guide->execute();
 
-      $select_email_tourist = $connect_database->prepare('SELECT email FROM tourist WHERE email = "'.$_POST["email"].'"');
-      $select_email_tourist->execute();
-
-      $select_email_tour_guide = $connect_database->prepare('SELECT email FROM tour_guide WHERE email = "'.$_POST["email"].'"');
-      $select_email_tour_guide->execute();
-
-      foreach($select_id_tour_guide as $print)
+    if(empty($_SESSION["new_id_tourist"]))
       {
-        $_SESSION["new_id_tour_guide"] = $print["ID"];
+        $_SESSION["new_id_tourist"] = 100;
       }
-
-      if(empty($_SESSION["new_id_tour_guide"]))
+    elseif(!empty($_SESSION["new_id_tourist"]))
       {
-        $_SESSION["new_id_tour_guide"] = 100;
+        $_SESSION["new_id_tourist"] ++;
       }
-      elseif(!empty($_SESSION["new_id_tour_guide"]))
+    if($select_email_tourist->rowCount()==0 && $select_email_tour_guide->rowCount()==0)
       {
-        $_SESSION["new_id_tour_guide"] ++;
-      }
-      if($select_email_tourist->rowCount()==0 && $select_email_tour_guide->rowCount()==0)
-      {
-        $login_new_tour_guide = $connect_database->prepare
+        $login_new_tourist = $connect_database->prepare
         ('
-        INSERT INTO tour_guide
-        (
-          ID , first_name , last_name , email , password , phone_number , age , gender , language , question , answer
-        )
-        VALUES 
-        (
-          '.$_SESSION["new_id_tour_guide"].' , "'.$_POST["first_name"].'" , "'.$_POST["last_name"].'" , "'.$_POST["email"].'" , "'.$_POST["password"].'" ,
-          '.$_POST["phone_number"].' , '.$_POST["age"].' , "'.$_POST["gender"].'" , "'.$_POST["language"].'" , "'.$_POST["question"].'" , "'.$_POST["answer"].'"
-        )
+          INSERT INTO tourist
+          (
+          ID , first_name , last_name , email , password , phone_number , age , gender , language , answer , question
+          )
+          VALUES 
+          (
+          '.$_SESSION["new_id_tourist"].' , "'.$_POST["first_name"].'" , "'.$_POST["last_name"].'" , "'.$_POST["email"].'" , "'.$_POST["password"].'" ,
+          '.$_POST["phone_number"].' , '.$_POST["age"].' , "'.$_POST["gender"].'" , "'.$_POST["language"].'" , "'.$_POST["answer"].'" , "'.$_POST["question"].'"
+          )
         ');
-        $login_new_tour_guide->execute();
+        $login_new_tourist->execute();
 
-        if($login_new_tour_guide->rowCount()==1)
-        {
-          echo '
-                  <center>
-                    <div class="alert alert-success" role="alert">
-                      <b> Succefall Login </b> 
-                    </div>
-                  </center>
-          ';
-          header("refresh:3; url=http://localhost/naseem_sa_1/naseem_sa/log_in.php");
-        }
-        else
-        {
-          echo '
+        if($login_new_tourist->rowCount()==1)
+          {
+            echo '
                 <center>
+                  <div class="alert alert-success" role="alert">
+                    <b> Succefall Login New Account </b> 
+                  </div>
+                </center>
+            ';
+          header("refresh:3; url=log_in.php");
+          }
+        else
+          {
+            echo '
+                  <center>
                   <div class="alert alert-danger" role="alert">
                     <b> Failed Login </b> 
                   </div>
                 </center>
-          ';
-          header("refresh:3; url=http://localhost/naseem_sa_1/naseem_sa/login_new.php");
-        }
+            ';
+            header("refresh:3; url=login_new.php");
+          }
+      }
+    else
+      {
+        echo 'الإيميل مسجل مسبقا';
+        header("refresh:3; url=login_new.php");
+      }
+  }
+  elseif($_POST["type_user"] == "tour_guide")
+  {
+    $select_id_tour_guide = $connect_database->prepare('SELECT MAX(ID) ID FROM tour_guide');
+    $select_id_tour_guide->execute();
+
+    $select_email_tourist = $connect_database->prepare('SELECT email FROM tourist WHERE email = "'.$_POST["email"].'"');
+    $select_email_tourist->execute();
+
+    $select_email_tour_guide = $connect_database->prepare('SELECT email FROM tour_guide WHERE email = "'.$_POST["email"].'"');
+    $select_email_tour_guide->execute();
+
+    foreach($select_id_tour_guide as $print)
+    {
+      $_SESSION["new_id_tour_guide"] = $print["ID"];
+    }
+
+    if(empty($_SESSION["new_id_tour_guide"]))
+    {
+      $_SESSION["new_id_tour_guide"] = 100;
+    }
+    elseif(!empty($_SESSION["new_id_tour_guide"]))
+    {
+      $_SESSION["new_id_tour_guide"] ++;
+    }
+    if($select_email_tourist->rowCount()==0 && $select_email_tour_guide->rowCount()==0)
+    {
+      $login_new_tour_guide = $connect_database->prepare
+      ('
+      INSERT INTO tour_guide
+      (
+        ID , first_name , last_name , email , password , phone_number , age , gender , language , question , answer
+      )
+      VALUES 
+      (
+        '.$_SESSION["new_id_tour_guide"].' , "'.$_POST["first_name"].'" , "'.$_POST["last_name"].'" , "'.$_POST["email"].'" , "'.$_POST["password"].'" ,
+        '.$_POST["phone_number"].' , '.$_POST["age"].' , "'.$_POST["gender"].'" , "'.$_POST["language"].'" , "'.$_POST["question"].'" , "'.$_POST["answer"].'"
+      )
+      ');
+      $login_new_tour_guide->execute();
+
+      if($login_new_tour_guide->rowCount()==1)
+      {
+        echo '
+                <center>
+                  <div class="alert alert-success" role="alert">
+                    <b> Succefall Login </b> 
+                  </div>
+                </center>
+        ';
+        header("refresh:3; url=log_in.php");
       }
       else
       {
-        echo 'الإيميل مسجل مسبقا';
-        header("refresh:3; url=http://localhost/naseem_sa_1/naseem_sa/login_new.php");
+        echo '
+              <center>
+                <div class="alert alert-danger" role="alert">
+                  <b> Failed Login </b> 
+                </div>
+              </center>
+        ';
+        header("refresh:3; url=login_new.php");
       }
     }
-  }
-  if(isset($_POST["login_new"]))
-  {
-    if(empty($_POST["language"]) || $_POST["password"] != $_POST["check_password"] || $_POST["age"] < 18)
+    else
     {
-      echo 'ERROR';
-      header("refresh:3; url=http://localhost/naseem_sa_1/naseem_sa/login_new.php");
+      echo '
+      <center>
+        <div class="alert alert-danger" role="alert">
+          <b> الإيميل موجود مسبقا </b> 
+        </div>
+      </center>
+      ';
+      header("refresh:3; url=login_new.php");
     }
   }
+}
+elseif($_POST["age"] < 18)
+{
+  echo '
+  <center>
+    <div class="alert alert-danger" role="alert">
+      <b> العمر أقل من 18 </b> 
+    </div>
+  </center>
+  ';
+  header("refresh:3; url=login_new.php");
+}
+elseif($_POST["password"] != $_POST["check_password"])
+  {
+    echo '
+    <center>
+      <div class="alert alert-danger" role="alert">
+        <b>كلمة المرور غير مطابقة</b> 
+      </div>
+    </center>
+    ';
+    header("refresh:3; url=login_new.php");
+  }
+  else
+  {
+    echo '
+    <center>
+      <div class="alert alert-danger" role="alert">
+        <b>ERROR</b> 
+      </div>
+    </center>
+    ';
+    header("refresh:3; url=login_new.php");
+  }
+}
 ?>
 
     <?php

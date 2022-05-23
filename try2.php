@@ -76,7 +76,7 @@
                                             for($i=0; $i<$_SESSION["island_subtitle_loop"]; $i++)
                                             {
                                                 echo'
-                                                <li><a href="#scrollspyHeading'.$i.'" class="link-info">'.$island_subtitle_array[$i].'</a></li>
+                                                <li><a href="#'.$island_subtitle_array[$i].''.$i.'" class="link-info">'.$island_subtitle_array[$i].'</a></li>
                                                 ';
                                             }
                                             echo'
@@ -94,7 +94,7 @@
                                 <br>
                                 <div class="row featurette">
                                     <div class="col-md-6">
-                                        <h4 id="scrollspyHeading'.$j.'" class="featurette-heading"><span class="text-muted">'.$island_subtitle_array[$j].'</span></h4>
+                                        <h4 id="'.$island_subtitle_array[$j].''.$j.'" class="featurette-heading"><span class="text-muted">'.$island_subtitle_array[$j].'</span></h4>
                                         <p class="lead">'.$island_subtitle_description_array[$j].'</p>
                                     </div>
                                     <div class="col-md-6">

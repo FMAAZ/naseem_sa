@@ -61,6 +61,8 @@
                         <h2 class="blog-post-title">افضل الاماكن السياحية<span class="text-muted">في مدينة '.$_SESSION["city_name"].'</span></h2>
                         <br>
                         <p>'.$_SESSION["city_main_description"].'</p>
+                        <h3 class="blog-post-title">المناخ</h4>
+                        <p>'.$_SESSION["city_weather_description"].'</p>
                         <hr>
                         <!-- Content -->
                         <div class="col-md-4">
@@ -74,7 +76,7 @@
                                             for($i=0; $i<$_SESSION["city_subtitle_loop"]; $i++)
                                             {
                                                 echo'
-                                                <li><a href="#scrollspyHeading'.$i.'" class="link-info">'.$city_subtitle_array[$i].'</a></li>
+                                                <li><a href="#'.$city_subtitle_array[$i].''.$i.'" class="link-info">'.$city_subtitle_array[$i].'</a></li>
                                                 ';
                                             }
                                             echo'
@@ -92,7 +94,7 @@
                                 <br>
                                 <div class="row featurette">
                                     <div class="col-md-6">
-                                        <h4 id="scrollspyHeading'.$j.'" class="featurette-heading"><span class="text-muted">'.$city_subtitle_array[$j].'</span></h4>
+                                        <h4 id="'.$city_subtitle_array[$j].''.$j.'" class="featurette-heading"><span class="text-muted">'.$city_subtitle_array[$j].'</span></h4>
                                         <p class="lead">'.$city_subtitle_description_array[$j].'</p>
                                     </div>
                                     <div class="col-md-6">
@@ -102,13 +104,12 @@
                                 <br>
                                 <h4 class="blog-post-title">الأنشطة</h4>
                                 <ul>';
-                                            // activitiy
-
+                                        // activitiy
                                         $select_destination_info_activitiy = $connect_database->prepare
                                         ('
                                         SELECT c.name name , ca.activitiy_description avtivitiy_description
                                         FROM city c , city_activitiy ca
-                                        WHERE c.ID = ca.city_id AND c.ID c.ID '.$card_id.' AND ca.subtitle = "'.$city_subtitle_array[$j].'"
+                                        WHERE c.ID = ca.city_id AND c.ID '.$card_id.' AND ca.subtitle = "'.$city_subtitle_array[$j].'"
                                         ');
                                         $select_destination_info_activitiy->execute();
                                         $city_avtivitiy_description_array = array();

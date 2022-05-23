@@ -3,43 +3,21 @@
 <?php require('components/head_inc.php');?>  
 <body>
     <div id="myCarousel" class="carousel slide pointer-event" data-bs-ride="carousel">
+
         <div class="carousel-indicators">
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"
-                aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"
-                class="active"></button>
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" class="active"
-                aria-current="true"></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class="active"></button>
+            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" class="active" aria-current="true"></button>
         </div>
+
         <div class="carousel-inner">
+            <?php
+                require_once 'connect_database.php';
+                $select_card_main = $connect_database->prepare('SELECT card_photo FROM city_content');
+                
+            ?>
             <div class="carousel-item">
-                <img src="assistances/images/Rj.jpg" class="d-block w-100" alt="Cinque Terre" width="550px"
-                    height="555px">
-
-                <div class="container">
-                    <div class="carousel-caption text-end">
-                        <h1><span class=" text-white-50">رجال المع ...</span></h1>
-                        <p class="lead"><span class="text-decoration-underline">مزيج المراعي الخضراء والتراث الجنوبي الأصيل</span></p>
-                        <p><a class="btn btn-outline-light btn-lg" href="Cities.php">اعرض اكثر</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item active">
-                <img src="assistances/images/major copy.jpg" class="d-block w-100" alt="Cinque Terre" width="550px"
-                    height="555px">
-
-                <div class="container">
-                    <div class="carousel-caption text-end">
-                        <h1><span class="text-white-50">العاصمة الرياض...</span></h1>
-                        <p class="lead"><span class="text-decoration-underline">وجهة سياحية فريدة بفعاليات نوعية عالمية</span></p>
-                        <p class="lead"><a class="btn btn-outline-light btn-lg" href="Cities.php">اعرض اكثر</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="carousel-item">
-                <img src="assistances/images/xz1.jpg" class="d-block w-100" alt="Cinque Terre" width="550px"
-                    height="555px">
-
+                <img src="assistances/images/xz1.jpg" class="d-block w-100" alt="Cinque Terre" width="550px" height="555px">
                 <div class="container">
                     <div class="carousel-caption text-end">
                     <h2><span class="text-white-50">تعرفوا على أجمل جزر المملكة الخلابة...</span></h2>
@@ -48,7 +26,9 @@
                     </div>
                 </div>
             </div>
+
         </div>
+
         <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon bg-success" aria-hidden="true"></span>
             <span class="visually-hidden">السابق</span>
@@ -57,6 +37,7 @@
             <span class="carousel-control-next-icon bg-success" aria-hidden="true"></span>
             <span class="visually-hidden">التالي</span>
         </button>
+
     </div>
 
     <div class="container marketing">
@@ -87,8 +68,7 @@
             </div>
             <div class="col-md-5 order-md-1">
                 <a href="island.php">
-                    <img src="assistances/images/vc.jpeg" class="img-thumbnail" alt="Cinque Terre" width="100%"
-                        height="100%">
+                    <img src="assistances/images/vc.jpeg" class="img-thumbnail" alt="Cinque Terre" width="100%" height="100%">
                 </a>
             </div>
         </div>

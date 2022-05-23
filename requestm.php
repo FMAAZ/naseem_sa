@@ -72,7 +72,7 @@
                         $type_date=date_default_timezone_set("Asia/Riyadh");
                         $date=date("Y-m-d");
                         
-                        $query="SELECT * FROM `tourist` WHERE 1";
+                        $query="SELECT  t.first_name , t.last_name , t.email , t.phone_number, t.language, r.req_date ,r.req_time ,r.req_status FROM tourist t , requests r WHERE r.tourist_req_id is notnull ";
                         $result=mysqli_query($conn,$query);
                        
                         if($result){
@@ -81,25 +81,24 @@
                         
                               
                        if(isset($_POST['show'])){
-                        echo $row['first_name']." ".$row['last_name']." ".$row['language'].'</a></p><input type="submit" class="btn btn-success " name="acceptance"  value="قبول">
+                        echo 'الاسم'.$row['first_name']." ".$row['last_name']."<br>اللغة المستخدمة: ".$row['language']."وقت الطلب".$row['req_time']." ".$row['req_date'].'</a></p><input type="submit" class="btn btn-success " name="acceptance"  value="قبول">
                         <input type="submit" class="btn btn-danger "name="refusal" value="رفض"><hr>';
 
-<<<<<<< HEAD
-=======
-                        $query = "SELECT * FROM tourist WHERE ID =(SELECT tourist_req_id FROM requests WHERE req_status is null AND req_date='".$date."')";
-                        $result = mysqli_query($conn, $query);
 
-                        if ($result) {
-                            while ($row = mysqli_fetch_assoc($result)) {
-                                if (isset($_POST['show'])) {
-                                    echo  $row['first_name'] . ' ' . $row['last_name'];
->>>>>>> 9f25efe035c73eb28d39d6fd637c7b96aa9bcfbb
+                        
+
+                               
                                 }
+                           
                             }
+                       
                         }
 
+               
+            
 if(isset($_POST['acceptance'])){
     $status='مقبول';
+    
 }
 if(isset($_POST['refusal'])){
     $status='مرفوض';
@@ -111,11 +110,7 @@ echo @$status;
                        ?>
 
 
-                        <div class="d-grid gap-2 col-3 mx-auto">
-
-                            <div class="" role="group" aria-label="Basic example">
-                                <input type="submit" class="btn btn-success " name="acceptance" value="قبول">
-                                <input type="submit" class="btn btn-danger " name="refusal" value="رفض">
+                     
 
                             </div>
                         </div>
@@ -128,7 +123,7 @@ echo @$status;
                     $dbname = "naseem_sa";
                     $conn = mysqli_connect($host, $user, $password, $dbname);
 
-                    $query = "SELECT email,phone_number FROM `tourist` WHERE 1";
+                    $query = "SELECT  t.email , t.phone_number, r.req_date ,r.req_time  FROM tourist t , requests r WHERE r.tourist_req_id is notnull ";
                     $result = mysqli_query($conn, $query);
 
                     if ($result) {

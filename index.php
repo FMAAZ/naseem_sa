@@ -2,42 +2,151 @@
 <html lang="en" dir="rtl">
 <?php require('components/head_inc.php');?>  
 <body>
-    <div id="myCarousel" class="carousel slide pointer-event" data-bs-ride="carousel">
+        <?php
+            require_once 'connect_database.php';
+            $select_city_photo = $connect_database->prepare('SELECT * FROM city_content');
+            $select_city_photo->execute();
+            foreach($select_city_photo as $print)
+            {
+                $_SESSION["index_card_photo_city"] = $print["card_photo"];
+                $_SESSION["index_name_city"] = $print["name"];
+                $_SESSION["index_card_description_city"] = $print["card_description"];
+                $_SESSION["index_city_id"] = $print["city_id"];
+            }
 
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class="active"></button>
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" class="active" aria-current="true"></button>
-        </div>
+            $select_island_photo = $connect_database->prepare('SELECT * FROM island_content');
+            $select_island_photo->execute();
+            foreach($select_island_photo as $print)
+            {
+                $_SESSION["index_card_photo_island"] = $print["card_photo"];
+                $_SESSION["index_name_island"] = $print["name"];
+                $_SESSION["index_card_description_island"] = $print["card_description"];
+                $_SESSION["index_island_id"] = $print["island_id"];
+            }
 
-        <div class="carousel-inner">
-            <?php
-                require_once 'connect_database.php';
-                $select_card_main = $connect_database->prepare('SELECT card_photo FROM city_content');
-                
             ?>
-            <div class="carousel-item">
-                <img src="assistances/images/xz1.jpg" class="d-block w-100" alt="Cinque Terre" width="550px" height="555px">
-                <div class="container">
-                    <div class="carousel-caption text-end">
-                    <h2><span class="text-white-50">تعرفوا على أجمل جزر المملكة الخلابة...</span></h2>
-                        <p class="lead"><span class="text-decoration-underline">تحتوي المملكة العربية السعودية على المئات من الجزر المتنوعة والتي تطل على البحر الأحمر والخليج العربي وآلاف الجزر المهيئة للجميع من محبي ركوب الأمواج أو عشاق الغوص بين الشعب المرجانية أو عشاق المناظر الطبيعية للجزر البكر .</span></p>
-                            <p><a class="btn btn-outline-light btn-lg" href="island.php">اعرض اكثر</a></p>
-                    </div>
+                    <div id="0" class="carousel slide pointer-event" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                    <?php 
+                        for($v=0; $v<($select_city_photo->rowCount() + $select_island_photo->rowCount()); $v++)
+                        {
+                            echo '
+                                <button type="button" data-bs-target="'.$v.'" data-bs-slide-to="'.($v+1).'" class="active" aria-label="Slide'.$v.'"></button>
+                            ';
+                        }
+                    ?>
                 </div>
-            </div>
+                <div class="carousel-inner">
+            <?php
+            if($select_city_photo->rowCount() > $select_island_photo->rowCount())
+            {
+                $max = $select_city_photo->rowCount();
+                $min = $select_island_photo->rowCount();
+
+                $max_php = "try.php";
+                $min_php = "try2.php";
+
+                $_SESSION["max_index_card_photo"] = $_SESSION["index_card_photo_city"];
+                $_SESSION["max_index_name"] = $_SESSION["index_name_city"];
+                $_SESSION["max_index_card_description"] = $_SESSION["index_card_description_city"];
+                $_SESSION["max_index_id"] = $_SESSION["index_city_id"];
+
+                $_SESSION["min_index_card_photo"] = $_SESSION["index_card_photo_island"];
+                $_SESSION["min_index_name"] = $_SESSION["index_name_island"];
+                $_SESSION["min_index_card_description"] = $_SESSION["index_card_description_island"];
+                $_SESSION["min_index_id"] = $_SESSION["index_island_id"];
+            }
+            elseif($select_city_photo->rowCount() < $select_island_photo->rowCount())
+            {
+                $min = $select_city_photo->rowCount();
+                $max = $select_island_photo->rowCount();
+                
+                $max_php = "try2.php";
+                $min_php = "try.php";
+
+                $_SESSION["min_index_card_photo"] = $_SESSION["index_card_photo_city"];
+                $_SESSION["min_index_name"] = $_SESSION["index_name_city"];
+                $_SESSION["min_index_card_description"] = $_SESSION["index_card_description_city"];
+                $_SESSION["min_index_id"] = $_SESSION["index_city_id"];
+
+                $_SESSION["max_index_card_photo"] = $_SESSION["index_card_photo_island"];
+                $_SESSION["max_index_name"] = $_SESSION["index_name_island"];
+                $_SESSION["max_index_card_description"] = $_SESSION["index_card_description_island"];
+                $_SESSION["max_index_id"] = $_SESSION["index_island_id"];
+            }
+            elseif($select_city_photo->rowCount() == $select_island_photo->rowCount())
+            {
+                $min = $select_city_photo->rowCount();
+                $max = $select_island_photo->rowCount();
+                
+                $max_php = "try2.php";
+                $min_php = "try.php";
+
+                $_SESSION["min_index_card_photo"] = $_SESSION["index_card_photo_city"];
+                $_SESSION["min_index_name"] = $_SESSION["index_name_city"];
+                $_SESSION["min_index_card_description"] = $_SESSION["index_card_description_city"];
+                $_SESSION["min_index_id"] = $_SESSION["index_city_id"];
+
+                $_SESSION["max_index_card_photo"] = $_SESSION["index_card_photo_island"];
+                $_SESSION["max_index_name"] = $_SESSION["index_name_island"];
+                $_SESSION["max_index_card_description"] = $_SESSION["index_card_description_island"];
+                $_SESSION["max_index_id"] = $_SESSION["index_island_id"];
+            }
+
+            for($i=0; $i<$max; $i++)
+            {
+                echo '
+                    <div class="carousel-item">
+                        <img src="assistances/images/'.$_SESSION["max_index_card_photo"].'" class="d-block w-100" alt="Cinque Terre" width="500px" height="500px">
+                        <div class="container">
+                            <div class="carousel-caption text-end">
+                                <h5>'.$_SESSION["max_index_name"].'</h5>
+                                <p>'.$_SESSION["max_index_card_description"].'</p>
+                                <form method="POST" action="'.$max_php.'">
+                                <button type="submit" name="card_city" class=" btn btn-success" value="'.$_SESSION["max_index_id"].'">عرض</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                ';
+                if($min <= $max)
+                {
+                    echo '
+                    <div class="carousel-item active">
+                        <img src="assistances/images/'.$_SESSION["min_index_card_photo"].'" class="d-block w-100" alt="Cinque Terre" width="500px" height="500px">
+                        <div class="container">
+                            <div class="carousel-caption text-end">
+                                <h5>'.$_SESSION["min_index_name"].'</h5>
+                                <p>'.$_SESSION["min_index_card_description"].'</p>
+                                <form method="POST" action="'.$min_php.'">
+                                <button type="submit" name="card_city" class=" btn btn-success" value="'.$_SESSION["min_index_id"].'">عرض</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                ';
+                continue;
+                }
+            }
+            
+        ?>
 
         </div>
-
-        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon bg-success" aria-hidden="true"></span>
-            <span class="visually-hidden">السابق</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon bg-success" aria-hidden="true"></span>
-            <span class="visually-hidden">التالي</span>
-        </button>
-
+        <?php 
+            for($s=0; $s<($select_city_photo->rowCount() + $select_island_photo->rowCount()); $s++)
+                {
+                    echo '
+                        <button class="carousel-control-prev" type="button" data-bs-target="#'.$v.'" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon bg-success" aria-hidden="true"></span>
+                            <span class="visually-hidden">السابق</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#'.$v.'" data-bs-slide="next">
+                            <span class="carousel-control-next-icon bg-success" aria-hidden="true"></span>
+                            <span class="visually-hidden">التالي</span>
+                        </button>
+                    ';
+                }
+        ?>
     </div>
 
     <div class="container marketing">
@@ -68,7 +177,8 @@
             </div>
             <div class="col-md-5 order-md-1">
                 <a href="island.php">
-                    <img src="assistances/images/vc.jpeg" class="img-thumbnail" alt="Cinque Terre" width="100%" height="100%">
+                    <img src="assistances/images/vc.jpeg" class="img-thumbnail" alt="Cinque Terre" width="100%"
+                        height="100%">
                 </a>
             </div>
         </div>

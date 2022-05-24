@@ -5,11 +5,6 @@
 <body>
 <div id="myCarousel" class="carousel slide pointer-event" data-bs-ride="carousel">
         <div class="carousel-indicators">
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class="active"></button>
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3" class="active" aria-current="true"></button>
-        </div>
-        <div class="carousel-inner">
 
     <?php
     require 'connect_database.php';
@@ -17,6 +12,14 @@
     {
         $select_photo = $connect_database->prepare('SELECT * FROM city_content');
         $select_photo->execute();
+
+        for($i=0; $i<$select_photo->rowCount(); $i++)
+        echo '<button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-label="Slide 1"></button>';
+        ?>
+        </div>
+        <div class="carousel-inner">
+        <?php
+
         foreach($select_photo as $print)
         {
             echo '

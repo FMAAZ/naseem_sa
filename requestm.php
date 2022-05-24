@@ -72,7 +72,7 @@
                         $type_date=date_default_timezone_set("Asia/Riyadh");
                         $date=date("Y-m-d");
                         
-                        $query="SELECT  t.first_name , t.last_name , t.email , t.phone_number, t.language, r.req_date ,r.req_time ,r.req_status FROM tourist t , requests r WHERE r.tourist_req_id is notnull ";
+                        $query="SELECT  t.first_name , t.last_name , t.email , t.phone_number, t.language, r.req_date ,r.req_time ,r.req_status, r.req_id FROM tourist t , requests r WHERE r.req_date ='$date' ";
                         $result=mysqli_query($conn,$query);
                        
                         if($result){
@@ -123,7 +123,7 @@ echo @$status;
                     $dbname = "naseem_sa";
                     $conn = mysqli_connect($host, $user, $password, $dbname);
 
-                    $query = "SELECT  t.email , t.phone_number, r.req_date ,r.req_time  FROM tourist t , requests r WHERE r.tourist_req_id is notnull ";
+                    $query = "SELECT  t.email , t.phone_number, r.req_date ,r.req_time  FROM tourist t , requests r WHERE 1 ";
                     $result = mysqli_query($conn, $query);
 
                     if ($result) {

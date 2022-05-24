@@ -55,7 +55,7 @@
   $dbname = "naseem_sa";
   $conn = mysqli_connect($host, $user, $password, $dbname);
 
-  $query = "SELECT * FROM `tourist` where " . $_POST['x'] . " = '" . $_POST['t'] . "'";
+  $query = "SELECT * FROM `tourist` where " . @$_POST['x'] . " = '" . @$_POST['t'] . "'";
   $result = mysqli_query($conn, $query);
   $run = 1;
   if ($result) {
@@ -105,7 +105,7 @@
   $conn = mysqli_connect($host, $user, $password, $dbname );
 
 
-  $query = "SELECT * FROM `tour_guide` where " . $_POST['x'] . " = '" . $_POST['t'] . "'";
+  $query = "SELECT * FROM `tour_guide` where " . @$_POST['x'] . " = '" . @$_POST['t'] . "'";
   $result = mysqli_query($conn, $query);
 
   if ($result) {
@@ -169,6 +169,7 @@
         echo '<table class="table">
   <thead>
     <tr>
+    <th scope="col">ID</th>
       <th scope="col">حالة الطلب</th>
       <th scope="col">التاريخ</th>
       <th scope="col">الوقت</th>
@@ -203,59 +204,7 @@
   </table>
   <?php
   if (isset($_POST['s'])) {
-    echo ' <form method="POST" class="mt-6 border p-4 bg-light shadow">
-    <h4 class="mb-3 text-center text-secondary">
-       إضافة محتوى
-    </h4>
-    <hr class="featurette-divider">
-    <div class="row">
-
-        <div class="mb-3 col-md-6">
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="type_user" id="inlineRadio1" value="tour_guide" required>
-                <label class="form-check-label" for="inlineRadio1">جزر<span
-                        class="text-danger">*</span></label>
-            </div>
-        </div>
-        <div class="mb-3 col-md-6">
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="type_user" id="inlineRadio2" value="tourist" required>
-                <label class="form-check-label" for="inlineRadio2"> مدن<span
-                        class="text-danger">*</span>
-                </label>
-            </div>
-        </div>
-
-        <div class="mb-3 col-md-5">
-            <label>اسم المكان<span class="text-danger">*</span></label>
-            <input type="text" name="last_name" class="form-control" placeholder="اسم المكان"
-                required>
-        </div>
-
-    <div class="mb-3 col-md-5">
-  <label for="formFile" class="form-label">صورة الكرت</label>
-  <input class="form-control" type="file" id="formFile">
-</div>
-      
-  <div class="mb-3 col-md-5">
-        <label> النص<span class="text-danger">*</span></label>
-        <textarea name="txt" id="" cols="100" class="form-control" rows="8">نص المحتوى</textarea>
-        </div>
-        <div class="mb-3 col-md-5">
-        <label for="formFile" class="form-label">صورة المحتوى</label>
-        <input class="form-control" type="file" id="formFile">
-      </div>
-        <div class="mb-3 col-md-5">
-            <label> عنوان <span class="text-danger">*</span></label>
-            <input type="text" name="phone_number"  class="form-control" placeholder="العنوان  "
-                required>
-        </div>
-        <hr class="featurette-divider">
-        <div class="col-md-11">
-            <input type="submit" class="btn btn-success float-end" name="addition" value=" اضافة">
-        </div>
-    </div>
-</form>';
+    
   }
 
   ?>

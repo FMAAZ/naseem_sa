@@ -79,15 +79,15 @@
                             المحتوى
                         </h6>
                         <p>
-                            <a href="index.html" class="text-reset">
+                            <a href="index.php" class="text-reset">
                                 الصفحة الرئيسية
                             </a>
                         </p>
                         <p>
-                            <a href="#!" class="text-reset">الاماكن السياحية</a>
+                            <a href="#scrollspyHeading2" class="text-reset">الاماكن السياحية</a>
                         </p>
                         <p>
-                            <a href="#!" class="text-reset">تواصل معنا</a>
+                            <a href="#scrollspyHeading2" class="text-reset">تواصل معنا</a>
                         </p>
                     </div>
                     <!-- Grid column -->

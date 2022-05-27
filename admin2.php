@@ -145,7 +145,7 @@
                                     <?php
                                 }
                                 // subtitle loop
-                                for($j=1; $j<=1; $j++)
+                                for($j=1; $j<=4; $j++)
                                     {
                                         ?>
                                             <!-- subtitle form -->
@@ -222,7 +222,7 @@
                                                                 <?php
                                                             }
                                                         //activitiy loop
-                                                        for($k=1; $k<=1; $k++)
+                                                        for($k=1; $k<=3; $k++)
                                                             {
                                                                 //activitiy_description
                                                                 if(empty($_SESSION["activitiy_description$j$k"]))
@@ -332,7 +332,7 @@
                 
                                                 //insert city subtitle
                                                     
-                                                for($q=1; $q<=1; $q++)
+                                                for($q=1; $q<=4; $q++)
                                                 {
                                                     $insert_city_subtitle = $connect_database->prepare
                                                     ('
@@ -344,7 +344,7 @@
                                                     ');
                                                     $insert_city_subtitle->execute();
     
-                                                    for($w=1; $w<=1; $w++)
+                                                    for($w=1; $w<=3; $w++)
                                                     {
                                                         $insert_city_avtivitiy = $connect_database->prepare
                                                         ('
@@ -385,28 +385,28 @@
                                             elseif($_SESSION["destination"] == "island")
                                             {
                                                 //select ID city
-                                                $select_city_id = $connect_database->prepare('SELECT MAX(ID) ID FROM city');
+                                                $select_city_id = $connect_database->prepare('SELECT MAX(ID) ID FROM island');
                                                 $select_city_id->execute();
                                                 foreach($select_city_id as $print)
                                                 {
-                                                    $_SESSION["new_id_city"] = $print["ID"];
+                                                    $_SESSION["new_id_island"] = $print["ID"];
                                                 }
                                                 
-                                                if(empty($_SESSION["new_id_city"]))
-                                                    $_SESSION["new_id_city"] = 1;
-                                                elseif(!empty($_SESSION["new_id_city"]))
-                                                    $_SESSION["new_id_city"] ++;
+                                                if(empty($_SESSION["new_id_island"]))
+                                                    $_SESSION["new_id_island"] = 1;
+                                                elseif(!empty($_SESSION["new_id_island"]))
+                                                    $_SESSION["new_id_island"] ++;
                 
                                                 //insert city info
-                                                $insert_city_info = $connect_database->prepare('INSERT INTO city VALUES ('.$_SESSION["new_id_city"].' , "'.$_SESSION["destination_name"].'")');
+                                                $insert_city_info = $connect_database->prepare('INSERT INTO island VALUES ('.$_SESSION["new_id_island"].' , "'.$_SESSION["destination_name"].'")');
                                                 $insert_city_info->execute();
                                                 
                                                 //insert city content
                                                 $insert_city_content = $connect_database->prepare
                                                 ('
-                                                INSERT INTO city_content VALUES
+                                                INSERT INTO island_content VALUES
                                                 (
-                                                '.$_SESSION["new_id_city"].' , "'.$_SESSION["destination_name"].'" , "'.$_SESSION["main_description"].'" , "'.$_SESSION["weather_description"].'" ,
+                                                '.$_SESSION["new_id_island"].' , "'.$_SESSION["destination_name"].'" , "'.$_SESSION["main_description"].'" , "'.$_SESSION["weather_description"].'" ,
                                                 "'.$_SESSION["card_description"].'" , "'.$_SESSION["card_photo"].'"
                                                 )
                                                 ');
@@ -414,31 +414,31 @@
                 
                                                 //insert city subtitle
                                                     
-                                                for($q=1; $q<=1; $q++)
+                                                for($q=1; $q<=4; $q++)
                                                 {
                                                     $insert_city_subtitle = $connect_database->prepare
                                                     ('
-                                                    INSERT INTO city_subtitle VALUES
+                                                    INSERT INTO island_subtitle VALUES
                                                     (
-                                                    '.$_SESSION["new_id_city"].' , "'.$_SESSION["destination_name"].'" , "'.$_SESSION["subtitle$q"].'" , "'.$_SESSION["subtitle_description$q"].'" ,
+                                                    '.$_SESSION["new_id_island"].' , "'.$_SESSION["destination_name"].'" , "'.$_SESSION["subtitle$q"].'" , "'.$_SESSION["subtitle_description$q"].'" ,
                                                     "'.$_SESSION["subtitle_photo$q"].'" ,  "'.$_SESSION["subtitle_location$q"].'" 
                                                     )
                                                     ');
                                                     $insert_city_subtitle->execute();
     
-                                                    for($w=1; $w<=1; $w++)
+                                                    for($w=1; $w<=3; $w++)
                                                     {
                                                         $insert_city_avtivitiy = $connect_database->prepare
-                                                        ('INSERT INTO city_activitiy VALUES
+                                                        ('INSERT INTO island_activitiy VALUES
                                                         (
-                                                        '.$_SESSION["new_id_city"].' , "'.$_SESSION["destination_name"].'" , "'.$_SESSION["subtitle$q"].'" , "'.$_SESSION["activitiy_description$q$w"].'"
+                                                        '.$_SESSION["new_id_island"].' , "'.$_SESSION["destination_name"].'" , "'.$_SESSION["subtitle$q"].'" , "'.$_SESSION["activitiy_description$q$w"].'"
                                                         )
                                                         ');
                                                         $insert_city_avtivitiy->execute();
                                                     }
     
                                                 }
-                                                if($insert_city_info->rowCount()==1 && $insert_city_content->rowCount()==1 && $insert_city_subtitle->rowCount()==1 && $insert_city_avtivitiy->rowCount()==10)
+                                                if($insert_city_info && $insert_city_content && $insert_city_subtitle && $insert_city_avtivitiy)
                                                 {
                                                     echo '
                                                     <center>
@@ -447,8 +447,8 @@
                                                         </div>
                                                     </center>
                                                     ';
-                                                    // session_unset();
-                                                    // header("refresh:3; url=admin2.php");
+                                                    session_unset();
+                                                    header("refresh:3; url=admin2.php");
                                                 }
                                                 else
                                                 {
@@ -459,9 +459,8 @@
                                                         </div>
                                                     </center>
                                                     ';
-                                                    // header("refresh:3; url=admin2.php");
+                                                    header("refresh:3; url=admin2.php");
                                                 }
-                                                var_dump($insert_city_avtivitiy);
                                             }
                                         }
                                     }

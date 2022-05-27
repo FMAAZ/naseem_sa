@@ -2,8 +2,7 @@
 <html lang="en" dir="rtl">
 <head>
     <title> طلبات</title>
-    <?php require('components/head_inc.php'); ?>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <?php require 'Niv1.php'; ?>
 </head>
 
 <body>
@@ -66,13 +65,13 @@
     
                         <div class="form-check form-check-inline">
                                             <span class="text-danger">*</span></label>
-    <input class="form-check-input" type="radio" name="wher" id="inlineRadio1" value="island">
+    <input class="form-check-input" type="radio" name="wher" id="inlineRadio1" value="island" required>
     <label class="form-check-label" for="inlineRadio1">جزر</label>
 </div>
 <div class="form-check form-check-inline">
 
                                     <span class="text-danger">*</span></label>
-    <input class="form-check-input" type="radio" name="wher" id="inlineRadio2" value="citie">
+    <input class="form-check-input" type="radio" name="wher" id="inlineRadio2" value="citie" required>
     <label class="form-check-label" for="inlineRadio2">مدن</label>
 </div>
 <input type="submit" class="btn btn btn-success" name="ok" value="تاكد">
@@ -110,11 +109,12 @@
                                 <a href="Request.php">
                                     <button class="btn btn-success float-end" name="request"> طلب </button>
                                 </a>
+                                </form>
                                 <?php
-                                if(isset($_POST["request"]))
+                                if(isset($_POST["request"]) && !empty($_POST["Region"]))
                                 {
                                     require_once 'connect_database.php';
-                                    $select_id_request = $connect_database->prepare('SELECT MAX(ID) ID FROM requests');
+                                    $select_id_request = $connect_database->prepare('SELECT MAX(req_id) ID FROM requests');
                                     $select_id_request->execute();
                                     foreach($select_id_request as $print)
                                     {
@@ -129,9 +129,6 @@
                                     {
                                         $_SESSION["new_id_request"] ++;
                                     }
-                                    $type_date = date_default_timezone_set("Asia/Riyadh");
-                                    $date = date("Y-m-d");
-                                    $time = date("H:i:s");
                                     $insert_req_id = $connect_database->prepare('INSERT INTO requests (req_id , tourist_req_id , req_date , req_time)
                                     VALUES ('.$_SESSION["new_id_request"].' , '.$_SESSION["ID"].' , "'.$date.'" , "'.$time.'")');
                                     $insert_req_id->execute();
@@ -143,11 +140,13 @@
                                     }
                                     elseif($insert_req_id->rowCount()==0)
                                     {
+                                        var_dump($insert_req_id);
                                         echo 'حدث خطأ أثناء إنشاء الطلب';
                                         header("refresh:2; url=request.php");
                                     }
                                     else
                                     {
+                                        var_dump($insert_req_id);
                                         echo 'ERROR';
                                         header("refresh:2; url=request.php");
                                     }
@@ -155,7 +154,6 @@
                                 ?>
                             </div>
                         </div>
-                    </form>
                 <br>
                 </div>
             </div>

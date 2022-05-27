@@ -3,7 +3,7 @@
 
 <head>
   <title> الادمن</title>
-  <?php require('components/head_inc.php'); ?>
+  <?php require 'Niv1.php';?>  
 </head>
 
 <body>

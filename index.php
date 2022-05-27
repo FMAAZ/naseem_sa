@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en" dir="rtl">
-<?php require('components/head_inc.php');?>  
+<?php require 'Niv1.php';?>  
 <body>
+    
         <?php
             require_once 'connect_database.php';
             $select_city_photo = $connect_database->prepare('SELECT * FROM city_content');

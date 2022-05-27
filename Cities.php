@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="rtl">
-<?php require('components/head_inc.php'); $_SESSION["destination"] = "city"; ?>
+<?php require 'Niv1.php'; $_SESSION["destination"] = "city"; ?>
 
 <body>
 <div id="myCarousel" class="carousel slide pointer-event" data-bs-ride="carousel">

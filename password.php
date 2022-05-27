@@ -2,8 +2,8 @@
 <html lang="en" dir="rtl">
 
 <head>
-    <title>اعادة كلمة المرو</title>
-    <?php require('components/head_inc.php'); ?>
+    <title>اعادة كلمة المرور</title>
+    <?php require 'Niv1.php'; ?>
 </head>
 
 <body>

@@ -3,8 +3,7 @@
 
 <head>
     <title> طلبات</title>
-    <?php require('components/head_inc.php'); ?>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <?php require 'Niv1.php'; ?>
 </head>
 
 <body>
@@ -62,8 +61,7 @@
                         </h4>
                         <hr class="featurette-divider">
 
-
-                       <?php
+                        <?php
                         $host="localhost";
                         $user="root";
                         $password="";
@@ -72,30 +70,23 @@
                         $type_date=date_default_timezone_set("Asia/Riyadh");
                         $date=date("Y-m-d");
                         
+<<<<<<< HEAD
+                        $query="SELECT t.first_name , t.last_name , t.email , t.phone_number, t.language, r.req_date ,r.req_time ,r.req_status FROM tourist t , requests r WHERE t.ID = r.tourist_req_id and r.req_status is null and req_date='$date'";
+=======
                         $query="SELECT  t.first_name , t.last_name , t.email , t.phone_number, t.language, r.req_date ,r.req_time ,r.req_status, r.req_id FROM tourist t , requests r WHERE r.req_date ='$date' ";
+>>>>>>> c444372f49964b52c5b2e3e45bb7f5f7a1673759
                         $result=mysqli_query($conn,$query);
-                       
+
                         if($result){
                             
                             while($row =mysqli_fetch_assoc($result)){
                         
-                              
-                       if(isset($_POST['show'])){
+                        if(isset($_POST['show'])){
                         echo 'الاسم'.$row['first_name']." ".$row['last_name']."<br>اللغة المستخدمة: ".$row['language']."وقت الطلب".$row['req_time']." ".$row['req_date'].'</a></p><input type="submit" class="btn btn-success " name="acceptance"  value="قبول">
                         <input type="submit" class="btn btn-danger "name="refusal" value="رفض"><hr>';
-
-
-                        
-
-                               
-                                }
-                           
-                            }
-                       
                         }
-
-               
-            
+                            }
+                        }  
 if(isset($_POST['acceptance'])){
     $status='مقبول';
     
@@ -105,12 +96,7 @@ if(isset($_POST['refusal'])){
 }
 echo @$status;
                 
-                       
-                       
-                       ?>
-
-
-                     
+                        ?>
 
                             </div>
                         </div>

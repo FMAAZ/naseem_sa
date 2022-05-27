@@ -3,6 +3,7 @@
 
 <head>
   <title> الادمن</title>
+<<<<<<< HEAD
   <?php require 'Niv1.php';?>  
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 </head>
@@ -211,58 +212,49 @@
                 <label class="form-check-label" for="inlineRadio1">جزر<span
                         class="text-danger">*</span></label>
             </div>
-        </div>
-        <div class="mb-3 col-md-6">
-            <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="type_user" id="inlineRadio2" value="tourist" required>
-                <label class="form-check-label" for="inlineRadio2"> مدن<span
-                        class="text-danger">*</span>
-                </label>
-            </div>
-        </div>
+=======
+  <?php require('components/head_inc.php'); ?>
+</head>
 
-        <div class="mb-3 col-md-5">
-            <label>اسم المكان<span class="text-danger">*</span></label>
-            <input type="text" name="last_name" class="form-control" placeholder="اسم المكان"
-                required>
+<body>
+ 
+<main class="container">
+<div class="container px-4 py-5">
+    <h2 class="pb-2 border-bottom">admin page</h2>
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+<!-- col_1 -->
+      <div class="feature col">
+        <div class="feature-icon bg-white">
+        <img src="assistances/images/add.png"class="bd-placeholder-img rounded-circle" width="100" height="100"></img>
+>>>>>>> c444372f49964b52c5b2e3e45bb7f5f7a1673759
         </div>
-
-    <div class="mb-3 col-md-5">
-  <label for="formFile" class="form-label">صورة الكرت</label>
-  <input class="form-control" type="file" id="formFile">
-</div>
-      
-  <div class="mb-3 col-md-5">
-        <label> النص<span class="text-danger">*</span></label>
-        <textarea name="txt" id="" cols="100" class="form-control" rows="8">نص المحتوى</textarea>
-        </div>
-        <div class="mb-3 col-md-5">
-        <label for="formFile" class="form-label">صورة المحتوى</label>
-        <input class="form-control" type="file" id="formFile">
+        <h4> &numsp;الطلابات</h4>
+        <input  class="btn btn-secondary btn-sm" type="button" value="عرض التفاصيل"></input>
       </div>
-        <div class="mb-3 col-md-5">
-            <label> عنوان <span class="text-danger">*</span></label>
-            <input type="text" name="phone_number"  class="form-control" placeholder="العنوان  "
-                required>
+<!-- // col1-->
+<!-- col_2 -->
+      <div class="feature col">
+        <div class="feature-icon bg-white">
+        <img src="assistances/images/ad1.png"class="bd-placeholder-img rounded-circle" width="100" height="100"></img>
         </div>
-        <hr class="featurette-divider">
-        <div class="col-md-11">
-            <input type="submit" class="btn btn-success float-end" name="addition" value=" اضافة">
+        <h4> &numsp;المحتوى</h4>
+        <input  class="btn btn-secondary btn-sm" type="button" value="عرض التفاصيل"></input>
+      </div>
+      <!-- //col2 -->
+      
+      <!-- col_3 -->
+      <div class="feature col">
+        <div class="feature-icon bg-white">
+        <img src="assistances/images/ad.jpg"class="bd-placeholder-img rounded-circle" width="100" height="100"></img>
         </div>
+        <h4>المستخدمين</h4>
+        <input  class="btn btn-secondary btn-sm" type="button" value="عرض التفاصيل"></input>
+      </div>
+      <!-- //col3 -->
     </div>
-</form>';
-  }
-
-  ?>
-
+    <hr>
   </div>
-  </div>
-  </div>
+</main>
   <?php require('components/footre.php'); ?>
-  </div>
-  <!-- form_Check_in -->
-
-
 </body>
-
 </html>

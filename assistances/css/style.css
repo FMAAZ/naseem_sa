@@ -1,6 +1,6 @@
 /* color :b-example-divider*/
 .b-example-divider {
-  height: 3rem;
+  height: 2rem;
   background-color: rgb(248, 247, 247);
   border: solid rgb(243, 242, 242);
   border-width: 0px 0;
@@ -10,11 +10,6 @@
 .bi {
   vertical-align: -.125em;
   fill: currentColor;
-}
-/* font-size-small-text */
-.text-small {
-  font-size: 89%;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 /*bottom_up*/
 #myBtn {

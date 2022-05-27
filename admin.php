@@ -3,7 +3,7 @@
 
 <head>
   <title> الادمن</title>
-  <?php require('components/head_inc.php'); ?>
+  <?php require 'Niv1.php';?>  
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 </head>
 
@@ -46,9 +46,6 @@
 
 
   <?php
-
-
-
   $host = "localhost";
   $user = "root";
   $password = "";
@@ -126,7 +123,6 @@
       <th scope="col">رقم الجوال</th>
       <th scope="col">العمر</th>
       <th scope="col">اللغة</th>
-     
     </tr>
   </thead>';
         echo '   <tr>   <form method="POST">
@@ -138,9 +134,8 @@
   <td class="table-success"> ' . $row['phone_number'] . '</td>
   <td class="table-success"> ' . $row['age'] . '</td>
   <td class="table-success"> ' . $row['language'] . '</td>
-  
- 
-</form></tr>
+</form>
+</tr>
 ';
       }
     }

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="rtl">
-<?php require('components/head_inc.php'); ?>
+<?php require 'Niv1.php'; ?>
 
 <body>
     <?php
@@ -143,14 +143,14 @@
                             <h4 class="fst-italic"><span class="text-muted">المزيد من وجهات سياحية</span></h4>
                             <ul>
                             <?php
-                                 $select_photo = $connect_database->prepare('SELECT * FROM island_content');
+                                $select_photo = $connect_database->prepare('SELECT DISTINCT i.ID ID , ic.name name , ic.card_photo card_photo FROM island i , island_content ic WHERE i.ID = ic.island_id');
                                 $select_photo->execute();
                                 foreach($select_photo as $print)
                                     {
                                         echo '
                                             <div class="list-group">
                                                 <form method="POST" action="try2.php">
-                                                    <button type="submit" class="list-group-item list-group-item-action" name="card_island" value="'.$print["island_id"].'">
+                                                    <button type="submit" class="list-group-item list-group-item-action" name="card_island" value="'.$print["ID"].'">
                                                         <div class="d-flex w-100 justify-content-between">
                                                             <h5 class="mb-1">'.$print["name"].'</h5>
                                                             <img src="assistances/images/'.$print["card_photo"].'" alt="mdo" width="68" height="60" class="rounded-3">

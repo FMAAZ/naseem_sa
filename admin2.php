@@ -130,20 +130,20 @@
                                     }
                                 //card_description
                                 if(empty($_SESSION["weather_description"]))
-                                {    
-                                    ?>
-                                        <div class="mb-3">
-                                            <label>مناخ الوجهة<span class="text-danger">*</span></label>
-                                            <textarea name="weather_description" maxlength="1000" class="form-control" placeholder="مناخ الوجهة" id="floatingTextarea" required></textarea>
-                                        </div>
-                                    <?php
-                                }
-                            elseif(!empty($_SESSION["weather_description"]))
-                                {
-                                    ?>
-                                        <h6>مناخ الوجهة : <?php echo $_SESSION["weather_description"]; ?> </h6>
-                                    <?php
-                                }
+                                    {    
+                                        ?>
+                                            <div class="mb-3">
+                                                <label>مناخ الوجهة<span class="text-danger">*</span></label>
+                                                <textarea name="weather_description" maxlength="1000" class="form-control" placeholder="مناخ الوجهة" id="floatingTextarea" required></textarea>
+                                            </div>
+                                        <?php
+                                    }
+                                elseif(!empty($_SESSION["weather_description"]))
+                                    {
+                                        ?>
+                                            <h6>مناخ الوجهة : <?php echo $_SESSION["weather_description"]; ?> </h6>
+                                        <?php
+                                    }
                                 // subtitle loop
                                 for($j=1; $j<=4; $j++)
                                     {
@@ -464,13 +464,12 @@
                                             }
                                         }
                                     }
-                                    
-                        if(isset($_POST["reset_destination"]))
-                        {
-                            session_unset();
-                            header("Location:admin2.php");
-                        }
-                    ?>
+                                    if(isset($_POST["reset_destination"]))
+                                        {
+                                            session_unset();
+                                            header("Location:admin2.php");
+                                        }
+                            ?>
                 </div>
                 <br>
             </div>

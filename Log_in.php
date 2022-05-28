@@ -95,12 +95,25 @@
         }
         elseif(empty($_SESSION["email_tour_guide"]) || empty($_SESSION["password_tour_guide"]) || empty($_SESSION["email_tourist"]) || empty($_SESSION["password_tourist"]))
         {
-          echo '<br><h3>email or password incorrect !</h3>';
+          echo '
+          <center>
+            <div class="alert alert-danger" role="alert">
+              <b>البريد الإلكتروني أو كلمة المرور غير صحيحة</b> 
+            </div>
+          </center>
+          ';
           header("refresh:2; url=log_in.php");
         }
         else
         {
-          echo 'ERROR !';
+          echo '
+          <center>
+            <div class="alert alert-danger" role="alert">
+              <b>ERROR</b> 
+            </div>
+          </center>
+          ';
+          header("refresh:2; url=log_in.php");
         }
       }
       ?>

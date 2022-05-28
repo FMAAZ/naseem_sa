@@ -29,7 +29,7 @@
         <img src="assistances/images/ad1.png"class="bd-placeholder-img rounded-circle" width="100" height="100"></img>
         </div>
         <h4> &numsp;المحتوى</h4>
-        <input  class="btn btn-secondary btn-sm" type="submit" value="عرض التفاصيل"></input>
+        <input  class="btn btn-secondary btn-sm" type="submit" name="content" value="عرض التفاصيل"></input>
       </div>
       <!-- //col2 -->
       
@@ -72,7 +72,6 @@ if ($result) {
     <th scope="col"> الاسم</th>
     <th scope="col">الايميل </th>
     <th scope="col"> رقم الجوال</th>
-   
     
   </tr>
 </thead>
@@ -84,11 +83,6 @@ if ($result) {
   <td class="table-success">' . $row['first_name'] ." ". $row['last_name'] . '</td>
   <td class="table-success"> ' . $row['email'] . '</td>
   <td class="table-success"> ' . $row['phone_number'] . '</td>
-
- 
-
-
-
 </tr>
 ';
     }

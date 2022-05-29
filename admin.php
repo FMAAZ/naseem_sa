@@ -45,6 +45,23 @@
     </div>
     <hr>
     <?php
+ if (isset($_POST['tl'])) {
+  echo '<table class="table">
+<thead>
+<tr>
+<th scope="col">ID</th>
+<th scope="col">حالة الطلب</th>
+<th scope="col">التاريخ</th>
+<th scope="col">الوقت</th>
+<th scope="col"> الاسم</th>
+<th scope="col">الايميل </th>
+<th scope="col"> رقم الجوال</th>
+
+
+</tr>
+</thead>';
+ }
+
 
 $host = "localhost";
 $user = "root";
@@ -62,28 +79,22 @@ if ($result) {
 
 
     if (isset($_POST['tl'])) {
-      echo '<table class="table">
-<thead>
+      echo '
   <tr>
-  <th scope="col">ID</th>
-    <th scope="col">حالة الطلب</th>
-    <th scope="col">التاريخ</th>
-    <th scope="col">الوقت</th>
-    <th scope="col"> الاسم</th>
-    <th scope="col">الايميل </th>
-    <th scope="col"> رقم الجوال</th>
-   
-    
-  </tr>
-</thead>
-  <tr>
-  <td class="table-success">' . $row['req_id'] . '</td>
-<td class="table-success">' . $row['req_status'] . '</td>
-<td class="table-success">' . $row['req_date'] . '</td>
+  <td class="table-success">' . $row['req_id'] . '</td>';
+if($row['req_status']=='accept')
+echo'<td class="bg-success ">' . $row['req_status'] . '</td>';
+if($row['req_status']=='reject' ||$row['req_status']=='canceled' )
+  echo'<td class="bg-danger">' . $row['req_status'] . '</td>';
+  if($row['req_status']== null)
+    echo'<td class="table-secondary">' . $row['req_status'] . '</td>';
+    if($row['req_status']== "finished")
+    echo'<td class="table-success">' . $row['req_status'] . '</td>';
+echo'<td class="table-success">' . $row['req_date'] . '</td>
 <td class="table-success">' . $row['req_time'] . '</td>
   <td class="table-success">' . $row['first_name'] ." ". $row['last_name'] . '</td>
   <td class="table-success"> ' . $row['email'] . '</td>
-  <td class="table-success"> ' . $row['phone_number'] . '</td>
+  <td class="table-success"> '."0" . $row['phone_number'] . '</td>
 
  
 
@@ -219,6 +230,71 @@ if ($result) {
   </tbody>
 </table>
 </main>
+<hr>
+<div class="d-flex justify-content-center">
+
+ 
+   
+
+<?php
+
+$host = "localhost";
+$user = "root";
+$password = "";
+$dbname = "naseem_sa";
+$conn = mysqli_connect($host, $user, $password, $dbname);
+mysqli_set_charset($conn,'utf8');
+
+$query = "SELECT COUNT(ID) FROM `tourist` ";
+$result = mysqli_query($conn, $query);
+
+if ($result) {
+
+  while ($row = mysqli_fetch_assoc($result)) {
+
+//عدد السياح الدوائر
+
+    
+     echo' <tr>
+     <td><h1><span class="border border-primary circle" style=" 
+     width: 200px;
+     height: 200px;
+     border-radius: 50%;
+     display: flex;
+     align-items: center;
+     text-align: center;">'.$row['COUNT(ID)'].'</span></h1></td>';
+    
+;
+    }
+  }
+  echo   '<td> </td>';
+
+$query = "SELECT COUNT(ID) FROM `tour_guide` ";
+$result = mysqli_query($conn, $query);
+
+if ($result) {
+
+  while ($row = mysqli_fetch_assoc($result)) {
+
+//عدد المرشدين الدوائر
+  
+      echo   '<td><h1><span class="border border-primary"  style=" 
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      text-align: center;">'.$row['COUNT(ID)'].'</span></h1></td>';
+;
+    }
+  }
+
+
+?>
+ </tbody>
+</table>
+</div>
+<hr>
   <?php require('components/footre.php'); ?>
 </body>
 </html>

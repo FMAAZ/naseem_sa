@@ -67,14 +67,15 @@
                         $password="";
                         $dbname="naseem_sa";
                         $conn=mysqli_connect($host,$user,$password,$dbname);
+                        mysqli_set_charset($conn,'utf8');
                         $type_date=date_default_timezone_set("Asia/Riyadh");
                         $date=date("Y-m-d");
                         
-<<<<<<< HEAD
-                        $query="SELECT t.first_name , t.last_name , t.email , t.phone_number, t.language, r.req_date ,r.req_time ,r.req_status FROM tourist t , requests r WHERE t.ID = r.tourist_req_id and r.req_status is null and req_date='$date'";
-=======
-                        $query="SELECT  t.first_name , t.last_name , t.email , t.phone_number, t.language, r.req_date ,r.req_time ,r.req_status, r.req_id FROM tourist t , requests r WHERE r.req_date ='$date' ";
->>>>>>> c444372f49964b52c5b2e3e45bb7f5f7a1673759
+
+                        $query="SELECT t.first_name , t.last_name , t.email , t.phone_number, t.language, r.req_date ,r.req_time ,r.req_status , r.req_id , r.destination FROM tourist t , requests r WHERE t.ID = r.tourist_req_id and r.req_status is null and req_date='$date'";
+
+                   
+
                         $result=mysqli_query($conn,$query);
 
                         if($result){
@@ -82,45 +83,42 @@
                             while($row =mysqli_fetch_assoc($result)){
                         
                         if(isset($_POST['show'])){
-                        echo 'الاسم'.$row['first_name']." ".$row['last_name']."<br>اللغة المستخدمة: ".$row['language']."وقت الطلب".$row['req_time']." ".$row['req_date'].'</a></p><input type="submit" class="btn btn-success " name="acceptance"  value="قبول">
+                        echo 'الاسم'.$row['first_name']." ".$row['last_name']."<br>اللغة المستخدمة: ".$row['language']." الوجهه:".$row['destination']." وقت الطلب".$row['req_time']." ".$row['req_date'].'</a></p><input type="submit" class="btn btn-success " name="acceptance"  value="قبول">
                         <input type="submit" class="btn btn-danger "name="refusal" value="رفض"><hr>';
                         }
+                        $_SESSION['rid']=$row['req_id'];
+                     
+                        
                             }
                         }  
 if(isset($_POST['acceptance'])){
-    $status='مقبول';
-    
+  
+       $query1 = "UPDATE requests set req_status = 'accept', tour_guide_req_id= ".$_SESSION['ID']." Where req_id=". $_SESSION['rid']."";
+       $result1=mysqli_query($conn,$query1);
+       echo'<a class="btn btn-primary" href="mailto:'.$row['email'].' role="button">Email</a>
+       <a class="btn btn-primary" href="tel:'.$row['phone_number'].' role="button">Phone</a><input class="btn btn-primary btn btn-dark" type="submit" value="إنهاء" name="finished">';
+       
+      
+       
 }
 if(isset($_POST['refusal'])){
-    $status='مرفوض';
+    $query1 = "UPDATE requests set req_status = 'reject', tour_guide_req_id= ".$_SESSION['ID']." Where req_id=". $_SESSION['rid']."";
+    $result1=mysqli_query($conn,$query1);
+}
+if(isset($_POST['finished'])){
+    $query1 = "UPDATE requests set req_status = 'finished', tour_guide_req_id= ".$_SESSION['ID'].", req_date_end ='".$date."',`req_time_end = '".$time."' Where req_id= ".$_SESSION['rid']."";
+    $result1=mysqli_query($conn,$query1);
 }
 echo @$status;
                 
                         ?>
+                        
+                        
 
                             </div>
                         </div>
                     </form>
 
-                    <?php
-                    $host = "localhost";
-                    $user = "root";
-                    $password = "";
-                    $dbname = "naseem_sa";
-                    $conn = mysqli_connect($host, $user, $password, $dbname);
-
-                    $query = "SELECT  t.email , t.phone_number, r.req_date ,r.req_time  FROM tourist t , requests r WHERE 1 ";
-                    $result = mysqli_query($conn, $query);
-
-                    if ($result) {
-
-                        while ($row = mysqli_fetch_assoc($result)) {
-                            if (isset($_POST['acceptance'])) {
-                                echo "<p><a  href=https://accounts.google.com/b/0/AddMailService>" . $row['email'] . "</a><br><a href=https://web.whatsapp.com/>" . "0" . $row['phone_number'] . "</a></p>";
-                            }
-                        }
-                    }
-                    ?>
 
                 </div>
                 <br>

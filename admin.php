@@ -85,10 +85,10 @@ if ($result) {
   <td class="table-success">' . $row['req_id'] . '</td>';
 if($row['req_status']=='accept')
 echo'<td class="bg-success ">' . $row['req_status'] . '</td>';
-if($row['req_status']=='reject' ||$row['req_status']=='cancel' )
+if($row['req_status']=='reject' ||$row['req_status']=='canceled' )
   echo'<td class="bg-danger">' . $row['req_status'] . '</td>';
   if($row['req_status']== null)
-    echo'<td class="table-secondary">'.  $row['req_status']  . '</td>';
+    echo'<td class="table-secondary">' . $row['req_status'] . '</td>';
     if($row['req_status']== "finished")
     echo'<td class="table-success">' . $row['req_status'] . '</td>';
 echo'<td class="table-success">' . $row['req_date'] . '</td>

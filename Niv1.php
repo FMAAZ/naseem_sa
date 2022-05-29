@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="ar"dir="rtl">
 <head>
+    <?php 
+        ob_start();
+    ?>
+    <?php 
+        ob_start();
+    ?>
 <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,33 +27,11 @@
     </style>
     
 </head>
-    <?php 
-        ob_start();
+    <?php
         session_start();
         $type_date = date_default_timezone_set("Asia/Riyadh");
         $date = date("Y-m-d");
         $time = date("H:i:s");
-
-        // require_once 'connect_database.php';
-        // $select_counter_visitor = $connect_database->prepare('SELECT MAX(counter_visitor) counter_visitor FROM visitor');
-        // $select_counter_visitor->execute();
-        // foreach($select_counter_visitor as $print)
-        //     {
-        //         $select_counter_visitor = $print["counter_visitor"];
-        //     }
-        // if(empty($select_counter_visitor))
-        // {
-        //     $insert_counter_visitor = $connect_database->prepare('INSERT INTO visitor VALUES ("'.$date.'" , '.$select_counter_visitor.')');
-        //     $insert_counter_visitor->execute();
-
-        //     $_SESSION["counter_visitor"] = $_SESSION["counter_visitor"]+1;
-        // }
-        // elseif(!empty($select_counter_visitor) && $select_counter_visitor == $_SESSION["counter_visitor"])
-        // {
-        //     $_SESSION["counter_visitor"] = $select_counter_visitor;
-        //     $_SESSION["counter_visitor"] = $_SESSION["counter_visitor"]+1;
-        // }
-
     ?>
         <!--Icons-->
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">

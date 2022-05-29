@@ -72,9 +72,11 @@
                         $date=date("Y-m-d");
                         
 
+
                         $query="SELECT t.first_name , t.last_name , t.email , t.phone_number, t.language, r.req_date ,r.req_time ,r.req_status , r.req_id , r.destination FROM tourist t , requests r WHERE t.ID = r.tourist_req_id and r.req_status is null and req_date='$date'";
 
                    
+
 
                         $result=mysqli_query($conn,$query);
 
@@ -106,7 +108,8 @@ if(isset($_POST['refusal'])){
     $result1=mysqli_query($conn,$query1);
 }
 if(isset($_POST['finished'])){
-    $query1 = "UPDATE requests set req_status = 'finished', tour_guide_req_id= ".$_SESSION['ID'].", req_date_end ='".$date."',`req_time_end = '".$time."' Where req_id= ".$_SESSION['rid']."";
+    $query1 = "UPDATE requests set req_status = 'finished', tour_guide_req_id= ".$_SESSION['ID'].", req_date_end ='".$date."', req_time_end = '".$time."' Where req_id= ".$_SESSION['rid']."";
+    var_dump($query1);
     $result1=mysqli_query($conn,$query1);
 }
 echo @$status;

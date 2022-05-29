@@ -29,7 +29,7 @@
         <img src="assistances/images/ad1.png"class="bd-placeholder-img rounded-circle" width="100" height="100"></img>
         </div>
         <h4> &numsp;المحتوى</h4>
-        <input  class="btn btn-secondary btn-sm" type="submit" value="عرض التفاصيل"></input>
+        <input  class="btn btn-secondary btn-sm" type="submit" name="content" value="عرض التفاصيل"></input>
       </div>
       <!-- //col2 -->
       
@@ -81,13 +81,14 @@ if ($result) {
     if (isset($_POST['tl'])) {
       echo '
   <tr>
+
   <td class="table-success">' . $row['req_id'] . '</td>';
 if($row['req_status']=='accept')
 echo'<td class="bg-success ">' . $row['req_status'] . '</td>';
-if($row['req_status']=='reject' ||$row['req_status']=='canceled' )
+if($row['req_status']=='reject' ||$row['req_status']=='cancel' )
   echo'<td class="bg-danger">' . $row['req_status'] . '</td>';
   if($row['req_status']== null)
-    echo'<td class="table-secondary">' . $row['req_status'] . '</td>';
+    echo'<td class="table-secondary">'.  $row['req_status']  . '</td>';
     if($row['req_status']== "finished")
     echo'<td class="table-success">' . $row['req_status'] . '</td>';
 echo'<td class="table-success">' . $row['req_date'] . '</td>
@@ -97,6 +98,7 @@ echo'<td class="table-success">' . $row['req_date'] . '</td>
   <td class="table-success"> '."0" . $row['phone_number'] . '</td>
 
  
+
 
 
 

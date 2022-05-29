@@ -654,6 +654,85 @@
                     }
                 }
             }
+            elseif(!empty($_SESSION["email_admin"]) && !empty($_SESSION["password_admin"]))
+            {
+                    require_once 'connect_database.php';
+                    $profile_info = $connect_database->prepare('SELECT * FROM admin WHERE email = "'.$_SESSION["email_admin"].'" AND password = "'.$_SESSION["password_admin"].'"');
+                    $profile_info->execute();
+                    foreach($profile_info as $print)
+                    {
+                        $_SESSION["ID"] = $print["ID"];
+                        $_SESSION["full_name"] = $print["full_name"];
+                        echo '
+                                <!-- profile -->
+                                <div class="col-md-3 text-end">
+                                <ul class="nav">
+                                <div class="dropdown text-end">
+                                <a href="#offcanvasExample" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="assistances/images/log.jpg" alt="mdo" width="50" height="50" class="rounded-circle">
+                                </a>
+                                <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+                                <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">عرض الملف</a></li>
+                                <li><a class="dropdown-item" href="admin.php">الإستعلام</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="sing_out.php">تسجيل الخروج</a></li>
+                                </ul>
+                                </div> 
+                                </ul>
+                                </div>
+                                <!-- profile -->
+                                </header>
+                                </div>
+                                </main>
+                                <!--NAVbar/-->
+                                <!-- ------------------------------------------------------------- -->
+                                <!-- offcanvas -->
+                                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+                                <div class="offcanvas-header alert-success">
+                                <h6 class="offcanvas-title" id="offcanvasExampleLabel">الملف الشخصي</h6>
+                                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                </div>
+                                <div class="offcanvas-body">
+                                <!-- form -->
+                                <div class="container">
+                                <div class="card-title text-center border-bottom">
+                                <img src="assistances/images/log.jpg" alt="mdo" width="60" height="60" class="rounded-circle">
+                                <h3 class="p-0">id '.$print["ID"].'</h3>
+                                </div>
+                                <div class="card-body">
+                                <div class="mb-4">
+                                <h5>نوع التسجيل </h5> <h6>مشرف</h6>
+                                </div>
+                                <hr class="featurette-divider">
+                                <div class="mb-4">
+                                <h4>بيانات التواصل</h4><br>
+                                </div>
+                                <div class="mb-0">
+                                <h5>البريد الإلكتروني </h5>
+                                <h6>'.$print["email"].'</h6>
+                                </div>
+                                <hr class="featurette-divider">
+                                <div class="mb-3">
+                                <h4>البيانات الشخصية </h4>
+                                </div>
+                                <div class="mb-0">
+                                <h5>الاسم </h5>
+                                <h6>'.$print["full_name"].'</h6>
+                                </div>
+                                <div class="mb-0">
+                                <h5>الجنس </h5>
+                                <h6>'.$print["gender"].'</h6>
+                                </div>
+                                <hr class="featurette-divider">
+                                </div>
+                                </div>    
+                                </div>
+                                <!-- form -->
+                                </div>
+                                <!-- offcanvas -->
+                        ';
+                    }
+            }
             else
             {
                 echo '

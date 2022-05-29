@@ -8,7 +8,8 @@
 
 <body>
     <?php
-    if (isset($_SESSION["login"]) && !empty($_SESSION["email"]) && !empty($_SESSION["password"])) {
+    if (isset($_SESSION["login"]) && !empty($_SESSION["email"]) && !empty($_SESSION["password"]))
+    {
         if (!empty($_SESSION["email_tourist"]) && !empty($_SESSION["password_tourist"])) {
         } else {
             session_unset();
@@ -22,7 +23,9 @@
             header("refresh:2;url= index.php");
             exit;
         }
-    } else {
+    }
+    else 
+    {
         session_unset();
         echo '
             <center>
@@ -31,7 +34,7 @@
                 </div>
             </center>
         ';
-        header("refresh:2;url= index.php");
+        header("Location:index.php");
         exit;
     }
     ?>

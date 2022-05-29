@@ -366,7 +366,52 @@
                                                         </div>
                                                     </center>
                                                     ';
-                                                    session_unset();
+
+                                                    if(!empty($_SESSION["new_id_city"]))
+                                                    $_SESSION["new_id_city"] = NULL;
+
+                                                    if(!empty($_SESSION["destination"]))
+                                                    $_SESSION["destination"] = NULL;
+
+                                                    if(!empty($_SESSION["destination_name"]))
+                                                    $_SESSION["destination_name"] = NULL;
+
+                                                    if(!empty($_SESSION["main_description"]))
+                                                    $_SESSION["main_description"] = NULL;
+                                                    
+                                                    if(!empty($_SESSION["weather_description"]))
+                                                    $_SESSION["weather_description"] = NULL;
+
+                                                    if(!empty($_SESSION["card_description"]))
+                                                    $_SESSION["card_description"] = NULL;
+
+                                                    if(!empty($_SESSION["card_photo"]))
+                                                    $_SESSION["card_photo"] = NULL;
+
+                                                    if(!empty($_SESSION["check_destination"]))
+                                                    $_SESSION["check_destination"] = NULL;
+
+                                                    for($a=1; $a<=4; $a++)
+                                                    {
+                                                        if(!empty($_SESSION["subtitle$a"]))
+                                                        $_SESSION["subtitle$a"] = NULL;
+                                                        
+                                                        if(!empty($_SESSION["subtitle_description$a"]))
+                                                        $_SESSION["subtitle_description$a"] = NULL;
+
+                                                        if(!empty($_SESSION["subtitle_photo$a"]))
+                                                        $_SESSION["subtitle_photo$a"] = NULL;
+
+                                                        if(!empty($_SESSION["subtitle_location$a"]))
+                                                        $_SESSION["subtitle_location$a"] = NULL;
+
+                                                        for($b=1; $b<=3; $b++)
+                                                        {
+                                                            if(!empty($_SESSION["activitiy_description$a$b"]))
+                                                            $_SESSION["activitiy_description$a$b"] = NULL;
+                                                        }
+                                                    }
+
                                                     header("refresh:3; url=admin2.php");
                                                 }
                                                 else
@@ -443,11 +488,56 @@
                                                     echo '
                                                     <center>
                                                         <div class="alert alert-success" role="alert">
-                                                            <b>تم إضافة المدينة بنجاح</b> 
+                                                            <b>تم إضافة الجزيرة بنجاح</b> 
                                                         </div>
                                                     </center>
                                                     ';
-                                                    session_unset();
+
+                                                    if(!empty($_SESSION["new_id_island"]))
+                                                    $_SESSION["new_id_island"] = NULL;
+
+                                                    if(!empty($_SESSION["destination"]))
+                                                    $_SESSION["destination"] = NULL;
+
+                                                    if(!empty($_SESSION["destination_name"]))
+                                                    $_SESSION["destination_name"] = NULL;
+
+                                                    if(!empty($_SESSION["main_description"]))
+                                                    $_SESSION["main_description"] = NULL;
+                                                    
+                                                    if(!empty($_SESSION["weather_description"]))
+                                                    $_SESSION["weather_description"] = NULL;
+
+                                                    if(!empty($_SESSION["card_description"]))
+                                                    $_SESSION["card_description"] = NULL;
+
+                                                    if(!empty($_SESSION["card_photo"]))
+                                                    $_SESSION["card_photo"] = NULL;
+
+                                                    if(!empty($_SESSION["check_destination"]))
+                                                    $_SESSION["check_destination"] = NULL;
+
+                                                    for($a=1; $a<=4; $a++)
+                                                    {
+                                                        if(!empty($_SESSION["subtitle$a"]))
+                                                        $_SESSION["subtitle$a"] = NULL;
+                                                        
+                                                        if(!empty($_SESSION["subtitle_description$a"]))
+                                                        $_SESSION["subtitle_description$a"] = NULL;
+
+                                                        if(!empty($_SESSION["subtitle_photo$a"]))
+                                                        $_SESSION["subtitle_photo$a"] = NULL;
+
+                                                        if(!empty($_SESSION["subtitle_location$a"]))
+                                                        $_SESSION["subtitle_location$a"] = NULL;
+
+                                                        for($b=1; $b<=3; $b++)
+                                                        {
+                                                            if(!empty($_SESSION["activitiy_description$a$b"]))
+                                                            $_SESSION["activitiy_description$a$b"] = NULL;
+                                                        }
+                                                    }
+
                                                     header("refresh:3; url=admin2.php");
                                                 }
                                                 else
@@ -466,7 +556,51 @@
                                     }
                                     if(isset($_POST["reset_destination"]))
                                         {
-                                            session_unset();
+                                            if(!empty($_SESSION["new_id_island"]))
+                                            $_SESSION["new_id_island"] = NULL;
+
+                                            if(!empty($_SESSION["destination"]))
+                                            $_SESSION["destination"] = NULL;
+
+                                            if(!empty($_SESSION["destination_name"]))
+                                            $_SESSION["destination_name"] = NULL;
+
+                                            if(!empty($_SESSION["main_description"]))
+                                            $_SESSION["main_description"] = NULL;
+                                            
+                                            if(!empty($_SESSION["weather_description"]))
+                                            $_SESSION["weather_description"] = NULL;
+
+                                            if(!empty($_SESSION["card_description"]))
+                                            $_SESSION["card_description"] = NULL;
+
+                                            if(!empty($_SESSION["card_photo"]))
+                                            $_SESSION["card_photo"] = NULL;
+
+                                            if(!empty($_SESSION["check_destination"]))
+                                            $_SESSION["check_destination"] = NULL;
+
+                                            for($a=1; $a<=4; $a++)
+                                            {
+                                                if(!empty($_SESSION["subtitle$a"]))
+                                                $_SESSION["subtitle$a"] = NULL;
+                                                
+                                                if(!empty($_SESSION["subtitle_description$a"]))
+                                                $_SESSION["subtitle_description$a"] = NULL;
+
+                                                if(!empty($_SESSION["subtitle_photo$a"]))
+                                                $_SESSION["subtitle_photo$a"] = NULL;
+
+                                                if(!empty($_SESSION["subtitle_location$a"]))
+                                                $_SESSION["subtitle_location$a"] = NULL;
+
+                                                for($b=1; $b<=3; $b++)
+                                                {
+                                                    if(!empty($_SESSION["activitiy_description$a$b"]))
+                                                    $_SESSION["activitiy_description$a$b"] = NULL;
+                                                }
+                                            }
+
                                             header("Location:admin2.php");
                                         }
                             ?>

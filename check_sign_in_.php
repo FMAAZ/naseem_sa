@@ -14,10 +14,19 @@
             if(empty($_SESSION["password_tour_guide"]))
             $_SESSION["password_tour_guide"] = '';
 
+            if(empty($_SESSION["email_admin"]))
+            $_SESSION["email_admin"] = '';
+
+            if(empty($_SESSION["password_admin"]))
+            $_SESSION["password_admin"] = '';
+
             if($_SESSION["email"]==$_SESSION["email_tourist"] && $_SESSION["password"]==$_SESSION["password_tourist"])
                 {
                 }
             elseif($_SESSION["email"]==$_SESSION["email_tour_guide"] && $_SESSION["password"]==$_SESSION["password_tour_guide"])
+                {
+                }
+            elseif($_SESSION["email"]==$_SESSION["email_admin"] && $_SESSION["password"]==$_SESSION["password_admin"])
                 {
                 }
         }
@@ -31,7 +40,5 @@
                         </div>
                     </center>
             ';
-            // header("refresh:2;url= index.php");
-            // exit;
         }
 ?>

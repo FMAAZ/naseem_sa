@@ -29,7 +29,7 @@
                             <div class="carousel-caption text-end">
                                 <h1><span class="text-white-50">'.$print["name"].'</span></h1>
                                 <p class="lead"><span class="text-decoration-underline">'.$print["card_description"].'</span></p>
-                                <form method="POST" action="try.php">
+                                <form method="POST" action="city_content.php">
                                 <button type="submit" name="card_city" class=" btn btn-success" value="'.$print["city_id"].'">عرض</button>
                                 </form>
                             </div>
@@ -80,7 +80,7 @@
                                     <div class="card-body">
                                         <h4 class="card-title">'.$print["name"].'</h4>
                                         <p class="card-text-center">'.$print["card_description"].'</p>
-                                        <form method="POST" action="try.php">
+                                        <form method="POST" action="city_content.php">
                                         <button type="submit" name="card_city" class=" btn btn-outline-success" value="'.$print["ID"].'">عرض</button>
                                         </form>
                                     </div>

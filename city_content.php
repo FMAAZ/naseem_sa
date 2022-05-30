@@ -4,54 +4,52 @@
 
 <body>
     <?php
-        $_SESSION["destination"] = "island";
-
-        if(isset($_POST["card_island"]))
-            $card_id = " = " . $_POST["card_island"];
+        $_SESSION["destination"] = "city";
+        if(isset($_POST["card_city"]))
+            $card_id = " = " . $_POST["card_city"];
         else
             $card_id = " IS NOT NULL";
-
         require_once 'connect_database.php';
-        if ($_SESSION["destination"] == "island")
+        if ($_SESSION["destination"] == "city")
         {
             // content 
             $select_destination_info_content = $connect_database->prepare
             ('
-            SELECT i.name name , ic.main_description main_description , ic.weather_description weather_description
-            FROM island i , island_content ic 
-            WHERE i.ID = ic.island_id AND i.ID '.$card_id.'
+            SELECT c.name name , cc.main_description main_description , cc.weather_description weather_description
+            FROM city c , city_content cc 
+            WHERE c.ID = cc.city_id AND c.ID '.$card_id.'
             ');
             $select_destination_info_content->execute();
             foreach ($select_destination_info_content as $print)
             {
-                $_SESSION["island_name"] = $print["name"];
-                $_SESSION["island_main_description"] = $print["main_description"];
-                $_SESSION["island_weather_description"] = $print["weather_description"];
+                $_SESSION["city_name"] = $print["name"];
+                $_SESSION["city_main_description"] = $print["main_description"];
+                $_SESSION["city_weather_description"] = $print["weather_description"];
             }
             // subtitle
             $select_destination_info_subtitle = $connect_database->prepare
             ('
-            SELECT i.name name , iss.subtitle subtitle , iss.subtitle_description subtitle_description , iss.location_description location_description , iss.subtitle_photo subtitle_photo
-            FROM island i , island_subtitle iss 
-            WHERE i.ID = iss.island_id AND i.ID '.$card_id.'
+            SELECT c.name name , cs.subtitle subtitle , cs.subtitle_description subtitle_description , cs.location_description location_description , cs.subtitle_photo subtitle_photo
+            FROM city c , city_subtitle cs 
+            WHERE c.ID = cs.city_id AND c.ID '.$card_id.'
             ');
             $select_destination_info_subtitle->execute();
 
-            $island_subtitle_array = array();
-            $island_subtitle_description_array = array();
-            $island_location_description_array = array();
-            $island_subtitle_photo_array = array();
+            $city_subtitle_array = array();
+            $city_subtitle_description_array = array();
+            $city_location_description_array = array();
+            $city_subtitle_photo_array = array();
             $subtitle_index = 0;
 
             foreach ($select_destination_info_subtitle as $print)
             {
-                $island_subtitle_array[$subtitle_index] = $print["subtitle"];
-                $island_subtitle_description_array[$subtitle_index] = $print["subtitle_description"];
-                $island_location_description_array[$subtitle_index] = $print["location_description"];
-                $island_subtitle_photo_array[$subtitle_index] = $print["subtitle_photo"];
+                $city_subtitle_array[$subtitle_index] = $print["subtitle"];
+                $city_subtitle_description_array[$subtitle_index] = $print["subtitle_description"];
+                $city_location_description_array[$subtitle_index] = $print["location_description"];
+                $city_subtitle_photo_array[$subtitle_index] = $print["subtitle_photo"];
                 $subtitle_index ++;
             }
-            $_SESSION["island_subtitle_loop"] = $select_destination_info_subtitle->rowCount();
+            $_SESSION["city_subtitle_loop"] = $select_destination_info_subtitle->rowCount();
 
             echo'
             <main class="container">
@@ -60,9 +58,11 @@
                 <div class="col-md-8">
                     <!-- 1article -->
                     <article class="blog-post">
-                        <h2 class="blog-post-title">افضل الاماكن السياحية<span class="text-muted">في جزيرة '.$_SESSION["island_name"].'</span></h2>
+                        <h2 class="blog-post-title">افضل الاماكن السياحية<span class="text-muted">في مدينة '.$_SESSION["city_name"].'</span></h2>
                         <br>
-                        <p>'.$_SESSION["island_main_description"].'</p>
+                        <p>'.$_SESSION["city_main_description"].'</p>
+                        <h3 class="blog-post-title">المناخ</h4>
+                        <p>'.$_SESSION["city_weather_description"].'</p>
                         <hr>
                         <!-- Content -->
                         <div class="col-md-4">
@@ -73,10 +73,10 @@
                                         ';
     ?>
                                         <?php
-                                            for($i=0; $i<$_SESSION["island_subtitle_loop"]; $i++)
+                                            for($i=0; $i<$_SESSION["city_subtitle_loop"]; $i++)
                                             {
                                                 echo'
-                                                <li><a href="#'.$island_subtitle_array[$i].''.$i.'" class="link-info">'.$island_subtitle_array[$i].'</a></li>
+                                                <li><a href="#'.$city_subtitle_array[$i].''.$i.'" class="link-info">'.$city_subtitle_array[$i].'</a></li>
                                                 ';
                                             }
                                             echo'
@@ -87,30 +87,29 @@
                                             <hr>
                                             </article>
                                             ';
-                        for($j=0; $j<$_SESSION["island_subtitle_loop"]; $j++)
+                        for($j=0; $j<$_SESSION["city_subtitle_loop"]; $j++)
                         {
                             echo '
                             <article class="blog-post">
                                 <br>
                                 <div class="row featurette">
                                     <div class="col-md-6">
-                                        <h4 id="'.$island_subtitle_array[$j].''.$j.'" class="featurette-heading"><span class="text-muted">'.$island_subtitle_array[$j].'</span></h4>
-                                        <p class="lead">'.$island_subtitle_description_array[$j].'</p>
+                                        <h4 id="'.$city_subtitle_array[$j].''.$j.'" class="featurette-heading"><span class="text-muted">'.$city_subtitle_array[$j].'</span></h4>
+                                        <p class="lead">'.$city_subtitle_description_array[$j].'</p>
                                     </div>
                                     <div class="col-md-6">
-                                        <img src="assistances/images/'.$island_subtitle_photo_array[$j].'" class="img-thumbnail" alt="Cinque Terre" width="100%" height="100%">
+                                        <img src="assistances/images/'.$city_subtitle_photo_array[$j].'" class="img-thumbnail" alt="Cinque Terre" width="100%" height="100%">
                                     </div>
                                 </div>
                                 <br>
                                 <h4 class="blog-post-title">الأنشطة</h4>
                                 <ul>';
-                                            // activitiy
-
+                                        // activitiy
                                         $select_destination_info_activitiy = $connect_database->prepare
                                         ('
-                                        SELECT i.name name , ia.activitiy_description avtivitiy_description
-                                        FROM island i , island_activitiy ia
-                                        WHERE i.ID = ia.island_id AND i.ID '.$card_id.' AND ia.subtitle = "'.$island_subtitle_array[$j].'"
+                                        SELECT c.name name , ca.activitiy_description avtivitiy_description
+                                        FROM city c , city_activitiy ca
+                                        WHERE c.ID = ca.city_id AND c.ID '.$card_id.' AND ca.subtitle = "'.$city_subtitle_array[$j].'"
                                         ');
                                         $select_destination_info_activitiy->execute();
                                         $city_avtivitiy_description_array = array();
@@ -122,13 +121,13 @@
                                             ';
                                         }
 
-                                    $_SESSION["island_avtivitiy_loop"] = $select_destination_info_activitiy->rowCount();
+                                    $_SESSION["city_avtivitiy_loop"] = $select_destination_info_activitiy->rowCount();
                                 
                                 echo '
                                 </ul>
                                 <br>
                                 <h4 class="blog-post-title">الموقع</h4>
-                                <p class="lead">'.$island_location_description_array[$j].'</p>
+                                <p class="lead">'.$city_location_description_array[$j].'</p>
                             </article>
                             <hr>
                             ';
@@ -143,14 +142,14 @@
                             <h4 class="fst-italic"><span class="text-muted">المزيد من وجهات سياحية</span></h4>
                             <ul>
                             <?php
-                                $select_photo = $connect_database->prepare('SELECT DISTINCT i.ID ID , ic.name name , ic.card_photo card_photo FROM island i , island_content ic WHERE i.ID = ic.island_id');
+                                $select_photo = $connect_database->prepare('SELECT DISTINCT c.ID ID , cc.name name , cc.card_photo card_photo FROM city c , city_content cc WHERE c.ID = cc.city_id');
                                 $select_photo->execute();
                                 foreach($select_photo as $print)
                                     {
                                         echo '
                                             <div class="list-group">
-                                                <form method="POST" action="try2.php">
-                                                    <button type="submit" class="list-group-item list-group-item-action" name="card_island" value="'.$print["ID"].'">
+                                                <form method="POST" action="city_content.php">
+                                                    <button type="submit" class="list-group-item list-group-item-action" name="card_city" value="'.$print["ID"].'">
                                                         <div class="d-flex w-100 justify-content-between">
                                                             <h5 class="mb-1">'.$print["name"].'</h5>
                                                             <img src="assistances/images/'.$print["card_photo"].'" alt="mdo" width="68" height="60" class="rounded-3">

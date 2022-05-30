@@ -23,8 +23,8 @@
                         </div>
                     </center>
                 ';
-                header("refresh:2;url= index.php");
-            exit;
+                header("Location:index.php");
+                exit;
             }
     }
     else

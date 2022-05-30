@@ -23,7 +23,7 @@
                         </div>
                     </center>
                 ';
-            header("refresh:2;url= index.php");
+            header("Location:index.php");
             exit;
         }
     }
@@ -45,7 +45,7 @@
 <form method="POST">
 <main class="container">
 <div class="container px-4 py-5">
-    <h2 class="pb-2 border-bottom"><?php echo $_SESSION["full_name"]; ?></h2>
+    <h2 class="pb-2 border-bottom"><?php echo $_SESSION["admin_full_name"]; ?></h2>
     <form method="POST"> 
     <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
   
@@ -269,8 +269,10 @@ if ($result) {
 </main>
       <?php
         if(isset($_POST["content"]))
+        $_SESSION["content"] = $_POST["content"];
+        if(!empty($_SESSION["content"]))
         {
-          ?>
+            ?>
           <div class="row align-items-center justify-content-center">
             <div class="col-sm-8 col-md-8 col-lg-9">
                 <div class="signup-form">
@@ -513,7 +515,7 @@ if ($result) {
 
                                                                         $_SESSION["check_destination"] = $_POST["check_destination"];
 
-                                                                        header("Location:admin2.php");
+                                                                        header("Location:admin.php");
                                                                     }
                                                             }
                                                     ?>
@@ -570,7 +572,7 @@ if ($result) {
                                                     $_SESSION["new_id_city"] ++;
                 
                                                 //insert city info
-                                                $insert_city_info = $connect_database->prepare('INSERT INTO city VALUES ('.$_SESSION["new_id_city"].' , "'.$_SESSION["destination_name"].'")');
+                                                $insert_city_info = $connect_database->prepare('INSERT INTO city VALUES ('.$_SESSION["new_id_city"].' , "'.$_SESSION["destination_name"].'" , '.$_SESSION["admin_ID"].' , "'.$_SESSION["admin_full_name"].'")');
                                                 $insert_city_info->execute();
                                                 
                                                 //insert city content
@@ -666,7 +668,7 @@ if ($result) {
                                                         }
                                                     }
 
-                                                    header("refresh:3; url=admin2.php");
+                                                    header("refresh:3; url=admin.php");
                                                 }
                                                 else
                                                 {
@@ -677,7 +679,7 @@ if ($result) {
                                                         </div>
                                                     </center>
                                                     ';
-                                                    header("refresh:3; url=admin2.php");
+                                                    header("refresh:3; url=admin.php");
                                                 }
                                             }
                                             //insert island
@@ -697,7 +699,7 @@ if ($result) {
                                                     $_SESSION["new_id_island"] ++;
                 
                                                 //insert city info
-                                                $insert_city_info = $connect_database->prepare('INSERT INTO island VALUES ('.$_SESSION["new_id_island"].' , "'.$_SESSION["destination_name"].'")');
+                                                $insert_city_info = $connect_database->prepare('INSERT INTO island VALUES ('.$_SESSION["new_id_island"].' , "'.$_SESSION["destination_name"].'" , '.$_SESSION["admin_ID"].' , "'.$_SESSION["admin_full_name"].'")');
                                                 $insert_city_info->execute();
                                                 
                                                 //insert city content
@@ -792,7 +794,7 @@ if ($result) {
                                                         }
                                                     }
 
-                                                    header("refresh:3; url=admin2.php");
+                                                    header("refresh:3; url=admin.php");
                                                 }
                                                 else
                                                 {
@@ -803,7 +805,7 @@ if ($result) {
                                                         </div>
                                                     </center>
                                                     ';
-                                                    header("refresh:3; url=admin2.php");
+                                                    header("refresh:3; url=admin.php");
                                                 }
                                             }
                                         }
@@ -815,6 +817,9 @@ if ($result) {
 
                                             if(!empty($_SESSION["destination"]))
                                             $_SESSION["destination"] = NULL;
+
+                                            if(!empty($_SESSION["chech_destination"]))
+                                            $_SESSION["chech_destination"] = NULL;
 
                                             if(!empty($_SESSION["destination_name"]))
                                             $_SESSION["destination_name"] = NULL;
@@ -855,7 +860,7 @@ if ($result) {
                                                 }
                                             }
 
-                                            header("Location:admin2.php");
+                                            header("Location:admin.php");
                                         }
                             ?>
                 </div>
@@ -863,9 +868,9 @@ if ($result) {
             </div>
           </div>
           </div>
-        <?php 
+            <?php 
         }
-        ?>
+      ?>
         
         <hr>
 <div class="d-flex justify-content-center">

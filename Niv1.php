@@ -102,7 +102,7 @@
                     $profile_info->execute();
                     foreach($profile_info as $print)
                     {
-                        $_SESSION["ID"] = $print["ID"];
+                        $_SESSION["tourist_ID"] = $print["ID"];
                         echo '
                                 <!-- profile -->
                                 <div class="col-md-3 text-end">
@@ -137,7 +137,7 @@
                                 <div class="container">
                                 <div class="card-title text-center border-bottom">
                                 <img src="assistances/images/log.jpg" alt="mdo" width="60" height="60" class="rounded-circle">
-                                <h2 class="p-0">id '.$print["ID"].'</h2>
+                                <h2 class="p-0">ID '.$print["ID"].'</h2>
                                 </div>
                                 <div class="card-body">
                                 <form method="POST">
@@ -274,7 +274,6 @@
                         
                         if(empty($_POST["gender"]))
                         $_POST["gender"] = $print["gender"];
-                        $_SESSION["change_email2"] = $_POST["email"];
                     }
                 }
                 elseif(!isset($_POST["update"]))
@@ -284,7 +283,7 @@
                     $profile_info->execute();
                     foreach($profile_info as $print)
                     {
-                        $_SESSION["ID"] = $print["ID"];
+                        $_SESSION["tourist_ID"] = $print["ID"];
                         echo '
                                 <!-- profile -->
                                 <div class="col-md-3 text-end">
@@ -319,7 +318,7 @@
                                 <div class="container">
                                 <div class="card-title text-center border-bottom">
                                 <img src="assistances/images/log.jpg" alt="mdo" width="60" height="60" class="rounded-circle">
-                                <h3 class="p-0">id '.$print["ID"].'</h3>
+                                <h3 class="p-0">ID '.$print["ID"].'</h3>
                                 </div>
                                 <div class="card-body">
                                 <div class="mb-4">
@@ -382,8 +381,7 @@
                     $profile_info->execute();
                     foreach($profile_info as $print)
                     {
-                        $_SESSION["change_email"] = $print["email"];
-                        $_SESSION["ID"] = $print["ID"];
+                        $_SESSION["tour_guide_ID"] = $print["ID"];
                         echo '
                                 <!-- profile -->
                                 <div class="col-md-3 text-end">
@@ -418,7 +416,7 @@
                                 <div class="container">
                                 <div class="card-title text-center border-bottom">
                                 <img src="assistances/images/log.jpg" alt="mdo" width="60" height="60" class="rounded-circle">
-                                <h2 class="p-0">id '.$print["ID"].'</h2>
+                                <h2 class="p-0">ID '.$print["ID"].'</h2>
                                 </div>
                                 <div class="card-body">
                                 <form method="POST">
@@ -555,7 +553,6 @@
 
                         if(empty($_POST["gender"]))
                         $_POST["gender"] = $print["gender"];
-                        $_SESSION["change_email2"] = $_POST["email"];
                     }
                 }
                 elseif(!isset($_POST["update"]))
@@ -565,7 +562,7 @@
                     $profile_info->execute();
                     foreach($profile_info as $print)
                     {
-                        $_SESSION["ID"] = $print["ID"];
+                        $_SESSION["tour_guide_ID"] = $print["ID"];
                         echo '
                                 <!-- profile -->
                                 <div class="col-md-3 text-end">
@@ -600,7 +597,7 @@
                                 <div class="container">
                                 <div class="card-title text-center border-bottom">
                                 <img src="assistances/images/log.jpg" alt="mdo" width="60" height="60" class="rounded-circle">
-                                <h3 class="p-0">id '.$print["ID"].'</h3>
+                                <h3 class="p-0">ID '.$print["ID"].'</h3>
                                 </div>
                                 <div class="card-body">
                                 <div class="mb-4">
@@ -661,8 +658,8 @@
                     $profile_info->execute();
                     foreach($profile_info as $print)
                     {
-                        $_SESSION["ID"] = $print["ID"];
-                        $_SESSION["full_name"] = $print["full_name"];
+                        $_SESSION["admin_ID"] = $print["ID"];
+                        $_SESSION["admin_full_name"] = $print["full_name"];
                         echo '
                                 <!-- profile -->
                                 <div class="col-md-3 text-end">
@@ -697,7 +694,7 @@
                                 <div class="container">
                                 <div class="card-title text-center border-bottom">
                                 <img src="assistances/images/log.jpg" alt="mdo" width="60" height="60" class="rounded-circle">
-                                <h3 class="p-0">id '.$print["ID"].'</h3>
+                                <h3 class="p-0">ID '.$print["ID"].'</h3>
                                 </div>
                                 <div class="card-body">
                                 <div class="mb-4">
@@ -761,7 +758,7 @@
                 require_once 'connect_database.php';
                 $update_profile_info = $connect_database->prepare('UPDATE tourist SET first_name = "'.$_POST["first_name"].'" , last_name = "'.$_POST["last_name"].'" ,
                 phone_number = '.$_POST["phone_number"].' , age = '.$_POST["age"].' , gender = "'.$_POST["gender"].'" ,
-                language = "'.$_POST["language"].'" WHERE ID = '.$_SESSION["ID"].'');
+                language = "'.$_POST["language"].'" WHERE ID = '.$_SESSION["tourist_ID"].'');
                 $update_profile_info->execute();
                 header("Location:request.php");
             }
@@ -770,7 +767,7 @@
                 require_once 'connect_database.php';
                 $update_profile_info = $connect_database->prepare('UPDATE tour_guide SET first_name = "'.$_POST["first_name"].'" , last_name = "'.$_POST["last_name"].'" ,
                 phone_number = '.$_POST["phone_number"].' , age = '.$_POST["age"].' , gender = "'.$_POST["gender"].'" ,
-                language = "'.$_POST["language"].'" WHERE ID = '.$_SESSION["ID"].'');
+                language = "'.$_POST["language"].'" WHERE ID = '.$_SESSION["tour_guide_ID"].'');
                 $update_profile_info->execute();
                 header("Location:requestm.php");
             }

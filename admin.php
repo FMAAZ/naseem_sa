@@ -144,7 +144,7 @@ if ($result) {
 
   </tr>
 </thead>';
-      echo '   <tr>   <form method="POST">
+      echo '   <tr>   
 <td class="table-success"> ' . $row['ID'] . '</td>
 <td class="table-success"> سائح</td>
 <td class="table-success"> ' . $row['first_name'] . '</td>
@@ -154,7 +154,7 @@ if ($result) {
 <td class="table-success"> ' . $row['age'] . '</td>
 <td class="table-success"> ' . $row['language'] . '</td>
 
-</form></tr>
+</tr>
 ';
     }
   }
@@ -164,15 +164,30 @@ if ($result) {
 
 <?php
 if(isset($_POST['a'])){
-  echo' <input type="text" name="t">
-  <select name="x" id="">
-    <option value="ID">id</option>
-    <option value="first_name">name</option>
-    <option value="phone_number">phone</option>
-    <option value="email">email</option>
-  </select>
-  <input type="radio" name="1" value="سائح">سائح
-  <input type="radio" name="1" value="مرشد">مرشد
+  echo' 
+  
+  <div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="1" id="inlineRadio1" value="سائح">
+  <label class="form-check-label" for="inlineRadio1">سائح</label>
+</div>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="radio" name="1" id="inlineRadio2" value="مرشد">
+  <label class="form-check-label" for="inlineRadio2">مرشد</label>
+</div> 
+  <div class="form-group">
+
+    <div class="input-group">
+        <input type="text"  name="t" size="15">
+        <div class="input-group-addon">
+            <select name="x" class="form-control">
+            <option value="ID">id</option>
+            <option value="first_name">name</option>
+            <option value="phone_number">phone</option>
+            <option value="email">email</option>
+            </select>
+        </div>
+    </div>
+</div>
 ';
 }
 
@@ -254,22 +269,14 @@ if ($result) {
 
   while ($row = mysqli_fetch_assoc($result)) {
 
-//عدد السياح الدوائر
+    $_SESSION['tournumb']=$row['COUNT(ID)'];
+    
+  
+    
 
-    
-     echo' <tr>
-     <td><h1><span class="border border-primary circle" style=" 
-     width: 200px;
-     height: 200px;
-     border-radius: 50%;
-     display: flex;
-     align-items: center;
-     text-align: center;">'.$row['COUNT(ID)'].'</span></h1></td>';
-    
-;
     }
   }
-  echo   '<td> </td>';
+  
 
 $query = "SELECT COUNT(ID) FROM `tour_guide` ";
 $result = mysqli_query($conn, $query);
@@ -278,25 +285,88 @@ if ($result) {
 
   while ($row = mysqli_fetch_assoc($result)) {
 
-//عدد المرشدين الدوائر
-  
-      echo   '<td><h1><span class="border border-primary"  style=" 
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      text-align: center;">'.$row['COUNT(ID)'].'</span></h1></td>';
-;
+    $_SESSION['tguids']=$row['COUNT(ID)'];  
+    
+
     }
   }
 
+  $query = "SELECT COUNT(ID) FROM `admin` ";
+  $result = mysqli_query($conn, $query);
+  
+  if ($result) {
+  
+    while ($row = mysqli_fetch_assoc($result)) {
+  
+      $_SESSION['adim']=$row['COUNT(ID)'];    
+     
+  
+      }
+    }
+    $query = "SELECT COUNT(ID) FROM `city` ";
+$result = mysqli_query($conn, $query);
 
+if ($result) {
+
+  while ($row = mysqli_fetch_assoc($result)) {
+
+    $_SESSION['citys']=$row['COUNT(ID)'];
+
+    }
+  }
+  $query = "SELECT COUNT(ID) FROM `island` ";
+$result = mysqli_query($conn, $query);
+
+if ($result) {
+
+  while ($row = mysqli_fetch_assoc($result)) {
+
+    $_SESSION['island']=$row['COUNT(ID)'];
+
+    }
+  }
 ?>
- </tbody>
-</table>
+<div class="container mt-5">          
+  <table class="table table-borderless">
+    <thead>
+      <tr>
+        
+        <th>المستخدمين</th>
+        <th>المحتوى</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><?php  echo   '<h4 class="d-flex justify-content-between align-items-center mb-3">
+     
+    <span class="badge bg-secondary rounded-pill">السياح  :  '.$_SESSION['tournumb'].'</span>
+         </h4>';?></td>
+        <td><?php  echo   '<h4 class="d-flex justify-content-between align-items-center mb-3">
+     
+     <span class="badge bg-secondary rounded-pill">الجزر  :  '. $_SESSION['island'].'</span>
+          </h4>';?></td>
+      </tr>
+      <tr>
+        <td><?php  echo   '<h4 class="d-flex justify-content-between align-items-center mb-3">
+     
+     <span class="badge bg-secondary rounded-pill">المرشدين  :  '. $_SESSION['tguids'].'</span>
+          </h4>';?></td>
+        <td><?php  echo   '<h4 class="d-flex justify-content-between align-items-center mb-3">
+     
+     <span class="badge bg-secondary rounded-pill">المدن  :  '.$_SESSION['citys'].'</span>
+          </h4>';?></td>
+      </tr>
+      <tr>
+        <td><?php  echo   '<h4 class="d-flex justify-content-between align-items-center mb-3">
+     
+     <span class="badge bg-secondary rounded-pill">الادمن  :  '. $_SESSION['adim'].'</span>
+          </h4>';?></td>
+      </tr>
+    </tbody>
+  </table>
 </div>
-<hr>
+</div>
+
   <?php require('components/footre.php'); ?>
 </body>
 </html>

@@ -148,7 +148,7 @@
                                     {
                                         echo '
                                             <div class="list-group">
-                                                <form method="POST" action="try.php">
+                                                <form method="POST" action="city_content.php">
                                                     <button type="submit" class="list-group-item list-group-item-action" name="card_city" value="'.$print["ID"].'">
                                                         <div class="d-flex w-100 justify-content-between">
                                                             <h5 class="mb-1">'.$print["name"].'</h5>

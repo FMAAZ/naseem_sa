@@ -118,17 +118,17 @@
                 if(!empty($_SESSION["max_index_card_photo"]) && !empty($_SESSION["max_index_name"]) && !empty($_SESSION["max_index_card_description"]) && !empty($_SESSION["max_index_id"]))
                 {
                     echo '
-                    <div class="carousel-item">
-                        <img src="assistances/images/'.$_SESSION["max_index_card_photo"].'" class="d-block w-100" alt="Cinque Terre" width="500px" height="500px">
-                        <div class="container">
-                            <div class="carousel-caption text-end">
-                                <h5>'.$_SESSION["max_index_name"].'</h5>
-                                <p>'.$_SESSION["max_index_card_description"].'</p>
-                                <form method="POST" action="'.$max_php.'">
-                                <button type="submit" name="card_city" class=" btn btn-success" value="'.$_SESSION["max_index_id"].'">عرض</button>
-                                </form>
+                    <div class="carousel-item active">
+                        <img src="assistances/images/'.$_SESSION["max_index_card_photo"].'" class="d-block w-100" alt="Cinque Terre" width="550px" height="555px">
+                            <div class="container">
+                                <div class="carousel-caption text-end">
+                                    <h1><span class="text-white-50">'.$_SESSION["max_index_name"].'</span></h1>
+                                    <p class="lead"><span class="text-decoration-underline">'.$_SESSION["max_index_card_description"].'</span></p>
+                                    <form method="POST" action="'.$max_php.'">
+                                        <button type="submit" name="card_city" class=" btn btn-success" value="'.$_SESSION["max_index_id"].'">عرض</button>
+                                    </form>
+                                </div>
                             </div>
-                        </div>
                     </div>
                 ';
                 }
@@ -137,17 +137,17 @@
                     if(!empty($_SESSION["min_index_card_photo"]) && !empty($_SESSION["min_index_name"]) && !empty($_SESSION["min_index_card_description"]) && !empty($_SESSION["min_index_id"]))
                     {
                         echo '
-                        <div class="carousel-item active">
-                            <img src="assistances/images/'.$_SESSION["min_index_card_photo"].'" class="d-block w-100" alt="Cinque Terre" width="500px" height="500px">
-                            <div class="container">
-                                <div class="carousel-caption text-end">
-                                    <h5>'.$_SESSION["min_index_name"].'</h5>
-                                    <p>'.$_SESSION["min_index_card_description"].'</p>
-                                    <form method="POST" action="'.$min_php.'">
-                                    <button type="submit" name="card_city" class=" btn btn-success" value="'.$_SESSION["min_index_id"].'">عرض</button>
-                                    </form>
+                        <div class="carousel-item">
+                            <img src="assistances/images/'.$_SESSION["min_index_card_photo"].'" class="d-block w-100" alt="Cinque Terre" width="550px" height="555px">
+                                <div class="container">
+                                    <div class="carousel-caption text-end">
+                                        <h1><span class="text-white-50">'.$_SESSION["min_index_name"].'</span></h1>
+                                        <p class="lead"><span class="text-decoration-underline">'.$_SESSION["min_index_card_description"].'</span></p>
+                                        <form method="POST" action="'.$min_php.'">
+                                            <button type="submit" name="card_city" class=" btn btn-success" value="'.$_SESSION["min_index_id"].'">عرض</button>
+                                        </form>
+                                    </div>
                                 </div>
-                            </div>
                         </div>
                     ';
                     }

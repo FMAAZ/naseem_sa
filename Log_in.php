@@ -2,7 +2,7 @@
 <html  lang="en" dir="rtl">
   <head>
   <title>تسجيل الدخول</title>
-  <?php require('components/head_inc.php'); ?>  
+  <?php require 'Niv1.php'; ?>  
   </head>
   <body>
     <?php
@@ -55,20 +55,34 @@
         $_SESSION['email'] = $_POST['email'];
         $_SESSION['password'] = $_POST['password'];
 
+        //select tourist account
         $select_tourist = $connect_database->prepare('SELECT email , password FROM tourist WHERE email = "'.$_POST["email"].'" AND password = "'.$_POST["password"].'"');
         $select_tourist->execute();
-        $select_tour_guide = $connect_database->prepare('SELECT email , password FROM tour_guide WHERE email = "'.$_POST["email"].'" AND password = "'.$_POST["password"].'"');
-        $select_tour_guide->execute();
 
         foreach($select_tourist as $print)
         {
           $_SESSION["email_tourist"] = $print["email"];
           $_SESSION["password_tourist"] = $print["password"];
         }
+
+        //select tour guide account
+        $select_tour_guide = $connect_database->prepare('SELECT email , password FROM tour_guide WHERE email = "'.$_POST["email"].'" AND password = "'.$_POST["password"].'"');
+        $select_tour_guide->execute();
+
         foreach($select_tour_guide as $print)
         {
           $_SESSION["email_tour_guide"] = $print["email"];
           $_SESSION["password_tour_guide"] = $print["password"];
+        }
+
+        //select admin account
+        $select_tour_guide = $connect_database->prepare('SELECT email , password FROM admin WHERE email = "'.$_POST["email"].'" AND password = "'.$_POST["password"].'"');
+        $select_tour_guide->execute();
+
+        foreach($select_tour_guide as $print)
+        {
+          $_SESSION["email_admin"] = $print["email"];
+          $_SESSION["password_admin"] = $print["password"];
         }
 
         if(!empty($_SESSION["email_tourist"]) && !empty($_SESSION["password_tourist"]) && $_SESSION["email_tourist"] == $_SESSION['email'] && $_SESSION["password_tourist"] == $_SESSION['password'])
@@ -93,14 +107,38 @@
           ';
           header("refresh:3; url=requestm.php");
         }
-        elseif(empty($_SESSION["email_tour_guide"]) || empty($_SESSION["password_tour_guide"]) || empty($_SESSION["email_tourist"]) || empty($_SESSION["password_tourist"]))
+        elseif(!empty($_SESSION["email_admin"]) && !empty($_SESSION["password_admin"]) && $_SESSION["email_admin"] == $_SESSION['email'] && $_SESSION["password_admin"] == $_SESSION['password'])
         {
-          echo '<br><h3>email or password incorrect !</h3>';
+          echo '
+          <center>
+            <div class="alert alert-success" role="alert">
+              <b>تم تسجيل الدخول بنجاح</b> 
+            </div>
+          </center>
+          ';
+          header("refresh:3; url=admin.php");
+        }
+        elseif(empty($_SESSION["email_tour_guide"]) || empty($_SESSION["password_tour_guide"]) || empty($_SESSION["email_tourist"]) || empty($_SESSION["password_tourist"]) || empty($_SESSION["email_admin"]) || empty($_SESSION["password_admin"]))
+        {
+          echo '
+          <center>
+            <div class="alert alert-danger" role="alert">
+              <b>البريد الإلكتروني أو كلمة المرور غير صحيحة</b> 
+            </div>
+          </center>
+          ';
           header("refresh:2; url=log_in.php");
         }
         else
         {
-          echo 'ERROR !';
+          echo '
+          <center>
+            <div class="alert alert-danger" role="alert">
+              <b>ERROR</b> 
+            </div>
+          </center>
+          ';
+          header("refresh:2; url=log_in.php");
         }
       }
       ?>

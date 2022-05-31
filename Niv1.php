@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="ar"dir="rtl">
 <head>
+    <?php 
+        ob_start();
+    ?>
+    <?php 
+        ob_start();
+    ?>
 <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,10 +18,20 @@
     <!-- Bootstrap 5core JS 5-->
     <!-- err js 5 -->
     <script src="assistances/js/bootstrap.bundle.min.js"></script>
+    
+    <style>
+    input::-webkit-inner-spin-button,
+    input::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+    }
+    </style>
+    
 </head>
-<body>
-    <?php 
-        ob_start();
+    <?php
+        session_start();
+        $type_date = date_default_timezone_set("Asia/Riyadh");
+        $date = date("Y-m-d");
+        $time = date("H:i:s");
     ?>
         <!--Icons-->
     <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -86,7 +102,7 @@
                     $profile_info->execute();
                     foreach($profile_info as $print)
                     {
-                        $_SESSION["ID"] = $print["ID"];
+                        $_SESSION["tourist_ID"] = $print["ID"];
                         echo '
                                 <!-- profile -->
                                 <div class="col-md-3 text-end">
@@ -99,7 +115,7 @@
                                 <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">عرض الملف</a></li>
                                 <li><a class="dropdown-item" href="request.php">عرض الطلبات</a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="sing_out">تسجيل الخروج</a></li>
+                                <li><a class="dropdown-item" href="sing_out.php">تسجيل الخروج</a></li>
                                 </ul>
                                 </div> 
                                 </ul>
@@ -121,7 +137,7 @@
                                 <div class="container">
                                 <div class="card-title text-center border-bottom">
                                 <img src="assistances/images/log.jpg" alt="mdo" width="60" height="60" class="rounded-circle">
-                                <h2 class="p-0">id '.$print["ID"].'</h2>
+                                <h2 class="p-0">ID '.$print["ID"].'</h2>
                                 </div>
                                 <div class="card-body">
                                 <form method="POST">
@@ -258,7 +274,6 @@
                         
                         if(empty($_POST["gender"]))
                         $_POST["gender"] = $print["gender"];
-                        $_SESSION["change_email2"] = $_POST["email"];
                     }
                 }
                 elseif(!isset($_POST["update"]))
@@ -268,7 +283,7 @@
                     $profile_info->execute();
                     foreach($profile_info as $print)
                     {
-                        $_SESSION["ID"] = $print["ID"];
+                        $_SESSION["tourist_ID"] = $print["ID"];
                         echo '
                                 <!-- profile -->
                                 <div class="col-md-3 text-end">
@@ -281,7 +296,7 @@
                                 <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">عرض الملف</a></li>
                                 <li><a class="dropdown-item" href="request.php">عرض الطلبات</a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="sing_out">تسجيل الخروج</a></li>
+                                <li><a class="dropdown-item" href="sing_out.php">تسجيل الخروج</a></li>
                                 </ul>
                                 </div> 
                                 </ul>
@@ -303,7 +318,7 @@
                                 <div class="container">
                                 <div class="card-title text-center border-bottom">
                                 <img src="assistances/images/log.jpg" alt="mdo" width="60" height="60" class="rounded-circle">
-                                <h3 class="p-0">id '.$print["ID"].'</h3>
+                                <h3 class="p-0">ID '.$print["ID"].'</h3>
                                 </div>
                                 <div class="card-body">
                                 <div class="mb-4">
@@ -366,8 +381,7 @@
                     $profile_info->execute();
                     foreach($profile_info as $print)
                     {
-                        $_SESSION["change_email"] = $print["email"];
-                        $_SESSION["ID"] = $print["ID"];
+                        $_SESSION["tour_guide_ID"] = $print["ID"];
                         echo '
                                 <!-- profile -->
                                 <div class="col-md-3 text-end">
@@ -380,7 +394,7 @@
                                 <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">عرض الملف</a></li>
                                 <li><a class="dropdown-item" href="requestm.php">عرض الطلبات</a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="sing_out">تسجيل الخروج</a></li>
+                                <li><a class="dropdown-item" href="sing_out.php">تسجيل الخروج</a></li>
                                 </ul>
                                 </div> 
                                 </ul>
@@ -402,7 +416,7 @@
                                 <div class="container">
                                 <div class="card-title text-center border-bottom">
                                 <img src="assistances/images/log.jpg" alt="mdo" width="60" height="60" class="rounded-circle">
-                                <h2 class="p-0">id '.$print["ID"].'</h2>
+                                <h2 class="p-0">ID '.$print["ID"].'</h2>
                                 </div>
                                 <div class="card-body">
                                 <form method="POST">
@@ -539,7 +553,6 @@
 
                         if(empty($_POST["gender"]))
                         $_POST["gender"] = $print["gender"];
-                        $_SESSION["change_email2"] = $_POST["email"];
                     }
                 }
                 elseif(!isset($_POST["update"]))
@@ -549,7 +562,7 @@
                     $profile_info->execute();
                     foreach($profile_info as $print)
                     {
-                        $_SESSION["ID"] = $print["ID"];
+                        $_SESSION["tour_guide_ID"] = $print["ID"];
                         echo '
                                 <!-- profile -->
                                 <div class="col-md-3 text-end">
@@ -584,7 +597,7 @@
                                 <div class="container">
                                 <div class="card-title text-center border-bottom">
                                 <img src="assistances/images/log.jpg" alt="mdo" width="60" height="60" class="rounded-circle">
-                                <h3 class="p-0">id '.$print["ID"].'</h3>
+                                <h3 class="p-0">ID '.$print["ID"].'</h3>
                                 </div>
                                 <div class="card-body">
                                 <div class="mb-4">
@@ -638,6 +651,85 @@
                     }
                 }
             }
+            elseif(!empty($_SESSION["email_admin"]) && !empty($_SESSION["password_admin"]))
+            {
+                    require_once 'connect_database.php';
+                    $profile_info = $connect_database->prepare('SELECT * FROM admin WHERE email = "'.$_SESSION["email_admin"].'" AND password = "'.$_SESSION["password_admin"].'"');
+                    $profile_info->execute();
+                    foreach($profile_info as $print)
+                    {
+                        $_SESSION["admin_ID"] = $print["ID"];
+                        $_SESSION["admin_full_name"] = $print["full_name"];
+                        echo '
+                                <!-- profile -->
+                                <div class="col-md-3 text-end">
+                                <ul class="nav">
+                                <div class="dropdown text-end">
+                                <a href="#offcanvasExample" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="assistances/images/log.jpg" alt="mdo" width="50" height="50" class="rounded-circle">
+                                </a>
+                                <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+                                <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">عرض الملف</a></li>
+                                <li><a class="dropdown-item" href="admin.php">صفحة الإدارة</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="sing_out.php">تسجيل الخروج</a></li>
+                                </ul>
+                                </div> 
+                                </ul>
+                                </div>
+                                <!-- profile -->
+                                </header>
+                                </div>
+                                </main>
+                                <!--NAVbar/-->
+                                <!-- ------------------------------------------------------------- -->
+                                <!-- offcanvas -->
+                                <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+                                <div class="offcanvas-header alert-success">
+                                <h6 class="offcanvas-title" id="offcanvasExampleLabel">الملف الشخصي</h6>
+                                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                </div>
+                                <div class="offcanvas-body">
+                                <!-- form -->
+                                <div class="container">
+                                <div class="card-title text-center border-bottom">
+                                <img src="assistances/images/log.jpg" alt="mdo" width="60" height="60" class="rounded-circle">
+                                <h3 class="p-0">ID '.$print["ID"].'</h3>
+                                </div>
+                                <div class="card-body">
+                                <div class="mb-4">
+                                <h5>نوع التسجيل </h5> <h6>مشرف</h6>
+                                </div>
+                                <hr class="featurette-divider">
+                                <div class="mb-4">
+                                <h4>بيانات التواصل</h4><br>
+                                </div>
+                                <div class="mb-0">
+                                <h5>البريد الإلكتروني </h5>
+                                <h6>'.$print["email"].'</h6>
+                                </div>
+                                <hr class="featurette-divider">
+                                <div class="mb-3">
+                                <h4>البيانات الشخصية </h4>
+                                </div>
+                                <div class="mb-0">
+                                <h5>الاسم </h5>
+                                <h6>'.$print["full_name"].'</h6>
+                                </div>
+                                <div class="mb-0">
+                                <h5>الجنس </h5>
+                                <h6>'.$print["gender"].'</h6>
+                                </div>
+                                <hr class="featurette-divider">
+                                </div>
+                                </div>    
+                                </div>
+                                <!-- form -->
+                                </div>
+                                <!-- offcanvas -->
+                        ';
+                    }
+            }
             else
             {
                 echo '
@@ -666,7 +758,7 @@
                 require_once 'connect_database.php';
                 $update_profile_info = $connect_database->prepare('UPDATE tourist SET first_name = "'.$_POST["first_name"].'" , last_name = "'.$_POST["last_name"].'" ,
                 phone_number = '.$_POST["phone_number"].' , age = '.$_POST["age"].' , gender = "'.$_POST["gender"].'" ,
-                language = "'.$_POST["language"].'" WHERE ID = '.$_SESSION["ID"].'');
+                language = "'.$_POST["language"].'" WHERE ID = '.$_SESSION["tourist_ID"].'');
                 $update_profile_info->execute();
                 header("Location:request.php");
             }
@@ -675,7 +767,7 @@
                 require_once 'connect_database.php';
                 $update_profile_info = $connect_database->prepare('UPDATE tour_guide SET first_name = "'.$_POST["first_name"].'" , last_name = "'.$_POST["last_name"].'" ,
                 phone_number = '.$_POST["phone_number"].' , age = '.$_POST["age"].' , gender = "'.$_POST["gender"].'" ,
-                language = "'.$_POST["language"].'" WHERE ID = '.$_SESSION["ID"].'');
+                language = "'.$_POST["language"].'" WHERE ID = '.$_SESSION["tour_guide_ID"].'');
                 $update_profile_info->execute();
                 header("Location:requestm.php");
             }
@@ -684,5 +776,4 @@
     <?php
         ob_end_flush();
     ?>
-</body>
 </html>

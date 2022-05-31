@@ -3,8 +3,7 @@
 
 <head>
     <title> طلبات</title>
-    <?php require('components/head_inc.php'); ?>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <?php require 'Niv1.php'; ?>
 </head>
 
 <body>
@@ -24,8 +23,8 @@
                         </div>
                     </center>
                 ';
-                header("refresh:2;url= index.php");
-            exit;
+                header("Location:index.php");
+                exit;
             }
     }
     else
@@ -62,79 +61,126 @@
                         </h4>
                         <hr class="featurette-divider">
 
-
-                       <?php
+                        <?php
                         $host="localhost";
                         $user="root";
                         $password="";
                         $dbname="naseem_sa";
                         $conn=mysqli_connect($host,$user,$password,$dbname);
+                        mysqli_set_charset($conn,'utf8');
                         $type_date=date_default_timezone_set("Asia/Riyadh");
                         $date=date("Y-m-d");
                         
-                        $query="SELECT  t.first_name , t.last_name , t.email , t.phone_number, t.language, r.req_date ,r.req_time ,r.req_status, r.req_id FROM tourist t , requests r WHERE r.req_date ='$date' ";
+
+
+                        $query="SELECT t.first_name , t.last_name , t.email , t.phone_number, t.language,t.gender, r.req_date ,r.req_time ,r.req_status , r.req_id , r.destination FROM tourist t , requests r WHERE t.ID = r.tourist_req_id and r.req_status is null and req_date='$date'";
+
+                   
+
+
                         $result=mysqli_query($conn,$query);
-                       
+
                         if($result){
                             
                             while($row =mysqli_fetch_assoc($result)){
                         
-                              
-                       if(isset($_POST['show'])){
-                        echo 'الاسم'.$row['first_name']." ".$row['last_name']."<br>اللغة المستخدمة: ".$row['language']."وقت الطلب".$row['req_time']." ".$row['req_date'].'</a></p><input type="submit" class="btn btn-success " name="acceptance"  value="قبول">
-                        <input type="submit" class="btn btn-danger "name="refusal" value="رفض"><hr>';
-
-
-                        
-
-                               
-                                }
+                        if(isset($_POST['show'])){
+                        echo '                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th scope="col">رقم الطلب</th>
+                            <th scope="col">الاسم</th>
+                            <th scope="col">الوجهه</th>
+            <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th>'.$row['req_id'].'</th>
+                            <th>'.$row['first_name']." ".$row['last_name'].'</th>
+                            <th>'.$row['destination'].'</th>
+                            <th><input type="submit" class="btn btn-success " name="acceptance"  value="قبول">
+                            <input type="submit" class="btn btn-danger "name="refusal" value="رفض"></th>
                            
-                            }
-                       
+                          
+                          </tr>
+                        </tbody>
+                      </table> ' ;
+                          
+                        //الاسم'.$row['first_name']." ".$row['last_name']."<br>اللغة المستخدمة: ".$row['language']." الوجهه:".$row['destination']." وقت الطلب".$row['req_time']." ".$row['req_date'].'</a></p><input type="submit" class="btn btn-success " name="acceptance"  value="قبول">
+                       // <input type="submit" class="btn btn-danger "name="refusal" value="رفض"><hr>';
                         }
+                        $_SESSION['rid']=$row['req_id'];
+                     
+                        
+                            }
+                        }  
+                        $result=mysqli_query($conn,$query);
 
-               
-            
+                        if($result){
+                            while($row =mysqli_fetch_assoc($result)){
 if(isset($_POST['acceptance'])){
-    $status='مقبول';
     
+  
+       $query1 = "UPDATE requests set req_status = 'accept', tour_guide_req_id= ".$_SESSION['ID']." Where req_id=". $_SESSION['rid']."";
+       $result1=mysqli_query($conn,$query1);
+       echo  '                      <table class="table">
+       <thead>
+         <tr>
+         <th scope="col">id</th>
+           <th scope="col">الاسم</th>
+           <th scope="col">للغة</th>
+           <th scope="col">الجنس</th>
+<th scope="col">للتواصل</th>
+<th scope="col">الوقت</th>
+<th scope="col">التاريخ</th>
+
+           </tr>
+       </thead>
+       <tbody>
+         <tr>
+         <th>'.$row['req_id'].'</th>
+           <th>'.$row['first_name']." ".$row['last_name'].'</th>
+           <th>'.$row['language'].'</th>
+           <th>'.$row['gender'].'</th>
+           <th><a class="btn btn-primary" href="mailto:'.$row['email'].' role="button">Email</a>
+        <a class="btn btn-primary" href="tel:'.$row['phone_number'].' role="button">Phone</a></th>
+           <th>'.$row['req_time'].'</th>
+           <th>'.$row['req_date'].'</th>
+        
+          
+         
+         </tr>
+       </tbody>
+     </table> <input class="btn btn-primary btn btn-dark" type="submit" value="إنهاء" name="finished">' ;
+      // echo'<a class="btn btn-primary" href="mailto:'.$row['email'].' role="button">Email</a>
+      // <a class="btn btn-primary" href="tel:'.$row['phone_number'].' role="button">Phone</a><input class="btn btn-primary btn btn-dark" type="submit" value="إنهاء" name="finished">';
+       
+      
+       
 }
 if(isset($_POST['refusal'])){
-    $status='مرفوض';
+    $query1 = "UPDATE requests set req_status = 'reject', tour_guide_req_id= ".$_SESSION['ID']." Where req_id=". $_SESSION['rid']."";
+    $result1=mysqli_query($conn,$query1);
 }
+
+                            }
+                        }
+                        if(isset($_POST['finished'])){
+                            $query2 = "UPDATE requests set req_status = 'finished', tour_guide_req_id= ".$_SESSION['ID'].", req_date_end ='".$date."', req_time_end = '".$time."' Where req_id= ".$_SESSION['rid']."";
+                            
+                            $result2=mysqli_query($conn,$query2);
+                        }
 echo @$status;
                 
-                       
-                       
-                       ?>
-
-
-                     
+                        ?>
+                        
+  
 
                             </div>
                         </div>
                     </form>
 
-                    <?php
-                    $host = "localhost";
-                    $user = "root";
-                    $password = "";
-                    $dbname = "naseem_sa";
-                    $conn = mysqli_connect($host, $user, $password, $dbname);
-
-                    $query = "SELECT  t.email , t.phone_number, r.req_date ,r.req_time  FROM tourist t , requests r WHERE 1 ";
-                    $result = mysqli_query($conn, $query);
-
-                    if ($result) {
-
-                        while ($row = mysqli_fetch_assoc($result)) {
-                            if (isset($_POST['acceptance'])) {
-                                echo "<p><a  href=https://accounts.google.com/b/0/AddMailService>" . $row['email'] . "</a><br><a href=https://web.whatsapp.com/>" . "0" . $row['phone_number'] . "</a></p>";
-                            }
-                        }
-                    }
-                    ?>
 
                 </div>
                 <br>

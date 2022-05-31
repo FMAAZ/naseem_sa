@@ -2,8 +2,8 @@
 <html lang="en" dir="rtl">
 
 <head>
-    <title>اعادة كلمة المرو</title>
-    <?php require('components/head_inc.php'); ?>
+    <title>اعادة كلمة المرور</title>
+    <?php require 'Niv1.php'; ?>
 </head>
 
 <body>
@@ -95,7 +95,7 @@
                     echo '
                         <center>
                             <div class="alert alert-success" role="alert">
-                                <b> Succefall Reset Password </b> 
+                                <b>تم تغيير كلمة المرور بنجاح</b> 
                             </div>
                         </center>
                     ';
@@ -106,11 +106,11 @@
                     echo '
                         <center>
                             <div class="alert alert-danger" role="alert">
-                                <b> Failed Reset Password </b> 
+                                <b>فشل تغيير كلمة المرور</b> 
                             </div>
                         </center>
                     ';
-                    // header("refresh:3; url=login_new.php");
+                    header("refresh:3; url=password.php");
                 }
             }
             elseif($_SESSION["answer_tourist"] != $_POST["answer"] || $_SESSION["email_tourist"] != $_POST["email"])
@@ -136,7 +136,7 @@
                     echo '
                         <center>
                             <div class="alert alert-success" role="alert">
-                                <b> Succefall Reset Password </b> 
+                                <b>تم تغيير كلمة المرور بنجاح</b> 
                             </div>
                         </center>
                     ';
@@ -147,7 +147,7 @@
                     echo '
                         <center>
                             <div class="alert alert-danger" role="alert">
-                                <b> Failed Reset Password </b> 
+                                <b>فشل تغيير كلمة المرور</b> 
                             </div>
                         </center>
                     ';

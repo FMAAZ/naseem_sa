@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="rtl">
-<?php require('components/head_inc.php'); ?>
+<?php require 'Niv1.php'; ?>
 
 <body>
   <main class="container">

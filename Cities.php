@@ -1,55 +1,45 @@
 <!DOCTYPE html>
 <html lang="en" dir="rtl">
-<?php require('components/head_inc.php'); $_SESSION["destination"] = "city"; ?>
+<?php require 'Niv1.php'; $_SESSION["destination"] = "city"; ?>
 
 <body>
-<div id="myCarousel" class="carousel slide pointer-event" data-bs-ride="carousel">
-        <div class="carousel-indicators">
+<div id="demo" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+            </div>
 
-    <?php
-    require 'connect_database.php';
-    if($connect_database)
-    {
-        $select_photo = $connect_database->prepare('SELECT * FROM city_content');
-        $select_photo->execute();
-
-        for($i=0; $i<$select_photo->rowCount(); $i++)
-        echo '<button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-label="Slide 1"></button>';
-        ?>
-        </div>
-        <div class="carousel-inner">
-        <?php
-
-        foreach($select_photo as $print)
-        {
-            echo '
+            <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="assistances/images/'.$print["card_photo"].'" class="d-block w-100" alt="Cinque Terre" width="550px" height="555px">
+                    <img src="assistances/images/toto.jpg" alt="Los Angeles" class="d-block w-100" height="550px" width="500px">
+                    <div class="container">
+                        <div class="carousel-caption text-end">
+                            <h1><span class="text-white-50">المدن</span></h1>
+                            <p>الوصف--------------------------</p>
+                            <p><a class="btn btn-lg btn-primary" href="cities.php">city</a></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <img src="assistances/images/vc.jpeg" alt="Los Angeles" class="d-block w-100" height="550px" width="500px">
                         <div class="container">
                             <div class="carousel-caption text-end">
-                                <h1><span class="text-white-50">'.$print["name"].'</span></h1>
-                                <p class="lead"><span class="text-decoration-underline">'.$print["card_description"].'</span></p>
-                                <form method="POST" action="try.php">
-                                <button type="submit" name="card_city" class=" btn btn-success" value="'.$print["city_id"].'">عرض</button>
-                                </form>
+                                <h1>الجزر</h1>
+                                <p>الوصف--------------------------</p>
+                                <p><a class="btn btn-lg btn-danger" href="island.php">island</a></p>
                             </div>
                         </div>
                 </div>
-            ';
-        }
-    }
-    ?>
+            </div>
 
+            <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon bg-success" aria-hidden="true"></span>
-            <span class="visually-hidden">السابق</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon bg-success" aria-hidden="true"></span>
-            <span class="visually-hidden">التالي</span>
-        </button>
-    </div>
     <main class="container">
         <!-- Bootstrap 5 Cards in Grid -->
         <section class="bg-light py-4 my-5">
@@ -80,7 +70,7 @@
                                     <div class="card-body">
                                         <h4 class="card-title">'.$print["name"].'</h4>
                                         <p class="card-text-center">'.$print["card_description"].'</p>
-                                        <form method="POST" action="try.php">
+                                        <form method="POST" action="city_content.php">
                                         <button type="submit" name="card_city" class=" btn btn-outline-success" value="'.$print["ID"].'">عرض</button>
                                         </form>
                                     </div>
@@ -95,6 +85,7 @@
             </div>
         </section>
     </main>
+
     <?php require('components/footre.php'); ?>
 </body>
 

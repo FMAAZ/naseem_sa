@@ -74,7 +74,7 @@
 
                             <div class="mb-3 col-md-5">
                                 <label>العمر<span class="text-danger">*</span></label>
-                                <input type="text" name="age" min="18" max="99" maxlength="3" class="form-control" placeholder=" ادخل العمر" required>
+                                <input type="number" name="age" min="18" max="999" maxlength="3" class="form-control" placeholder=" ادخل العمر" required>
                             </div>
 
                             <div class="mb-3 col-md-5">

@@ -105,7 +105,7 @@ $dbname = "naseem_sa";
 $conn = mysqli_connect($host, $user, $password, $dbname);
 mysqli_set_charset($conn,'utf8');
 
-$query = "SELECT  t.first_name , t.last_name , t.email , t.phone_number, r.req_date ,r.req_time ,r.req_status , r.req_id FROM tourist t , requests r WHERE 1 ";
+$query = "SELECT  t.first_name , t.last_name , t.email , t.phone_number, r.req_date ,r.req_time ,r.req_status , r.req_id FROM tourist t , requests r WHERE r.tourist_req_id = t.ID";
 $result = mysqli_query($conn, $query);
 
 if ($result) {
@@ -114,33 +114,29 @@ if ($result) {
 
 
     if (isset($_POST['tl'])) {
-      echo '
-  <tr>
+        
+        if($row['req_status']=='accept' || $row['req_status']=='finished')
+            echo '<tr class="table-success">';
+        elseif($row['req_status']=='reject' || $row['req_status']=='cancel')
+            echo '<tr class="bg-danger">';
+        elseif($row['req_status']==NULL)
+        {
+            echo '<tr class="table-secondary">';
+            $row['req_status'] = "قيد الانتظار..";
+        }
 
-  <td class="table-success">' . $row['req_id'] . '</td>';
-if($row['req_status']=='accept')
-echo'<td class="bg-success ">' . $row['req_status'] . '</td>';
-if($row['req_status']=='reject' ||$row['req_status']=='canceled' )
-  echo'<td class="bg-danger">' . $row['req_status'] . '</td>';
-  if($row['req_status']== null)
-    echo'<td class="table-secondary">' . $row['req_status'] . '</td>';
-    if($row['req_status']== "finished")
-    echo'<td class="table-success">' . $row['req_status'] . '</td>';
-echo'<td class="table-success">' . $row['req_date'] . '</td>
-<td class="table-success">' . $row['req_time'] . '</td>
-  <td class="table-success">' . $row['first_name'] ." ". $row['last_name'] . '</td>
-  <td class="table-success"> ' . $row['email'] . '</td>
-  <td class="table-success"> '."0" . $row['phone_number'] . '</td>
-
- 
-
-
-
-
-</tr>
-';
+        echo '
+            <td>'.$row['req_id'].'</td>
+            <td>'.$row['req_status'].'</td>
+            <td>'.$row['req_date'].'</td>
+            <td>'.$row['req_time'].'</td>
+            <td>'.$row['first_name']. " " . $row['last_name'].'</td>
+            <td>'.$row['email'].'</td>
+            <td>'.$row['phone_number'].'</td>
+            </tr>
+        ';
     }
-  }
+}
 }
 
 ?>

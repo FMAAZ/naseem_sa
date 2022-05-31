@@ -73,7 +73,7 @@
                                     $check_request->execute();
                                     foreach($check_request as $print)
                                     {
-                                        if($print["req_status"] == "finished" || $print["req_status"] == "cancel" || $print["req_status"] == "re_request")
+                                        if($print["req_status"] == "finished" || $print["req_status"] == "cancel" || $print["req_status"] == "reject")
                                         {
                                             ?>
                                                 <div class="row">
@@ -231,7 +231,7 @@
                                                 if(isset($_POST["re_request"]))
                                                 {
                                                     $re_request = $connect_database->prepare
-                                                    ('UPDATE requests SET req_status = "re_request" , req_date_end = "'.$date.'" , req_time_end = "'.$time.'" WHERE req_id = '.$_SESSION["check_req_id"].'');
+                                                    ('UPDATE requests SET req_status = "reject" , req_date_end = "'.$date.'" , req_time_end = "'.$time.'" WHERE req_id = '.$_SESSION["check_req_id"].'');
                                                     $re_request->execute();
                                                     header("Location: request.php");
                                                 }

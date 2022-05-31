@@ -243,7 +243,7 @@
                                             $tour_guid_info = $connect_database->prepare
                                             ('
                                             SELECT t.first_name first_name , t.last_name last_name , t.language language , t.gender gender , t.email email , t.phone_number phone_number
-                                            FROM tour_guide t , requests r WHERE t.ID = r.tour_guide_req_id AND r.tourist_req_id = '.$_SESSION["tourist_ID"].'
+                                            FROM tour_guide t , requests r WHERE t.ID = r.tour_guide_req_id AND req_id = '.$_SESSION["check_req_id"].'
                                             ');
                                             $tour_guid_info->execute();
 

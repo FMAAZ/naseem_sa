@@ -143,18 +143,17 @@ if(isset($_POST['acceptance'])){
            <th>'.$row['first_name']." ".$row['last_name'].'</th>
            <th>'.$row['language'].'</th>
            <th>'.$row['gender'].'</th>
-           <th><a class="btn btn-primary" href="mailto:'.$row['email'].' role="button">Email</a>
-        <a class="btn btn-primary" href="tel:'.$row['phone_number'].' role="button">Phone</a></th>
-           <th>'.$row['req_time'].'</th>
+           <th> <a class="btn btn-primary btn-sm" href="tel:'.$row['phone_number'].' role="button">Phone</a></th>
+       <th>'.$row['req_time'].'</th>
            <th>'.$row['req_date'].'</th>
+           
         
           
          
          </tr>
+    
        </tbody>
      </table> <input class="btn btn-primary btn btn-dark" type="submit" value="إنهاء" name="finished">' ;
-      // echo'<a class="btn btn-primary" href="mailto:'.$row['email'].' role="button">Email</a>
-      // <a class="btn btn-primary" href="tel:'.$row['phone_number'].' role="button">Phone</a><input class="btn btn-primary btn btn-dark" type="submit" value="إنهاء" name="finished">';
        
       
        

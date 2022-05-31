@@ -197,6 +197,7 @@
                                                     if($cancel_trip)
                                                     {
                                                         echo '
+                                                            </div>
                                                             <br>
                                                             <center>
                                                                 <div class="alert alert-success" role="alert">
@@ -302,6 +303,7 @@
                                                         if($finish_trip)
                                                             {
                                                                 echo '
+                                                                    </div>
                                                                     <br>
                                                                     <center>
                                                                         <div class="alert alert-success" role="alert">

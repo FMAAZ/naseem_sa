@@ -95,6 +95,7 @@
             </div>
         </section>
     </main>
+
     <?php require('components/footre.php'); ?>
 </body>
 

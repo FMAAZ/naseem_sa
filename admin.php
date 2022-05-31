@@ -53,7 +53,7 @@
         <div class="feature-icon bg-white">
         <img src="assistances/images/add.png"class="bd-placeholder-img rounded-circle" width="100" height="100"></img>
         </div>
-        <h4> &numsp;الطلابات</h4>
+        <h4> &numsp;الطلبات</h4>
         <input  class="btn btn-secondary btn-sm" type="submit" value="عرض التفاصيل" name="tl"></input>
       </div>
 
@@ -267,16 +267,20 @@ if ($result) {
   </tbody>
 </table>
 </main>
-      <?php
+        <?php
         if(isset($_POST["content"]))
         $_SESSION["content"] = $_POST["content"];
+        if(isset($_POST["tl"]) || isset($_POST["a"]) || !isset($_POST["content"]))
+        {
+            if(!empty($_SESSION["content"]))
+            $_SESSION["content"] = NULL;
+        }
         if(!empty($_SESSION["content"]))
         {
             ?>
           <div class="row align-items-center justify-content-center">
             <div class="col-sm-8 col-md-8 col-lg-9">
                 <div class="signup-form">
-
                     <!-- main form -->
                     <form method="POST" class="mt-6 border p-4 bg-light shadow">
                         <h4 class="mb-3 text-center text-secondary">
@@ -871,7 +875,8 @@ if ($result) {
             <?php 
         }
       ?>
-        
+        <?php
+        ?>
         <hr>
 <div class="d-flex justify-content-center">
 

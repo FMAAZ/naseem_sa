@@ -670,7 +670,7 @@
                                 </a>
                                 <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
                                 <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">عرض الملف</a></li>
-                                <li><a class="dropdown-item" href="admin.php">الإستعلام</a></li>
+                                <li><a class="dropdown-item" href="admin.php">صفحة الإدارة</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="sing_out.php">تسجيل الخروج</a></li>
                                 </ul>

@@ -59,7 +59,7 @@
                         <?php
                             require 'connect_database.php';
                             $check_req_id = $connect_database->prepare
-                            ('SELECT MAX(req_id) req_id FROM requests WHERE tourist_req_id = '.$_SESSION["ID"].'');
+                            ('SELECT MAX(req_id) req_id FROM requests WHERE tourist_req_id = '.$_SESSION["tourist_ID"].'');
                             $check_req_id->execute();
                             foreach($check_req_id as $req_id)
                             {
@@ -243,7 +243,7 @@
                                             $tour_guid_info = $connect_database->prepare
                                             ('
                                             SELECT t.first_name first_name , t.last_name last_name , t.language language , t.gender gender , t.email email , t.phone_number phone_number
-                                            FROM tour_guide t , requests r WHERE t.ID = r.tour_guide_req_id AND r.tourist_req_id = '.$_SESSION["ID"].'
+                                            FROM tour_guide t , requests r WHERE t.ID = r.tour_guide_req_id AND r.tourist_req_id = '.$_SESSION["tourist_ID"].'
                                             ');
                                             $tour_guid_info->execute();
 
@@ -461,7 +461,7 @@
                                 $insert_req_id = $connect_database->prepare
                                 ('
                                 INSERT INTO requests (req_id , tourist_req_id , req_date , req_time , destination , number_days , number_people)
-                                VALUES ('.$_SESSION["new_id_request"].' , '.$_SESSION["ID"].' , "'.$date.'" , "'.$time.'" , "'.$_SESSION["destination_req"].' : '.$_POST["destination_name"].'" , '.$_POST["number_days"].' , '.$_POST["number_people"].')
+                                VALUES ('.$_SESSION["new_id_request"].' , '.$_SESSION["tourist_ID"].' , "'.$date.'" , "'.$time.'" , "'.$_SESSION["destination_req"].' : '.$_POST["destination_name"].'" , '.$_POST["number_days"].' , '.$_POST["number_people"].')
                                 ');
                                 $insert_req_id->execute();
 

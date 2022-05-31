@@ -134,9 +134,7 @@
                         <a href="Log_in.php">تسجيل الدخول</a>
                     </p>
                 </div>
-            </div>
-        </div>
-    </div>
+              
     <!-- form_Check_in -->
     <?php 
     ob_start();
@@ -335,6 +333,9 @@ elseif($_POST["password"] != $_POST["check_password"])
     <?php
     ob_end_flush();
     ?>
+                </div>
+        </div>
+    </div>
     <?php require('components/footre.php'); ?>
 </body>
 </html>

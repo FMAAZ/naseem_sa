@@ -14,23 +14,30 @@
             </div>
 
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="assistances/images/toto.jpg" alt="Los Angeles" class="d-block w-100" height="550px" width="500px">
+                   <div class="carousel-item active">
+                    <img src="assistances/images/Kingdom_Tower.jpg" alt="Los Angeles" class="d-block w-100" height="500" width="500">
                     <div class="container">
-                        <div class="carousel-caption text-end">
-                            <p class=""><span class="text-white-50">المدن</span></p>
-                            <a href="cities.php">استكشف مدن المملكة</a>
+                        <div class="carousel-caption">
+                        <h1 class="text-white-50">المدن السياحية</h1>
+                        <br>
+                        <br>
+                         <br>
+                         <br>
+                        <p><a class="btn btn-success btn-lg" href="Cities.php">اكتشف المدن</a></p>
                         </div>
-                    </div>
-                </div>
+                     </div>
+                 </div>
 
                 <div class="carousel-item">
-                    <img src="assistances/images/vc.jpeg" alt="Los Angeles" class="d-block w-100" height="550px" width="500px">
+                    <img src="assistances/images/xx.jpg" alt="Los Angeles" class="d-block w-100" height="500" width="500">
                         <div class="container">
-                            <div class="carousel-caption text-end">
-                                <h1>الجزر</h1>
-                                <p>الوصف--------------------------</p>
-                                <p><a class="btn btn-lg btn-danger" href="island.php">island</a></p>
+                            <div class="carousel-caption">
+                                <h1 class="text-white-50">  الجزر السياحية</h1>
+                                <br>
+                                  <br>
+                                   <br>
+                                   <br>
+                                <p><a class="btn btn-success btn-lg" href="island.php">اكتشف الجزر</a></p>
                             </div>
                         </div>
                 </div>
@@ -52,11 +59,11 @@
                 <div class="row featurette">
                     <div class="col-md-7">
                         <h2 id="scrollspyHeading2" class="featurette-heading">السياحة في <span class="text-muted"> مدن المملكة </span></h2>
-                        <p class="lead">وصف مدن المملكة</p>
+                        <p class="lead">تمتلك المملكة العربية السعودية الكثير من الوجهات السياحية المختلفة من حيث المناطق الساحلية التي تنافس جزر المالديف وأكبر المساحات الخضراء التي تكسي السهول والجبال، وعدد كبير من المنتزهات التي تنافس بها العالم، وغيرها العديد من معالم التراث الإسلامي والأثري.</p>
                     </div>
                     <div class="col-md-5">
                     <a href="Cities.php">
-                        <img src="assistances/images/toto.jpg" class="img-thumbnail" alt="Cinque Terre" width="100%"height="100%">
+                        <img src="assistances/images/zx.JPG" class="img-thumbnail" alt="Cinque Terre" width="500"height="500">
                     </a>
                 </div>
             </div>
@@ -65,11 +72,11 @@
             <div class="row featurette">
                 <div class="col-md-7 order-md-2">
                     <h2  class="featurette-heading">السياحة في<span class="text-muted"> جزر المملكة </span></h2>
-                    <p class="lead">وصف الجزر</p>
+                    <p class="lead">تحتوي المملكة العربية السعودية على مجموعة من الجزر، التي يقدر عددها حسب تقارير "هيئة المساحة الجيولوجية السعودية" بـ1285 جزيرة تتوزع بين البحر الأحمر والخليج العربي، وتتنوع ما بين جزر ذات نشأة مرجانية ورملية وبركانية، إضافه إلى متعة الجزر بالتضاريس الجبلية المرتفعة ذات المناظر الطبيعية الأخاذة التي تجعل منها مقصداً لمحبي المغامرات والاكتشاف. في الآتي، أشهر جزر السعودية وأجملها.</p>
                 </div>
                 <div class="col-md-5 order-md-1">
                     <a href="island.php">
-                        <img src="assistances/images/vc.jpeg" class="img-thumbnail" alt="Cinque Terre" width="100%" height="100%">
+                    <img src="assistances/images/vb.jpeg" class="img-thumbnail" alt="Cinque Terre" width="500"height="500">
                     </a>
                 </div>
             </div>

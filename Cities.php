@@ -11,23 +11,30 @@
 
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="assistances/images/toto.jpg" alt="Los Angeles" class="d-block w-100" height="550px" width="500px">
-                    <div class="container">
-                        <div class="carousel-caption text-end">
-                            <h1><span class="text-white-50">المدن</span></h1>
-                            <p>الوصف--------------------------</p>
-                            <p><a class="btn btn-lg btn-primary" href="cities.php">city</a></p>
+                <img src="assistances/images/rb.jpeg" alt="Los Angeles" class="d-block w-100" height="400" width="400">
+                     <div class="container">
+                        <div class="carousel-caption">
+                        <h1 class="text-white-50">المدن السياحية</h1>
+                                      <br>
+                                      <br>
+                                      <br>
+                                      <br>
+                                      <br>
+                        <p><a class="btn btn-success" href="#scrollspyHeading2">اكتشف المدن</a></p>
                         </div>
                     </div>
                 </div>
 
                 <div class="carousel-item">
-                    <img src="assistances/images/vc.jpeg" alt="Los Angeles" class="d-block w-100" height="550px" width="500px">
+                     <img src="assistances/images/xx.jpg" alt="Los Angeles" class="d-block w-100" height="400" width="400">
                         <div class="container">
-                            <div class="carousel-caption text-end">
-                                <h1>الجزر</h1>
-                                <p>الوصف--------------------------</p>
-                                <p><a class="btn btn-lg btn-danger" href="island.php">island</a></p>
+                            <div class="carousel-caption">
+                                <h1 class="text-white-50">الجزر السياحية</h1>
+                                <br>
+                                <br>
+                                <br>
+                                <br>
+                                <p><a class="btn btn-success" href="island.php">اكتشف الجزر</a></p>
                             </div>
                         </div>
                 </div>

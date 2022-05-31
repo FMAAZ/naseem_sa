@@ -113,7 +113,7 @@
                                 </a>
                                 <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
                                 <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">عرض الملف</a></li>
-                                <li><a class="dropdown-item" href="request.php">عرض الطلبات</a></li>
+                                <li><a class="dropdown-item" href="request.php">طلب مرشد</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="sing_out.php">تسجيل الخروج</a></li>
                                 </ul>
@@ -294,7 +294,7 @@
                                 </a>
                                 <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
                                 <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">عرض الملف</a></li>
-                                <li><a class="dropdown-item" href="request.php">عرض الطلبات</a></li>
+                                <li><a class="dropdown-item" href="request.php">طلب مرشد</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="sing_out.php">تسجيل الخروج</a></li>
                                 </ul>

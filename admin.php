@@ -71,7 +71,7 @@
       <!-- col_3 -->
       <div class="feature col">
         <div class="feature-icon bg-white">
-        <img src="assistances/images/ad.jpg"class="bd-placeholder-img rounded-circle" width="100" height="100"></img>
+        <img src="assistances/images/log.jpg"class="bd-placeholder-img rounded-circle" width="100" height="100"></img>
         </div>
         <h4>المستخدمين</h4>
         <input  class="btn btn-secondary btn-sm" type="submit" value="عرض التفاصيل" name="a"></input>

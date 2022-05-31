@@ -562,7 +562,7 @@
                                 <li><a class="dropdown-item" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">عرض الملف</a></li>
                                 <li><a class="dropdown-item" href="requestm.php">عرض الطلبات</a></li>
                                 <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="sing_out">تسجيل الخروج</a></li>
+                                <li><a class="dropdown-item" href="sing_out.php">تسجيل الخروج</a></li>
                                 </ul>
                                 </div> 
                                 </ul>

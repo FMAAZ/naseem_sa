@@ -7,7 +7,7 @@
 </head>
 
 <body>
-<?php
+    <?php
     if(isset($_SESSION["login"]) && !empty($_SESSION["email"]) && !empty($_SESSION["password"]))
     {
         if(!empty($_SESSION["email_tour_guide"]) && !empty($_SESSION["password_tour_guide"]))
@@ -122,7 +122,7 @@
 if(isset($_POST['acceptance'])){
     
   
-       $query1 = "UPDATE requests set req_status = 'accept', tour_guide_req_id= ".$_SESSION['ID']." Where req_id=". $_SESSION['rid']."";
+       $query1 = "UPDATE requests set req_status = 'accept', tour_guide_req_id= ".$_SESSION['tour_guide_ID']." Where req_id=". $_SESSION['rid']."";
        $result1=mysqli_query($conn,$query1);
        echo  '                      <table class="table">
        <thead>
@@ -160,14 +160,14 @@ if(isset($_POST['acceptance'])){
        
 }
 if(isset($_POST['refusal'])){
-    $query1 = "UPDATE requests set req_status = 'reject', tour_guide_req_id= ".$_SESSION['ID']." Where req_id=". $_SESSION['rid']."";
+    $query1 = "UPDATE requests set req_status = 'reject', tour_guide_req_id= ".$_SESSION['tour_guide_ID']." Where req_id=". $_SESSION['rid']."";
     $result1=mysqli_query($conn,$query1);
 }
 
                             }
                         }
                         if(isset($_POST['finished'])){
-                            $query2 = "UPDATE requests set req_status = 'finished', tour_guide_req_id= ".$_SESSION['ID'].", req_date_end ='".$date."', req_time_end = '".$time."' Where req_id= ".$_SESSION['rid']."";
+                            $query2 = "UPDATE requests set req_status = 'finished', tour_guide_req_id= ".$_SESSION['tour_guide_ID'].", req_date_end ='".$date."', req_time_end = '".$time."' Where req_id= ".$_SESSION['rid']."";
                             
                             $result2=mysqli_query($conn,$query2);
                         }
